@@ -1,9 +1,0 @@
-using SimpleEventBus.Events;
-
-namespace Events
-{
-    public class PlayerChangedViewEvent : EventBase
-    {
-        
-    }
-}
