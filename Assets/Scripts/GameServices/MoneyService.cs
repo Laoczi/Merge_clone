@@ -1,5 +1,4 @@
 using UniRx;
-using User;
 
 namespace GameServices
 {
@@ -8,31 +7,31 @@ namespace GameServices
     /// </summary>
     public class MoneyService : IMoneyService
     {
-        private readonly IMoneyProvider _moneyProvider;
-        public IReadOnlyReactiveProperty<int> Money => _moneyProvider.Money;
+        public IReadOnlyReactiveProperty<int> Money => _userProfile.Money;
 
+        private UserProfile _userProfile;
 
-        public MoneyService(IMoneyProvider moneyProvider)
+        public MoneyService(UserProfile userProfile)
         {
-            _moneyProvider = moneyProvider;
+            _userProfile = userProfile;
         }
 
         public void Pay(int amount)
         {
             if (HasEnoughMoney(amount))
             {
-                _moneyProvider.Money.Value -= amount;
+                _userProfile.Money.Value -= amount;
             }
         }
     
         public void Receive(int money)
         {
-            _moneyProvider.Money.Value += money;
+            _userProfile.Money.Value += money;
         }
 
         public bool HasEnoughMoney(int amount)
         {
-            return _moneyProvider.Money.Value >= amount;
+            return _userProfile.Money.Value >= amount;
         }
     }
 }

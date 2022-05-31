@@ -4,6 +4,10 @@ using Core;
 using ScreenManager.Enums;
 using ScreenManager.Interfaces;
 using ScreenManager.Loaders.Scenes;
+using Screens.BattleHUD;
+using Screens.LevelScreen;
+using Screens.MergeHUD;
+using Screens.WinHUD;
 using SimpleEventBus.Disposables;
 using UnityEngine;
 
@@ -16,6 +20,10 @@ public class SceneScreenSettingsProvider : IScreenSettingsProvider, IDisposable
     {
         AddScreenSettings(ScreenId.None, "None");
         AddScreenSettings(typeof(Game), "Game");
+        AddScreenSettings(typeof(LevelScreen), "Level2");
+        AddScreenSettings(typeof(MergeHUD), "Main_menu");
+        AddScreenSettings(typeof(BattleHUD), "in_game_ui");
+        AddScreenSettings(typeof(WinHUD), "Win_screen");
         
         _subscriptions = new CompositeDisposable
         {
