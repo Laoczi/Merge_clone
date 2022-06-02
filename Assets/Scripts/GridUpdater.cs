@@ -8,6 +8,7 @@ public class GridUpdater : MonoBehaviour
     public static float yOffset;
     [SerializeField] Cell[] _grid;
     [SerializeField] GridUnit _humanUnitPrefab;
+    [SerializeField] GridUnit _dinoUnitPrefab;
 
     GridUnit flyingUnit;//юнит которого мы сейчас перетаскиваем
     bool _isDrag;
@@ -28,7 +29,17 @@ public class GridUpdater : MonoBehaviour
     }
     public void AddDinoUnit()
     {
-
+        int tryingCount = 0;
+        while (tryingCount < _grid.Length)
+        {
+            tryingCount++;
+            int randomCellIndex = Random.Range(0, _grid.Length);
+            if (_grid[randomCellIndex].isAvailable)
+            {
+                _grid[randomCellIndex].SetUnit(Instantiate(_dinoUnitPrefab));
+                break;
+            }
+        }
     }
     void OnApplicationQuit()
     {

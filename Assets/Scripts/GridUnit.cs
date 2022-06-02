@@ -1,12 +1,20 @@
 using System;
 using UnityEngine;
 
+public enum UnitType
+{
+    human,
+    dino,
+}
 public class GridUnit : MonoBehaviour
 {
     //хранение информации о юните и апдейт ее
     [SerializeField] int _mergeLevel;
-    public int mergeLevel { get { return _mergeLevel; } }
+    [SerializeField] UnitType _type;
     Animator[] childAnimators;
+
+    public int mergeLevel { get { return _mergeLevel; } }
+    public UnitType type { get { return _type; } }
     public Animator animator { get; private set; }
 
     void OnEnable()
@@ -17,6 +25,7 @@ public class GridUnit : MonoBehaviour
             childAnimators[i] = transform.GetChild(i).GetComponent<Animator>();
             childAnimators[i].gameObject.SetActive(false);
         }
+
         childAnimators[0].gameObject.SetActive(true);
         animator = childAnimators[0];
 
