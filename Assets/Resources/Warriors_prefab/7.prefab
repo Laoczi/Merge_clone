@@ -2364,7 +2364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7473856059570779985}
   m_Layer: 0
-  m_Name: RungyAdvanced
+  m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

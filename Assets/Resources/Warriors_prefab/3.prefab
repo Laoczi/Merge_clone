@@ -792,7 +792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5702190155306231271}
   m_Layer: 0
-  m_Name: BrutusAdvanced
+  m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

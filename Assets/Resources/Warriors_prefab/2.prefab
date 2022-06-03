@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6971049470708636734}
   m_Layer: 0
-  m_Name: HunterAdvanced
+  m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
