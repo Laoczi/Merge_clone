@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GridUpdater : MonoBehaviour
 {
+    public static System.Action onStartGame;
     //добавление новых юнитов в сетку, а так же сохранение информации о текущем состоянии сетки при выключении игры
     public static float yOffset;
     [SerializeField] Cell[] _grid;
@@ -40,6 +41,10 @@ public class GridUpdater : MonoBehaviour
                 break;
             }
         }
+    }
+    public void StartGame()
+    {
+        onStartGame?.Invoke();
     }
     void OnApplicationQuit()
     {

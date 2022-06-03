@@ -1,26 +1,23 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum BotType
 {
-    unit,
-    enemy,
+    Unit,
+    Enemy,
 }
 public abstract class BotController : MonoBehaviour
 {
-    public static Action<float> onGetDamage;//нужно для отображения общего здоровья на UI
+    public abstract event Action<float> onGetDamage;//нужно для отображения общего здоровья на UI
+    public abstract event Action onDead;
 
-    private BotAttack _attackComponent;
-    private BotMovement _movementComponent;
-
-    private bool _isMove;
-    private bool _isAttack;
+    protected bool _isMove;
+    protected bool _isAttack;
 
     public abstract BotType type { get; protected set; }//нужно для поиска правильного типа противника
     public abstract float Health { get; protected set; }
-    public abstract float moveSpeed { get; protected set; }
-    public abstract float rate { get; protected set; }
-    public abstract float damage { get; protected set; }
+    public abstract bool isDead { get; protected set; }
 
     //методы для глобальных ивентов
     protected abstract void OnStartGame();
@@ -30,33 +27,44 @@ public abstract class BotController : MonoBehaviour
     protected abstract void OnDie();
 
     //методы для ивентов компонента движения
-    protected abstract void OnLoseTarget();
-    protected abstract void OnReachedTarget();
+    protected virtual void OnReachedTarget(BotController target) { }
 
     //методы для ивентов компонента атаки
-    protected abstract void OnKillTarget();
+    protected abstract void MoveToNewTarget();
     //приватные методы
-    protected abstract void FindClosestTarget();
+    protected BotController FindClosestTarget()
+    {
+        Collider[] targetsAround = Physics.OverlapSphere(transform.position, 10f);
+
+        if (targetsAround.Length == 0) return null;
+
+        List<GameObject> enemyTargets = new List<GameObject>();
+
+        for (int i = 0; i < targetsAround.Length; i++)
+        {
+            string targetString;
+
+            if (type == BotType.Unit) targetString = "Enemy";
+            else targetString = "Unit";
+
+            if (targetsAround[i].CompareTag(targetString))
+            {
+                enemyTargets.Add(targetsAround[i].gameObject);
+            }
+        }
+
+        if (enemyTargets.Count == 0) return null;
+
+
+        GameObject closestTarget = enemyTargets[0];
+        for (int i = 0; i < enemyTargets.Count; i++)
+        {
+            if (Vector3.Distance(transform.position, closestTarget.transform.position) > Vector3.Distance(transform.position, enemyTargets[i].transform.position)) closestTarget = enemyTargets[i];
+        }
+
+        return closestTarget.GetComponent<BotController>();
+    }
 
     //публичные методы
-    public abstract void DealDamage();//получили дамаг
-    private void OnEnable()
-    {
-        _movementComponent = GetComponent<BotMovement>();
-        _attackComponent = GetComponent<BotAttack>();
-
-        _movementComponent.onLoseTarget += OnLoseTarget;
-        _movementComponent.onReachedTarget += OnReachedTarget;
-
-        _attackComponent.onLoseTarget += OnLoseTarget;
-        _attackComponent.onKill += OnKillTarget;
-    }
-    private void OnDisable()//не забыть сбросить все параметры бота
-    {
-        _movementComponent.onLoseTarget -= OnLoseTarget;
-        _movementComponent.onReachedTarget -= OnReachedTarget;
-
-        _attackComponent.onLoseTarget -= OnLoseTarget;
-        _attackComponent.onKill -= OnKillTarget;
-    }
+    public abstract void DealDamage(float damageCount);//получили дамаг
 }

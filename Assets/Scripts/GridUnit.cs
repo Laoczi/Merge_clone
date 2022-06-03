@@ -19,6 +19,8 @@ public class GridUnit : MonoBehaviour
 
     void OnEnable()
     {
+        GridUpdater.onStartGame += OnStartGame;
+
         childAnimators = new Animator[transform.childCount];
         for (int i = 0; i < childAnimators.Length; i++)
         {
@@ -30,6 +32,10 @@ public class GridUnit : MonoBehaviour
         animator = childAnimators[0];
 
         _mergeLevel = 0;
+    }
+    private void OnDisable()
+    {
+        GridUpdater.onStartGame -= OnStartGame;
     }
     public void UpdateMergeLevel()
     {
