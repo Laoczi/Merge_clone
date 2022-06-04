@@ -5,6 +5,7 @@ using UnityEngine;
 public class UnitDino : BotController
 {
     [SerializeField] Collider _collider;
+    [field: SerializeField] public GridUnit gridUnit { get; private set; }
 
     public override event Action<float> onGetDamage;
     public override event Action onDead;
@@ -13,17 +14,31 @@ public class UnitDino : BotController
     BotMovement _movementComponent;
     Animator _animator;
 
-    [field: SerializeField] public override BotType type { get; protected set; }
-    [field: SerializeField] public override float Health { get; protected set; }
+    public override BotType type { get; protected set; }
+    public override float Health { get; protected set; }
     public override bool isDead { get; protected set; }
 
     protected override void OnStartGame()
     {
+        UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
+
+        _animator = settings.animator;
+        type = settings.team;
+        Health = settings.health;
+
+        if (type == BotType.Unit) gameObject.tag = "Unit";
+        else gameObject.tag = "Enemy";
+
+        Debug.Log(gameObject.tag);
+
         MoveToNewTarget();
     }
     protected override void OnWinGame()
     {
-        Debug.Log("нет врагов в зоне видимости");
+        _attackComponent.EndAttack();
+        _movementComponent.EndMove();
+        _animator.SetTrigger("Victory");
+        Debug.Log("dino end");
     }
     protected override void OnDie()
     {
@@ -31,7 +46,7 @@ public class UnitDino : BotController
         _collider.enabled = false;
         _attackComponent.EndAttack();
         _movementComponent.EndMove();
-        //врубаем анимацию смерти
+        _animator.SetTrigger("Die");
     }
 
     public override void DealDamage(float damageCount)
@@ -73,12 +88,8 @@ public class UnitDino : BotController
     {
         GridUpdater.onStartGame += OnStartGame;
 
-        if (type == BotType.Unit) gameObject.tag = "Unit";
-        else gameObject.tag = "Enemy";
-
         isDead = false;
 
-        _animator = GetComponent<GridUnit>().animator;
         _movementComponent = GetComponent<BotMovement>();
         _attackComponent = GetComponent<BotAttack>();
 

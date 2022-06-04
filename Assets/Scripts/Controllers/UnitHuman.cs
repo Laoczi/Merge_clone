@@ -7,6 +7,7 @@ using UnityEngine;
 public class UnitHuman : BotController
 {
     [SerializeField] Collider _collider;
+    [field: SerializeField] public GridUnit gridUnit { get; private set; }
 
     public override event Action<float> onGetDamage;
     public override event Action onDead;
@@ -14,38 +15,35 @@ public class UnitHuman : BotController
     BotAttack _attackComponent;
     Animator _animator;
 
-    [field: SerializeField] public override BotType type { get; protected set; }
-    [field: SerializeField] public override float Health { get; protected set; }
+    public override BotType type { get; protected set; }
+    public override float Health { get; protected set; }
     public override bool isDead { get; protected set; }
 
-    private void Update()
-    {
-        if(isDead == false)
-        {
-            BotController target = FindClosestTarget();
-
-            if(target != null)
-            {
-                Vector3 direction = target.transform.position - transform.position;
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), 3 * Time.deltaTime);
-            }
-        }
-    }
     protected override void OnStartGame()
     {
+        UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
+
+        _animator = settings.animator;
+        type = settings.team;
+        Health = settings.health;
+
+        if (type == BotType.Unit) gameObject.tag = "Unit";
+        else gameObject.tag = "Enemy";
+
         MoveToNewTarget();
     }
     protected override void OnWinGame()
     {
         _attackComponent.EndAttack();
-        Debug.Log("нет врагов в зоне видимости");
+        _animator.SetTrigger("Victory");
+        Debug.Log("human end");
     }
     protected override void OnDie()
     {
         isDead = true;
         _collider.enabled = false;
         _attackComponent.EndAttack();
-        //врубаем анимацию смерти
+        _animator.SetTrigger("Die");
     }
 
     public override void DealDamage(float damageCount)
@@ -79,12 +77,7 @@ public class UnitHuman : BotController
     {
         GridUpdater.onStartGame += OnStartGame;
 
-        if (type == BotType.Unit) gameObject.tag = "Unit";
-        else gameObject.tag = "Enemy";
-
         isDead = false;
-
-        _animator = GetComponent<GridUnit>().animator;
 
         _attackComponent = GetComponent<BotAttack>();
 

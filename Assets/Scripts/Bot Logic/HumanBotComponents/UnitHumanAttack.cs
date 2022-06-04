@@ -5,22 +5,50 @@ using UnityEngine;
 
 public class UnitHumanAttack : BotAttack
 {
-    [SerializeField] Bullet _bulletPrefab;
+    Bullet _bulletPrefab;
     [SerializeField] float _bulletSpeed;
-    [field: SerializeField] public override float attackRate { get; protected set; }
-    [field: SerializeField] public override float damage { get; protected set; }
-    [field: SerializeField] public override float attackRange { get; protected set; }
+    public override float attackRate { get; protected set; }
+    public override float damage { get; protected set; }
+    public override float attackRange { get; protected set; }
 
     public override event Action onEndWithTarget;
     public override event Action onHit;
 
     Coroutine attackProcess;
+    Animator _animator;
+    BotController target;
 
+    private void OnEnable()
+    {
+        GridUpdater.onStartGame += Init;
+    }
+    private void OnDisable()
+    {
+        GridUpdater.onStartGame -= Init;
+    }
+    private void Init()
+    {
+        UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
+
+        _animator = settings.animator;
+        attackRate = settings.attackRate;
+        damage = settings.damage;
+        attackRange = settings.attackRange;
+        _bulletPrefab = settings.bullet;
+    }
     public override void Attack(BotController target)
     {
         if (attackRate <= 0 || damage <= 0) throw new Exception("темп атаки или урон не могут быть меньше или равны нулю");
 
         if (attackProcess == null) attackProcess = StartCoroutine(AttackProcess(target));
+    }
+    private void Update()
+    {
+        if (target != null)
+        {
+            Vector3 direction = target.transform.position - transform.position;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), 3 * Time.deltaTime);
+        }
     }
     public override void EndAttack()
     {
@@ -39,8 +67,8 @@ public class UnitHumanAttack : BotAttack
     {
         if (CheckTarget(target) == false) yield break;
 
+        //тут врубать анимацию и ставить задержку по времени
         SpawnBullet(target);
-        //это временно, потом будет запускаться анимация, в которой уже через ивент будет происходить спавн пули
 
         yield return new WaitForSeconds(attackRate);
 

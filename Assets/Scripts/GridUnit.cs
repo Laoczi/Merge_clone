@@ -10,26 +10,18 @@ public class GridUnit : MonoBehaviour
 {
     //хранение информации о юните и апдейт ее
     [SerializeField] int _mergeLevel;
-    [SerializeField] UnitType _type;
-    Animator[] childAnimators;
+    [SerializeField] UnitType _speciesType;
 
     public int mergeLevel { get { return _mergeLevel; } }
-    public UnitType type { get { return _type; } }
+    public UnitType type { get { return _speciesType; } }
     public Animator animator { get; private set; }
 
     void OnEnable()
     {
         GridUpdater.onStartGame += OnStartGame;
 
-        childAnimators = new Animator[transform.childCount];
-        for (int i = 0; i < childAnimators.Length; i++)
-        {
-            childAnimators[i] = transform.GetChild(i).GetComponent<Animator>();
-            childAnimators[i].gameObject.SetActive(false);
-        }
-
-        childAnimators[0].gameObject.SetActive(true);
-        animator = childAnimators[0];
+        if(_speciesType == UnitType.human) animator = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[0], transform).GetComponent<Animator>();
+        else animator = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[0], transform).GetComponent<Animator>();
 
         _mergeLevel = 0;
     }
@@ -39,12 +31,26 @@ public class GridUnit : MonoBehaviour
     }
     public void UpdateMergeLevel()
     {
-        if (mergeLevel + 1 >= childAnimators.Length) throw new Exception("Невозможно улучшить юнита выше максимального уровня");
-
-        childAnimators[mergeLevel].gameObject.SetActive(false);
-        _mergeLevel++;
-        childAnimators[mergeLevel].gameObject.SetActive(true);
-        animator = childAnimators[mergeLevel];
+        if(_speciesType == UnitType.human)
+        {
+            if (mergeLevel + 1 >= UnitsDataBase.singleton.humanUnitsSettings.Length)
+            {
+                throw new Exception("Невозможно улучшить юнита выше максимального уровня (" + UnitsDataBase.singleton.humanUnitsSettings.Length + ")");
+            }
+            _mergeLevel++;
+            Destroy(animator.gameObject);
+            animator = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[mergeLevel], transform).GetComponent<Animator>();
+        }
+        else
+        {
+            if (mergeLevel + 1 >= UnitsDataBase.singleton.dinoUnitsSettings.Length)
+            {
+                throw new Exception("Невозможно улучшить юнита выше максимального уровня (" + UnitsDataBase.singleton.dinoUnitsSettings.Length + ")");
+            }
+            _mergeLevel++;
+            Destroy(animator.gameObject);
+            animator = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[mergeLevel], transform).GetComponent<Animator>();
+        }
     }
     void OnStartGame()
     {

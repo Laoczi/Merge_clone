@@ -4,16 +4,34 @@ using UnityEngine;
 
 public class UnitDinoMovement : BotMovement
 {
-    [field: SerializeField] public override float speed { get; protected set; }
-    [field: SerializeField] public override float minDistance { get; protected set; }
+    public override float speed { get; protected set; }
+    public override float minDistance { get; protected set; }
 
     public override event Action<BotController> onReachedTarget;
     public override event Action onLoseTarget;
 
     Coroutine moveProcess;
+    Animator _animator;
 
+    private void OnEnable()
+    {
+        GridUpdater.onStartGame += Init;
+    }
+    private void OnDisable()
+    {
+        GridUpdater.onStartGame -= Init;
+    }
+    private void Init()
+    {
+        UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
+
+        speed = settings.moveSpeed;
+        minDistance = settings.minDistanceToTarget;
+        _animator = settings.animator;
+    }
     public override void EndMove()
     {
+        _animator.SetBool("Run", false);
         StopAllCoroutines();
     }
 
@@ -25,6 +43,7 @@ public class UnitDinoMovement : BotMovement
     }
     IEnumerator MoveProcess(BotController target)
     {
+        _animator.SetBool("Run", true);
         while (Vector3.Distance(transform.position, target.transform.position) > minDistance)
         {
             if (CheckTarget(target) == false) yield break;
@@ -40,6 +59,7 @@ public class UnitDinoMovement : BotMovement
         {
             onReachedTarget?.Invoke(target);
             moveProcess = null;
+            _animator.SetBool("Run", false);
             yield break;
         }
     }

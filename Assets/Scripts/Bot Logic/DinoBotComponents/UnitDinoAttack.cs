@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class UnitDinoAttack : BotAttack
 {
-    [field: SerializeField] public override float attackRate { get; protected set; }
-    [field: SerializeField] public override float damage { get; protected set; }
-    [field: SerializeField] public override float attackRange { get; protected set; }
+    public override float attackRate { get; protected set; }
+    public override float damage { get; protected set; }
+    public override float attackRange { get; protected set; }
 
     public override event Action onEndWithTarget;
     public override event Action onHit;
 
     Coroutine attackProcess;
     BotController _target;
+    Animator _animator;
+
+    private void OnEnable()
+    {
+        GridUpdater.onStartGame += Init;
+    }
+    private void OnDisable()
+    {
+        GridUpdater.onStartGame -= Init;
+        int level = GetComponent<UnitDino>().gridUnit.mergeLevel;
+        UnitsDataBase.singleton.dinoUnitsSettings[level].OnAnimationHit -= OnHit;
+    }
+    private void Init()
+    {
+        UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
+
+        attackRate = settings.attackRate;
+        damage = settings.damage;
+        attackRange = settings.attackRange;
+        _animator = settings.animator;
+
+        settings.OnAnimationHit += OnHit;
+    }
 
     public override void Attack(BotController target)
     {
@@ -26,6 +49,7 @@ public class UnitDinoAttack : BotAttack
     }
     public override void EndAttack()
     {
+        _target = null;
         StopAllCoroutines();
     }
 
@@ -35,8 +59,7 @@ public class UnitDinoAttack : BotAttack
 
         if (Vector3.Distance(transform.position, target.transform.position) < attackRange)
         {
-            OnAnimationHit();//это временно, в дальнейшем это будет вызываться из анимации
-            //будет врубаться анимация, в анимации будет ивент, который будет вызывать метод onAnimationHit, судя по проверкам, все должно быть чики пуки
+            _animator.SetTrigger("Attack");
         }
         else
         {
@@ -50,9 +73,9 @@ public class UnitDinoAttack : BotAttack
         StartCoroutine(AttackProcess(target));
     }
 
-    private void OnAnimationHit()
+    private void OnHit()
     {
-        if (CheckTarget(_target) == false) return;//даже если мы умерли, то атака не пройдет, тк врубается анимация смерти и до ивента не дойдет, можно проверку на isDead не делать
+        if (CheckTarget(_target) == false) return;
 
         _target.DealDamage(damage);
         onHit?.Invoke();
@@ -60,7 +83,7 @@ public class UnitDinoAttack : BotAttack
 
     private bool CheckTarget(BotController target)
     {
-        if (target == null)//не делаю проверку через || потому что если действительно null, то при проверку на isDead, вылетает ошибка nullReferenceException
+        if (target == null)
         {
             onEndWithTarget?.Invoke();
             _target = null;
