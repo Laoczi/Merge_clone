@@ -30,6 +30,7 @@ public class UnitHuman : BotController
         if (type == BotType.Unit) gameObject.tag = "Unit";
         else gameObject.tag = "Enemy";
 
+        _attackComponent.Init();
         MoveToNewTarget();
     }
     protected override void OnWinGame()

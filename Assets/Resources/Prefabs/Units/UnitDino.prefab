@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mergeLevel: 0
-  _speciesType: 0
+  _speciesType: 1
 --- !u!114 &6591685338319324766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,9 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee6bd0a6f978404bb91b72bf5160f76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <attackRate>k__BackingField: 3
-  <damage>k__BackingField: 1
-  <attackRange>k__BackingField: 0.5
 --- !u!114 &6591685338319324764
 MonoBehaviour:
   m_ObjectHideFlags: 0

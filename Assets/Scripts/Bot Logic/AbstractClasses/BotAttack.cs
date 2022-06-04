@@ -11,4 +11,5 @@ public abstract class BotAttack : MonoBehaviour
     public abstract float attackRange { get; protected set; }
     public abstract void Attack(BotController target);//начали атаку по цели
     public abstract void EndAttack();
+    public abstract void Init();
 }

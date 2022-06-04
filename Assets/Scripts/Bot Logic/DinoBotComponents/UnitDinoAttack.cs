@@ -15,17 +15,12 @@ public class UnitDinoAttack : BotAttack
     BotController _target;
     Animator _animator;
 
-    private void OnEnable()
-    {
-        GridUpdater.onStartGame += Init;
-    }
     private void OnDisable()
     {
-        GridUpdater.onStartGame -= Init;
-        int level = GetComponent<UnitDino>().gridUnit.mergeLevel;
-        UnitsDataBase.singleton.dinoUnitsSettings[level].OnAnimationHit -= OnHit;
+        UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
+        settings.OnAnimationHit -= OnHit;
     }
-    private void Init()
+    public override void Init()
     {
         UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
 

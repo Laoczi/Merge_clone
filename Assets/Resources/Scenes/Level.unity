@@ -603,6 +603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitDino
       objectReference: {fileID: 0}
+    - target: {fileID: 6591685338319324765, guid: b8a8cd0afbb34344d975ec08f2cbae23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8a8cd0afbb34344d975ec08f2cbae23, type: 3}
 --- !u!4 &503795617 stripped
@@ -1248,6 +1252,10 @@ PrefabInstance:
     - target: {fileID: 4146573761279903125, guid: 0b74b7db78c6da84097aefe59bf89b8f, type: 3}
       propertyPath: m_Name
       value: UnitHuman
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146573761279903125, guid: 0b74b7db78c6da84097aefe59bf89b8f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b74b7db78c6da84097aefe59bf89b8f, type: 3}

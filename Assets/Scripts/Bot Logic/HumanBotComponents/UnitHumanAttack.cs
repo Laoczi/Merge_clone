@@ -17,16 +17,7 @@ public class UnitHumanAttack : BotAttack
     Coroutine attackProcess;
     Animator _animator;
     BotController target;
-
-    private void OnEnable()
-    {
-        GridUpdater.onStartGame += Init;
-    }
-    private void OnDisable()
-    {
-        GridUpdater.onStartGame -= Init;
-    }
-    private void Init()
+    public override void Init()
     {
         UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
 

@@ -12,13 +12,13 @@ public class Bullet : MonoBehaviour
     }
     IEnumerator MoveToProcess(BotController target, float bulletSpeed)
     {
-        while (Vector3.Distance(transform.position, target.transform.position) > 0.01f)
+        while (Vector3.Distance(transform.position, target.transform.position) > 0.3f)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, bulletSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
 
-        if(Vector3.Distance(transform.position, target.transform.position) < 0.01f)
+        if(Vector3.Distance(transform.position, target.transform.position) < 0.3f)
         {
             onReachedTarget?.Invoke(target, this);
             Destroy(this.gameObject);

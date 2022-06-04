@@ -13,15 +13,7 @@ public class UnitDinoMovement : BotMovement
     Coroutine moveProcess;
     Animator _animator;
 
-    private void OnEnable()
-    {
-        GridUpdater.onStartGame += Init;
-    }
-    private void OnDisable()
-    {
-        GridUpdater.onStartGame -= Init;
-    }
-    private void Init()
+    public override void Init()
     {
         UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
 

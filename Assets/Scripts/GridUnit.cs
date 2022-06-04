@@ -23,6 +23,8 @@ public class GridUnit : MonoBehaviour
         if(_speciesType == UnitType.human) animator = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[0], transform).GetComponent<Animator>();
         else animator = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[0], transform).GetComponent<Animator>();
 
+        animator.transform.localPosition = Vector3.zero;
+
         _mergeLevel = 0;
     }
     private void OnDisable()
@@ -40,6 +42,7 @@ public class GridUnit : MonoBehaviour
             _mergeLevel++;
             Destroy(animator.gameObject);
             animator = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[mergeLevel], transform).GetComponent<Animator>();
+            animator.transform.localPosition = Vector3.zero;
         }
         else
         {
@@ -50,6 +53,7 @@ public class GridUnit : MonoBehaviour
             _mergeLevel++;
             Destroy(animator.gameObject);
             animator = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[mergeLevel], transform).GetComponent<Animator>();
+            animator.transform.localPosition = Vector3.zero;
         }
     }
     void OnStartGame()

@@ -29,7 +29,8 @@ public class UnitDino : BotController
         if (type == BotType.Unit) gameObject.tag = "Unit";
         else gameObject.tag = "Enemy";
 
-        Debug.Log(gameObject.tag);
+        _movementComponent.Init();
+        _attackComponent.Init();
 
         MoveToNewTarget();
     }

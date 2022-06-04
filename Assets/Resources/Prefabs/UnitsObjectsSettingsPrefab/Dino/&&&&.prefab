@@ -1884,13 +1884,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <team>k__BackingField: 0
-  <health>k__BackingField: 0
-  <damage>k__BackingField: 0
-  <moveSpeed>k__BackingField: 0
-  <minDistanceToTarget>k__BackingField: 0
-  <attackRate>k__BackingField: 0
-  <attackRange>k__BackingField: 0
-  <animator>k__BackingField: {fileID: 0}
+  <health>k__BackingField: 10
+  <damage>k__BackingField: 3
+  <moveSpeed>k__BackingField: 1
+  <minDistanceToTarget>k__BackingField: 0.5
+  <attackRate>k__BackingField: 3
+  <attackRange>k__BackingField: 0.6
+  <animator>k__BackingField: {fileID: 7490455037822326595}
   <bullet>k__BackingField: {fileID: 0}
 --- !u!1 &6475672607597412325
 GameObject:

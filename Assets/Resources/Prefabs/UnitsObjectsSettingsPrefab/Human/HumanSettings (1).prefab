@@ -2296,14 +2296,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <team>k__BackingField: 0
-  <health>k__BackingField: 0
-  <damage>k__BackingField: 0
+  <health>k__BackingField: 10
+  <damage>k__BackingField: 3
   <moveSpeed>k__BackingField: 0
   <minDistanceToTarget>k__BackingField: 0
-  <attackRate>k__BackingField: 0
+  <attackRate>k__BackingField: 3
   <attackRange>k__BackingField: 0
-  <animator>k__BackingField: {fileID: 0}
-  <bullet>k__BackingField: {fileID: 0}
+  <animator>k__BackingField: {fileID: 738324746821728393}
+  <bullet>k__BackingField: {fileID: 2036672006749742038, guid: 117ac44dc854bf840a56c0ebfbba9132, type: 3}
 --- !u!1 &8696603890493878811
 GameObject:
   m_ObjectHideFlags: 0

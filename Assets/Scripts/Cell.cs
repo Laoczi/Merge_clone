@@ -21,7 +21,7 @@ public class Cell : MonoBehaviour
 
     private void OnMouseDown()
     {
-        unit.animator.SetBool("Hold", true);
+        if(unit.type == UnitType.human) unit.animator.SetBool("Hold", true);
         _isDrag = true;
     }
     private void OnMouseDrag()
@@ -42,7 +42,7 @@ public class Cell : MonoBehaviour
         if (_isDrag == false) return;
 
         _isDrag = false;
-        unit.animator.SetBool("Hold", false);
+        if (unit.type == UnitType.human) unit.animator.SetBool("Hold", false);
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;

@@ -10,4 +10,5 @@ public abstract class BotMovement : MonoBehaviour
     public abstract float minDistance { get; protected set; }
     public abstract void Move(BotController target);
     public abstract void EndMove();
+    public abstract void Init();
 }
