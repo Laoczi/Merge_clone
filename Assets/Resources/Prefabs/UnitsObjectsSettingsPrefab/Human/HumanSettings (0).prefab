@@ -957,11 +957,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <team>k__BackingField: 0
-  <health>k__BackingField: 0
-  <damage>k__BackingField: 0
-  <moveSpeed>k__BackingField: 0
-  <minDistanceToTarget>k__BackingField: 0
-  <attackRate>k__BackingField: 0
+  <health>k__BackingField: 8
+  <damage>k__BackingField: 4
+  <moveSpeed>k__BackingField: 1
+  <minDistanceToTarget>k__BackingField: 1
+  <attackRate>k__BackingField: 1
   <attackRange>k__BackingField: 0
   <animator>k__BackingField: {fileID: 0}
   <bullet>k__BackingField: {fileID: 0}
