@@ -424,7 +424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1948144176321156111}
   m_Layer: 0
-  m_Name: Warrior
+  m_Name: BlackHawkAdvanced
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
