@@ -59,6 +59,7 @@ public class UnitHumanAttack : BotAttack
         if (CheckTarget(target) == false) yield break;
 
         _animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.38f);
         SpawnBullet(target);
 
         yield return new WaitForSeconds(attackRate);
