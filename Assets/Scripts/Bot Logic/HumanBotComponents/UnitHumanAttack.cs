@@ -17,6 +17,7 @@ public class UnitHumanAttack : BotAttack
     Coroutine attackProcess;
     Animator _animator;
     BotController target;
+    bool _isWizard;
     public override void Init()
     {
         UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
@@ -26,6 +27,7 @@ public class UnitHumanAttack : BotAttack
         damage = settings.damage;
         attackRange = settings.attackRange;
         _bulletPrefab = settings.arrow;
+        _isWizard = settings.isWizard;
     }
     public override void Attack(BotController target)
     {
@@ -58,8 +60,10 @@ public class UnitHumanAttack : BotAttack
     {
         if (CheckTarget(target) == false) yield break;
 
-        _animator.SetTrigger("Attack");
-        yield return new WaitForSeconds(0.38f);
+        if(_isWizard) _animator.SetTrigger("WizardAttack");
+        else _animator.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(0.38f); 
         SpawnBullet(target);
 
         yield return new WaitForSeconds(attackRate);
