@@ -66,6 +66,8 @@ public class UnitHumanAttack : BotAttack
         yield return new WaitForSeconds(0.38f); 
         SpawnBullet(target);
 
+        if (CheckTarget(target) == false) yield break;
+
         yield return new WaitForSeconds(attackRate);
 
         StartCoroutine(AttackProcess(target));

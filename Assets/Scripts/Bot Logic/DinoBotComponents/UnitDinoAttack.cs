@@ -18,7 +18,6 @@ public class UnitDinoAttack : BotAttack
     private void OnDisable()
     {
         UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
-        settings.OnAnimationHit -= OnHit;
     }
     public override void Init()
     {
@@ -28,8 +27,6 @@ public class UnitDinoAttack : BotAttack
         damage = settings.damage;
         attackRange = settings.attackRange;
         _animator = settings.animator;
-
-        settings.OnAnimationHit += OnHit;
     }
 
     public override void Attack(BotController target)
@@ -55,6 +52,8 @@ public class UnitDinoAttack : BotAttack
         if (Vector3.Distance(transform.position, target.transform.position) < attackRange)
         {
             _animator.SetTrigger("Attack");
+            yield return new WaitForSeconds(0.45f);
+            OnHit();
         }
         else
         {

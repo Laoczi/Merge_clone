@@ -14,11 +14,4 @@ public class UnitSettings : MonoBehaviour
     [field: SerializeField] public Bullet arrow { get; private set; }
     [field: SerializeField] public Bullet magicSphere { get; private set; }
     [field: SerializeField] public bool isWizard { get; private set; }
-
-    public event Action OnAnimationHit;
-
-    private void OnHit()
-    {
-        OnAnimationHit?.Invoke();
-    }
 }

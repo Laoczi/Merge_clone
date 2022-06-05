@@ -931,7 +931,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7410332803676870453}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.659, y: 4.072, z: -26.697}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -949,7 +949,7 @@ Animator:
   m_GameObject: {fileID: 7410332803676870453}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a40b877b4fcf8d9408d21f70c82e2f41, type: 2}
+  m_Controller: {fileID: 9100000, guid: 202501ad1d1e06a4d9a21e0cf05d6eea, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -975,11 +975,13 @@ MonoBehaviour:
   <health>k__BackingField: 20
   <damage>k__BackingField: 3
   <moveSpeed>k__BackingField: 1
-  <minDistanceToTarget>k__BackingField: 1
+  <minDistanceToTarget>k__BackingField: 0.5
   <attackRate>k__BackingField: 1
-  <attackRange>k__BackingField: 1
-  <animator>k__BackingField: {fileID: 0}
-  <bullet>k__BackingField: {fileID: 0}
+  <attackRange>k__BackingField: 0.6
+  <animator>k__BackingField: {fileID: 2246217784942086348}
+  <arrow>k__BackingField: {fileID: 0}
+  <magicSphere>k__BackingField: {fileID: 0}
+  <isWizard>k__BackingField: 0
 --- !u!1 &7597457252668413795
 GameObject:
   m_ObjectHideFlags: 0
