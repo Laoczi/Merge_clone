@@ -11,7 +11,9 @@ public class UnitSettings : MonoBehaviour
     [field: SerializeField] public float attackRate { get; private set; }
     [field: SerializeField] public float attackRange { get; private set; }
     [field: SerializeField] public Animator animator { get; private set; }
-    [field: SerializeField] public Bullet bullet { get; private set; }
+    [field: SerializeField] public Bullet arrow { get; private set; }
+    [field: SerializeField] public Bullet magicSphere { get; private set; }
+    [field: SerializeField] public bool isWizard { get; private set; }
 
     public event Action OnAnimationHit;
 

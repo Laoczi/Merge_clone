@@ -25,7 +25,7 @@ public class UnitHumanAttack : BotAttack
         attackRate = settings.attackRate;
         damage = settings.damage;
         attackRange = settings.attackRange;
-        _bulletPrefab = settings.bullet;
+        _bulletPrefab = settings.arrow;
     }
     public override void Attack(BotController target)
     {
