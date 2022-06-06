@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3930529543963488150}
   - component: {fileID: 340181961520985674}
   m_Layer: 5
-  m_Name: Dino_6
+  m_Name: Warrior_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 3427624297716825258}
   - component: {fileID: 5129840560407664055}
   m_Layer: 5
-  m_Name: Dino_3
+  m_Name: Warrior_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 6402105098343322747}
   - component: {fileID: 2536342347842543403}
   m_Layer: 5
-  m_Name: Dino_4
+  m_Name: Warrior_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 4945165116212229700}
   - component: {fileID: 4197891426751963870}
   m_Layer: 5
-  m_Name: Dino_11
+  m_Name: Warrior_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1299,7 +1299,7 @@ GameObject:
   - component: {fileID: 8260049668996307863}
   - component: {fileID: 2497732655492967805}
   m_Layer: 5
-  m_Name: Dino_10
+  m_Name: Warrior_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,12 +1375,12 @@ GameObject:
   - component: {fileID: 8399828559067936146}
   - component: {fileID: 7827105480496050634}
   m_Layer: 5
-  m_Name: Dino_2
+  m_Name: Warrior_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3447442530913700804
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 868144419199012179}
   - component: {fileID: 5232669696076228262}
   m_Layer: 5
-  m_Name: Dino_9
+  m_Name: Warrior_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1918,7 +1918,7 @@ GameObject:
   - component: {fileID: 8855290757854477322}
   - component: {fileID: 178460127492869267}
   m_Layer: 5
-  m_Name: Dino_5
+  m_Name: Warrior_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2071,7 +2071,7 @@ GameObject:
   - component: {fileID: 9174191912121484469}
   - component: {fileID: 5205495517206580415}
   m_Layer: 5
-  m_Name: Dino_8
+  m_Name: Warrior_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2226,7 +2226,7 @@ GameObject:
   - component: {fileID: 969902118768815466}
   - component: {fileID: 7256265154531195756}
   m_Layer: 5
-  m_Name: Dino_7
+  m_Name: Warrior_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
