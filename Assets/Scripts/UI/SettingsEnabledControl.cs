@@ -1,0 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SettingsEnabledControl : MonoBehaviour
+{
+    [SerializeField] GameObject _settings;
+
+    bool _isSettingsOpen = false;
+    public void OpenSettings()
+    {
+        if (_isSettingsOpen == true) return;
+
+        _settings.SetActive(true);
+        _isSettingsOpen = true;
+    }
+    public void CloseSettings()
+    {
+        _settings.SetActive(false);
+        _isSettingsOpen = false;
+    }
+}
