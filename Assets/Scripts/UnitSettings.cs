@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class UnitSettings : MonoBehaviour
 {
-    [field: SerializeField] public BotType team { get; private set; }
     [field: SerializeField] public float health { get; private set; }
     [field: SerializeField] public float damage { get; private set; }
     [field: SerializeField] public float moveSpeed { get; private set; }

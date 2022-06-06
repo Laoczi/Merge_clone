@@ -20,7 +20,7 @@ public abstract class BotController : MonoBehaviour
     public abstract bool isDead { get; protected set; }
 
     //методы для глобальных ивентов
-    protected abstract void OnStartGame();
+    protected abstract void OnStartFight();
     protected abstract void OnWinGame();
 
     //методы для локальных ивентов
@@ -40,12 +40,13 @@ public abstract class BotController : MonoBehaviour
 
         List<GameObject> enemyTargets = new List<GameObject>();
 
+        string targetString;
+
+        if (type == BotType.Unit) targetString = "Enemy";
+        else targetString = "Unit";
+
         for (int i = 0; i < targetsAround.Length; i++)
         {
-            string targetString;
-
-            if (type == BotType.Unit) targetString = "Enemy";
-            else targetString = "Unit";
 
             if (targetsAround[i].CompareTag(targetString))
             {

@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 172381705441001232}
-  - component: {fileID: 850742043687762528}
+  - component: {fileID: 7309921672398865281}
   - component: {fileID: 1810402833}
   - component: {fileID: 1810402832}
   - component: {fileID: 1810402831}
   m_Layer: 2
-  m_Name: UnitHuman
-  m_TagString: Unit
+  m_Name: EnemyHuman
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,15 +27,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4146573761279903125}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &850742043687762528
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &7309921672398865281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,11 +44,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4146573761279903125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b5ef3275bd811345ad471e879f40f75, type: 3}
+  m_Script: {fileID: 11500000, guid: ee65d9408f14a5444a88bf2c9ed59171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mergeLevel: 0
-  _speciesType: 0
 --- !u!114 &1810402833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +60,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 1810402831}
-  <gridUnit>k__BackingField: {fileID: 850742043687762528}
 --- !u!114 &1810402832
 MonoBehaviour:
   m_ObjectHideFlags: 0

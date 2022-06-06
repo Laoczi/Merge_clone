@@ -6,30 +6,27 @@ public enum UnitType
     human,
     dino,
 }
-public class GridUnit : MonoBehaviour
+public class GridUnit : MonoBehaviour, IGrid
 {
     //хранение информации о юните и апдейт ее
     [SerializeField] int _mergeLevel;
     [SerializeField] UnitType _speciesType;
+    [field: SerializeField] BotType team;
 
     public int mergeLevel { get { return _mergeLevel; } }
     public UnitType type { get { return _speciesType; } }
     public Animator animator { get; private set; }
 
+    BotType IGrid.team => team;
+
     void OnEnable()
     {
-        GridUpdater.onStartGame += OnStartGame;
-
         if(_speciesType == UnitType.human) animator = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[0], transform).GetComponent<Animator>();
         else animator = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[0], transform).GetComponent<Animator>();
 
         animator.transform.localPosition = Vector3.zero;
 
         _mergeLevel = 0;
-    }
-    private void OnDisable()
-    {
-        GridUpdater.onStartGame -= OnStartGame;
     }
     public void UpdateMergeLevel()
     {
@@ -55,9 +52,5 @@ public class GridUnit : MonoBehaviour
             animator = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[mergeLevel], transform).GetComponent<Animator>();
             animator.transform.localPosition = Vector3.zero;
         }
-    }
-    void OnStartGame()
-    {
-        enabled = false;
     }
 }

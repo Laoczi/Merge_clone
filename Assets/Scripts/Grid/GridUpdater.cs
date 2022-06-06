@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class GridUpdater : MonoBehaviour
 {
-    public static System.Action onStartGame;
     //добавление новых юнитов в сетку, а так же сохранение информации о текущем состоянии сетки при выключении игры
     public static float yOffset;
     [SerializeField] Cell[] _grid;
     [SerializeField] GridUnit _humanUnitPrefab;
     [SerializeField] GridUnit _dinoUnitPrefab;
-
-    GridUnit flyingUnit;//юнит которого мы сейчас перетаскиваем
-    bool _isDrag;
 
     public void AddHumanUnit()
     {
@@ -41,10 +37,6 @@ public class GridUpdater : MonoBehaviour
                 break;
             }
         }
-    }
-    public void StartGame()
-    {
-        onStartGame?.Invoke();
     }
     void OnApplicationQuit()
     {

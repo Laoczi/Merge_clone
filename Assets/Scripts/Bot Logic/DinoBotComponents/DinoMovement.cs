@@ -2,7 +2,7 @@ using System.Collections;
 using System;
 using UnityEngine;
 
-public class UnitDinoMovement : BotMovement
+public class DinoMovement : BotMovement
 {
     public override float speed { get; protected set; }
     public override float minDistance { get; protected set; }
@@ -15,7 +15,7 @@ public class UnitDinoMovement : BotMovement
 
     public override void Init()
     {
-        UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
+        UnitSettings settings = GetComponentInChildren<UnitSettings>();
 
         speed = settings.moveSpeed;
         minDistance = settings.minDistanceToTarget;

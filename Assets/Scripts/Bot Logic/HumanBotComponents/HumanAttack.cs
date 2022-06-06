@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitHumanAttack : BotAttack
+public class HumanAttack : BotAttack
 {
     Bullet _bulletPrefab;
     [SerializeField] float _bulletSpeed;
@@ -20,7 +20,7 @@ public class UnitHumanAttack : BotAttack
     bool _isWizard;
     public override void Init()
     {
-        UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
+        UnitSettings settings = GetComponentInChildren<UnitSettings>();
 
         _animator = settings.animator;
         attackRate = settings.attackRate;
@@ -68,7 +68,11 @@ public class UnitHumanAttack : BotAttack
         yield return new WaitForSeconds(0.38f); 
         SpawnBullet(target);
 
-        if (CheckTarget(target) == false) yield break;
+        if (CheckTarget(target) == false)
+        {
+            //тут по идее нужно сказать пуле, чтобы она запросила новую цель
+            yield break;
+        }
 
         yield return new WaitForSeconds(attackRate);
 

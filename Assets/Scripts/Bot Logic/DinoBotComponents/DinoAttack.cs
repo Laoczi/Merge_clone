@@ -2,7 +2,7 @@ using System.Collections;
 using System;
 using UnityEngine;
 
-public class UnitDinoAttack : BotAttack
+public class DinoAttack : BotAttack
 {
     public override float attackRate { get; protected set; }
     public override float damage { get; protected set; }
@@ -15,13 +15,9 @@ public class UnitDinoAttack : BotAttack
     BotController _target;
     Animator _animator;
 
-    private void OnDisable()
-    {
-        UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
-    }
     public override void Init()
     {
-        UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
+        UnitSettings settings = GetComponentInChildren<UnitSettings>();
 
         attackRate = settings.attackRate;
         damage = settings.damage;
