@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6701098057123737199}
   - component: {fileID: 2036672006749742038}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: MagicBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

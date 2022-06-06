@@ -26,8 +26,10 @@ public class UnitHumanAttack : BotAttack
         attackRate = settings.attackRate;
         damage = settings.damage;
         attackRange = settings.attackRange;
-        _bulletPrefab = settings.arrow;
         _isWizard = settings.isWizard;
+
+        if(_isWizard) _bulletPrefab = settings.magicSphere;
+        else _bulletPrefab = settings.arrow;
     }
     public override void Attack(BotController target)
     {
