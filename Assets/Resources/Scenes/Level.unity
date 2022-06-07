@@ -728,7 +728,6 @@ MonoBehaviour:
   - {fileID: 2350011337692767894, guid: da746c060197e444abc6131614ef28f4, type: 3}
   dinoUnitToSpawn: {fileID: 6591685338319324705, guid: b8a8cd0afbb34344d975ec08f2cbae23, type: 3}
   <dinoUnitsSettings>k__BackingField:
-  - {fileID: 7100193643778117940, guid: 41227d0443639254494e567d5c7ce3cd, type: 3}
   - {fileID: 893657112395685140, guid: a2627f8a38547ca41ab0e505eefbb02f, type: 3}
   - {fileID: 5758307941314323810, guid: aa0e2a23632165243b0e448374544cc4, type: 3}
   - {fileID: 8320644472534134876, guid: fcecebacb723160418682e2353b17028, type: 3}
@@ -739,6 +738,7 @@ MonoBehaviour:
   - {fileID: 2071165661727061115, guid: 12cb0cac17d261f46a9dec9cbb9a5f70, type: 3}
   - {fileID: 8956074262440630102, guid: 667d1e729785bbc4698c098e5f9255f1, type: 3}
   - {fileID: 3939942821876376351, guid: 6b84672312c35f649ba059576ee3b8a5, type: 3}
+  - {fileID: 7100193643778117940, guid: 41227d0443639254494e567d5c7ce3cd, type: 3}
   - {fileID: 6365733036488964374, guid: c8c7829c55ce8bb4181288f499455123, type: 3}
 --- !u!4 &507914282
 Transform:

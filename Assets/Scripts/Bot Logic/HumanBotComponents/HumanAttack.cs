@@ -97,15 +97,15 @@ public class HumanAttack : BotAttack
     {
         if (target == null)
         {
-            onEndWithTarget?.Invoke();
             attackProcess = null;
+            onEndWithTarget?.Invoke();
             return false;
         }
 
         if (target.isDead)
         {
-            onEndWithTarget?.Invoke();
             attackProcess = null;
+            onEndWithTarget?.Invoke();
             return false;
         }
 

@@ -2704,9 +2704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc80f3e38ce3ba740a1644247c1ee1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <team>k__BackingField: 0
-  <health>k__BackingField: 622
-  <damage>k__BackingField: 93
+  <health>k__BackingField: 264
+  <damage>k__BackingField: 40
   <moveSpeed>k__BackingField: 1
   <minDistanceToTarget>k__BackingField: 0.5
   <attackRate>k__BackingField: 1

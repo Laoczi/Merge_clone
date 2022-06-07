@@ -13,16 +13,16 @@ public class Human : BotController
     BotAttack _attackComponent;
     Animator _animator;
 
-    public override BotType type { get; protected set; }
+    public override BotType team { get; protected set; }
     [field: SerializeField] public override float Health { get; protected set; }
     public override bool isDead { get; protected set; }
 
     protected override void OnStartFight()
     {
-        UnitSettings settings = transform.GetChild(0).GetComponent<UnitSettings>();
+        UnitSettings settings = GetComponentInChildren<UnitSettings>();
 
         _animator = settings.animator;
-        type = GetComponent<IGrid>().team;
+        team = GetComponent<IGrid>().team;
         Health = settings.health;
 
         _attackComponent.Init();
@@ -45,6 +45,8 @@ public class Human : BotController
     public override void DealDamage(float damageCount)
     {
         if (damageCount < 0) throw new System.Exception("Урон не может быть меньше нуля");
+
+        if (isDead) return;
 
         Health -= damageCount;
         onGetDamage?.Invoke(damageCount);

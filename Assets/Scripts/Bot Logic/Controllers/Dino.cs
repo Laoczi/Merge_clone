@@ -12,7 +12,7 @@ public class Dino : BotController
     BotMovement _movementComponent;
     Animator _animator;
 
-    public override BotType type { get; protected set; }
+    public override BotType team { get; protected set; }
     [field: SerializeField] public override float Health { get; protected set; }
     public override bool isDead { get; protected set; }
 
@@ -21,7 +21,7 @@ public class Dino : BotController
         UnitSettings settings = GetComponentInChildren<UnitSettings>();
 
         _animator = settings.animator;
-        type = GetComponent<IGrid>().team;
+        team = GetComponent<IGrid>().team;
         Health = settings.health;
 
         _movementComponent.Init();
@@ -48,6 +48,8 @@ public class Dino : BotController
     public override void DealDamage(float damageCount)
     {
         if (damageCount < 0) throw new System.Exception("Урон не может быть меньше нуля");
+
+        if (isDead) return;
 
         Health -= damageCount;
         onGetDamage?.Invoke(damageCount);

@@ -75,17 +75,17 @@ public class DinoAttack : BotAttack
     {
         if (target == null)
         {
-            onEndWithTarget?.Invoke();
             _target = null;
             attackProcess = null;
+            onEndWithTarget?.Invoke();
             return false;
         }
 
         if (target.isDead)
         {
-            onEndWithTarget?.Invoke();
             _target = null;
             attackProcess = null;
+            onEndWithTarget?.Invoke();
             return false;
         }
 

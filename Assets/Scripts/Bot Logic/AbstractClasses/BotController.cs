@@ -15,7 +15,7 @@ public abstract class BotController : MonoBehaviour
     protected bool _isMove;
     protected bool _isAttack;
 
-    public abstract BotType type { get; protected set; }//нужно для поиска правильного типа противника
+    public abstract BotType team { get; protected set; }//нужно для поиска правильного типа противника
     public abstract float Health { get; protected set; }
     public abstract bool isDead { get; protected set; }
 
@@ -34,7 +34,7 @@ public abstract class BotController : MonoBehaviour
     //приватные методы
     protected BotController FindClosestTarget()
     {
-        Collider[] targetsAround = Physics.OverlapSphere(transform.position, 10f);
+        Collider[] targetsAround = Physics.OverlapSphere(transform.position, 20f);
 
         if (targetsAround.Length == 0) return null;
 
@@ -42,7 +42,7 @@ public abstract class BotController : MonoBehaviour
 
         string targetString;
 
-        if (type == BotType.Unit) targetString = "Enemy";
+        if (team == BotType.Unit) targetString = "Enemy";
         else targetString = "Unit";
 
         for (int i = 0; i < targetsAround.Length; i++)
