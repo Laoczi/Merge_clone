@@ -133,7 +133,7 @@ public class UnitGrid : MonoBehaviour
 
         _unitsOnScene.Clear();
     }
-    private void OnDisable()
+    private void OnApplicationQuit()
     {
         SaveCurrentGrid();
     }
