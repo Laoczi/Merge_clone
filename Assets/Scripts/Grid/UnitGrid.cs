@@ -27,12 +27,15 @@ public class UnitGrid : MonoBehaviour
     private void Start()
     {
         //PlayerPrefs.DeleteKey("savedGrid");
+        Debug.Log(PlayerPrefs.GetString("savedGrid"));
         SetSavedGridOnScene();
     }
     void SaveCurrentGrid()
     {
         GridData newData = new GridData();
         newData.units = new List<UnitInGrid>();
+
+        Debug.Log(_unitsOnScene.Count);
 
         for (int i = 0; i < _unitsOnScene.Count; i++)
         {
@@ -82,7 +85,6 @@ public class UnitGrid : MonoBehaviour
                 unit.SetAnimatorByOwnLevel();
                 _grid[randomCellIndex].SetUnit(unit);
                 _unitsOnScene.Add(unit);
-                SaveCurrentGrid();
                 return true;
             }
         }
@@ -104,7 +106,6 @@ public class UnitGrid : MonoBehaviour
                 unit.SetAnimatorByOwnLevel();
                 _grid[randomCellIndex].SetUnit(unit);
                 _unitsOnScene.Add(unit);
-                SaveCurrentGrid();
                 return true;
             }
         }
@@ -123,6 +124,8 @@ public class UnitGrid : MonoBehaviour
     }
     public void DeleteUnits()
     {
+        SaveCurrentGrid();
+
         for (int i = 0; i < _unitsOnScene.Count; i++)
         {
             Destroy(_unitsOnScene[i].gameObject);
@@ -130,13 +133,9 @@ public class UnitGrid : MonoBehaviour
 
         _unitsOnScene.Clear();
     }
-    private void OnEnable()
-    {
-        Cell.OnMergeOrMoveUnit += SaveCurrentGrid;
-    }
     private void OnDisable()
     {
-        Cell.OnMergeOrMoveUnit -= SaveCurrentGrid;
+        SaveCurrentGrid();
     }
 }
 [System.Serializable]

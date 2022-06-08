@@ -5,8 +5,6 @@ public class Cell : MonoBehaviour
 {
     //контроль перемещени€ и мерджа
 
-    public static Action OnMergeOrMoveUnit;
-
     public bool isAvailable { get; private set; }
     public UnitInCell unit { get; private set; }
     public int index { get; private set; }
@@ -137,8 +135,6 @@ public class Cell : MonoBehaviour
             }
             else throw new Exception("попытка слить юнитов разных уровней или разного типа");
         }
-
-        OnMergeOrMoveUnit?.Invoke();
         isAvailable = false;
     }
     void NullUnitLink()//убирает обьект из €чейки
