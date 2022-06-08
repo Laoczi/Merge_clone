@@ -5,27 +5,57 @@ public class Cell : MonoBehaviour
 {
     //контроль перемещени€ и мерджа
 
-    public static Action<int, UnitType> OnMergeUnit;
+    public static Action OnMergeOrMoveUnit;
 
     public bool isAvailable { get; private set; }
-    public GridUnit unit { get; private set; }
+    public UnitInCell unit { get; private set; }
+    public int index { get; private set; }
 
     bool _isDrag;
     float _yOffset = 0;
+    bool _isStartGame = false;
 
-    private void Start()
+    private void Awake()
     {
         isAvailable = true;
         unit = null;
     }
+    private void OnEnable()
+    {
+        GameManager.onStartFight += OnStartFight;
+    }
+    private void OnDisable()
+    {
+        GameManager.onStartFight -= OnStartFight;
+    }
+    void OnStartFight()
+    {
+        _isStartGame = true;
+    }
+    void OnResetGame()
+    {
+        _isStartGame = false;
+    }
+    public void SetIndex(int value)
+    {
+        if (value < 0) throw new Exception("cell index cant be less than zero");
+
+        index = value;
+    }
 
     private void OnMouseDown()
     {
+        if (_isStartGame) return;
+        if (unit == null) return;
+
         if(unit.type == UnitType.human) unit.animator.SetBool("Hold", true);
         _isDrag = true;
     }
     private void OnMouseDrag()
     {
+        if (_isStartGame) return;
+        if (unit == null) return;
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -39,6 +69,9 @@ public class Cell : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        if (_isStartGame) return;
+        if (unit == null) return;
+
         if (_isDrag == false) return;
 
         _isDrag = false;
@@ -53,14 +86,31 @@ public class Cell : MonoBehaviour
             {
                 Cell cell = hit.collider.GetComponent<Cell>();
                 
-                if(cell != this)//если мы не положили юнита обратно на место
-                {               //и нова€ €чейка пуста€ или лвл юнита в ней тот же что и у нас при этом типы одинаковые, то мерджим
-                    if (cell.isAvailable || 
-                       (cell.unit.mergeLevel == unit.mergeLevel && cell.unit.type == unit.type))
+                if(cell != this)
+                {               
+                    if ((cell.isAvailable || (cell.unit.level == unit.level && cell.unit.type == unit.type)))
                     {
-                        cell.SetUnit(unit);
-                        NullUnitLink();
-                        return;
+                        if(cell.unit != null)
+                        {
+                            if(cell.unit.type == UnitType.human && cell.unit.level <= 9)//new max merge level is 11, so, if this unit have level more than 9 we cant merge
+                            {
+                                cell.SetUnit(unit);
+                                NullUnitLink();
+                                return;
+                            }
+                            if (cell.unit.type == UnitType.dino && cell.unit.level <= 10)
+                            {
+                                cell.SetUnit(unit);
+                                NullUnitLink();
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            cell.SetUnit(unit);
+                            NullUnitLink();
+                            return;
+                        }
                     }
                 }
             }
@@ -69,25 +119,26 @@ public class Cell : MonoBehaviour
         unit.transform.position = new Vector3(transform.position.x, _yOffset, transform.position.z);
     }
 
-    public void SetUnit(GridUnit unit)//добавл€ем обьект в €чейку
+    public void SetUnit(UnitInCell unit)//добавл€ем обьект в €чейку
     {
         if (this.unit == null)
         {
             this.unit = unit;
+            this.unit.SetCellIndex(index);
             this.unit.transform.position = new Vector3(transform.position.x, _yOffset, transform.position.z);
         }
         else
         {
             //тут мерджим, при неудаче выкидываем ошибку
-            if (this.unit.mergeLevel == unit.mergeLevel && this.unit.type == unit.type)
+            if (this.unit.level == unit.level && this.unit.type == unit.type)
             {
                 this.unit.UpdateMergeLevel();
                 Destroy(unit.gameObject);
-                OnMergeUnit?.Invoke(this.unit.mergeLevel, this.unit.type);
             }
             else throw new Exception("попытка слить юнитов разных уровней или разного типа");
         }
 
+        OnMergeOrMoveUnit?.Invoke();
         isAvailable = false;
     }
     void NullUnitLink()//убирает обьект из €чейки

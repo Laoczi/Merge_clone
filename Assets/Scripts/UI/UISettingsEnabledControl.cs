@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingsEnabledControl : MonoBehaviour
+public class UISettingsEnabledControl : MonoBehaviour
 {
     [SerializeField] GameObject _settings;
 

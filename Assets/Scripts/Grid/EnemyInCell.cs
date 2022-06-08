@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridEnemy : MonoBehaviour, IGrid
+public class EnemyInCell : MonoBehaviour, IGrid
 {
     public int positionInGrid { get; private set; }
     public BotType team { get; private set; }
@@ -29,4 +29,5 @@ public class GridEnemy : MonoBehaviour, IGrid
 interface IGrid
 {
     public BotType team { get; }
+    public int level { get; }
 }

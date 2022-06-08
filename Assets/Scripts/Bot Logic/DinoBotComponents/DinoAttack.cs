@@ -9,7 +9,6 @@ public class DinoAttack : BotAttack
     public override float attackRange { get; protected set; }
 
     public override event Action onEndWithTarget;
-    public override event Action onHit;
 
     Coroutine attackProcess;
     BotController _target;
@@ -68,7 +67,6 @@ public class DinoAttack : BotAttack
         if (CheckTarget(_target) == false) return;
 
         _target.DealDamage(damage);
-        onHit?.Invoke();
     }
 
     private bool CheckTarget(BotController target)

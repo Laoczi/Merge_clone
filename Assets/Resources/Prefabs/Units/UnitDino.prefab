@@ -45,11 +45,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6591685338319324765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b5ef3275bd811345ad471e879f40f75, type: 3}
+  m_Script: {fileID: 11500000, guid: 4deb8d57120d2de499a4249bedf403c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mergeLevel: 0
   _speciesType: 1
+  team: 0
 --- !u!114 &6591685338319324766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 6591685338319324707}
-  <gridUnit>k__BackingField: {fileID: 6591685338319324705}
+  <Health>k__BackingField: 0
 --- !u!114 &6591685338319324767
 MonoBehaviour:
   m_ObjectHideFlags: 0

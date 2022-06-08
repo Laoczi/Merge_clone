@@ -12,7 +12,6 @@ public class HumanAttack : BotAttack
     public override float attackRange { get; protected set; }
 
     public override event Action onEndWithTarget;
-    public override event Action onHit;
 
     Coroutine attackProcess;
     Animator _animator;
@@ -90,7 +89,6 @@ public class HumanAttack : BotAttack
     {
         bullet.onReachedTarget -= OnBulletReachedTarget;
         target.DealDamage(damage);
-        onHit?.Invoke();
     }
 
     private bool CheckTarget(BotController target)

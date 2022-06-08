@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsUI : MonoBehaviour
+public class VibroSoundSettings : MonoBehaviour
 {
     public static bool vibro { get; private set; }
     public static bool sound { get; private set; }

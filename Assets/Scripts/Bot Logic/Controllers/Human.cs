@@ -7,7 +7,7 @@ using UnityEngine;
 public class Human : BotController
 {
     [SerializeField] Collider _collider;
-    public override event Action<float> onGetDamage;
+    public static event Action<BotType, float, int> onGetDamage;//передаем нашу команду, сколько нанесли урона, и наш уровень
     public override event Action onDead;
 
     BotAttack _attackComponent;
@@ -16,6 +16,7 @@ public class Human : BotController
     public override BotType team { get; protected set; }
     [field: SerializeField] public override float Health { get; protected set; }
     public override bool isDead { get; protected set; }
+    int _level;
 
     protected override void OnStartFight()
     {
@@ -23,6 +24,7 @@ public class Human : BotController
 
         _animator = settings.animator;
         team = GetComponent<IGrid>().team;
+        _level = GetComponent<IGrid>().level;
         Health = settings.health;
 
         _attackComponent.Init();
@@ -49,7 +51,7 @@ public class Human : BotController
         if (isDead) return;
 
         Health -= damageCount;
-        onGetDamage?.Invoke(damageCount);
+        onGetDamage?.Invoke(team, damageCount, _level);
 
         if (Health <= 0)
         {

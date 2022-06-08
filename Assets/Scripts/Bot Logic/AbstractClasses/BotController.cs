@@ -9,7 +9,6 @@ public enum BotType
 }
 public abstract class BotController : MonoBehaviour
 {
-    public abstract event Action<float> onGetDamage;//нужно для отображения общего здоровья на UI
     public abstract event Action onDead;
 
     protected bool _isMove;

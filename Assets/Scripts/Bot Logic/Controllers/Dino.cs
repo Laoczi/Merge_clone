@@ -5,7 +5,7 @@ using UnityEngine;
 public class Dino : BotController
 {
     [SerializeField] Collider _collider;
-    public override event Action<float> onGetDamage;
+    public static event Action<BotType, float, int> onGetDamage;
     public override event Action onDead;
 
     BotAttack _attackComponent;
@@ -15,6 +15,7 @@ public class Dino : BotController
     public override BotType team { get; protected set; }
     [field: SerializeField] public override float Health { get; protected set; }
     public override bool isDead { get; protected set; }
+    int _level;
 
     protected override void OnStartFight()
     {
@@ -22,6 +23,7 @@ public class Dino : BotController
 
         _animator = settings.animator;
         team = GetComponent<IGrid>().team;
+        _level = GetComponent<IGrid>().level;
         Health = settings.health;
 
         _movementComponent.Init();
@@ -52,7 +54,7 @@ public class Dino : BotController
         if (isDead) return;
 
         Health -= damageCount;
-        onGetDamage?.Invoke(damageCount);
+        onGetDamage?.Invoke(team, damageCount, _level);
 
         if (Health <= 0)
         {

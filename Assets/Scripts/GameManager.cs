@@ -5,24 +5,54 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //главный компонент, который рулит над остальными
-
-    [SerializeField] EnemySpawn _enemySpawner;
     public static event Action onStartFight;
     public static event Action onEndFight;
 
+    [SerializeField] GameObject _mainMenuPanel;
+    [SerializeField] GameObject _fightMenuPanel;
+    public static int currentLevel { get; private set; }
+
     private void Start()
     {
-        _enemySpawner.Spawn(0);
+        _mainMenuPanel.SetActive(true);
+        _fightMenuPanel.SetActive(false);
+
+        currentLevel = 0;
+        if (PlayerPrefs.HasKey("currentLevel")) currentLevel = PlayerPrefs.GetInt("currentLevel");
+        else PlayerPrefs.SetInt("currentLevel", 0);
+
+        if(currentLevel < EnemyGrid.singleton.levels.Length) EnemyGrid.singleton.Spawn(currentLevel);
+        else EnemyGrid.singleton.Spawn(EnemyGrid.singleton.levels.Length - 1);
     }
-    public void StartGame()
+    public void StartFight()
     {
         onStartFight?.Invoke();
+        _mainMenuPanel.SetActive(false);
+        _fightMenuPanel.SetActive(true);
     }
     void ResetGame()
     {
+        ClearGameField();
+    }
+    void OnEndFight()
+    {
         onEndFight?.Invoke();
-        _enemySpawner.DeleteEnemys();
-        _enemySpawner.Spawn(0);
+        currentLevel++;
+        PlayerPrefs.SetInt("currentLevel", currentLevel);
+    }
+    void ClearGameField()
+    {
+        EnemyGrid.singleton.DeleteEnemys();
+        UnitGrid.singleton.DeleteUnits();
+    }
+    private void OnEnable()
+    {
+        GameUIHealthBar.onEnemysHealthZeroOut += OnEndFight;
+        GameUIHealthBar.onUnitsHealthZeroOut += OnEndFight;
+    }
+    private void OnDisable()
+    {
+        GameUIHealthBar.onEnemysHealthZeroOut -= OnEndFight;
+        GameUIHealthBar.onUnitsHealthZeroOut -= OnEndFight;
     }
 }
