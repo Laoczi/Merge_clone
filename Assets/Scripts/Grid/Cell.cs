@@ -4,7 +4,7 @@ using UnityEngine;
 public class Cell : MonoBehaviour
 {
     //контроль перемещения и мерджа
-
+    public static event Action<SpeciesType, int> onMerge;
     public bool isAvailable { get; private set; }
     public UnitInCell unit { get; private set; }
     public int index { get; private set; }
@@ -46,7 +46,7 @@ public class Cell : MonoBehaviour
         if (_isStartGame) return;
         if (unit == null) return;
 
-        if(unit.type == UnitType.human) unit.animator.SetBool("Hold", true);
+        if(unit.type == SpeciesType.human) unit.animator.SetBool("Hold", true);
         _isDrag = true;
     }
     private void OnMouseDrag()
@@ -73,7 +73,7 @@ public class Cell : MonoBehaviour
         if (_isDrag == false) return;
 
         _isDrag = false;
-        if (unit.type == UnitType.human) unit.animator.SetBool("Hold", false);
+        if (unit.type == SpeciesType.human) unit.animator.SetBool("Hold", false);
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -90,13 +90,13 @@ public class Cell : MonoBehaviour
                     {
                         if(cell.unit != null)
                         {
-                            if(cell.unit.type == UnitType.human && cell.unit.level <= 9)//new max merge level is 11, so, if this unit have level more than 9 we cant merge
+                            if(cell.unit.type == SpeciesType.human && cell.unit.level <= 9)//new max merge level is 11, so, if this unit have level more than 9 we cant merge
                             {
                                 cell.SetUnit(unit);
                                 NullUnitLink();
                                 return;
                             }
-                            if (cell.unit.type == UnitType.dino && cell.unit.level <= 10)
+                            if (cell.unit.type == SpeciesType.dino && cell.unit.level <= 10)
                             {
                                 cell.SetUnit(unit);
                                 NullUnitLink();
@@ -131,6 +131,7 @@ public class Cell : MonoBehaviour
             if (this.unit.level == unit.level && this.unit.type == unit.type)
             {
                 this.unit.UpdateMergeLevel();
+                onMerge?.Invoke(this.unit.type, this.unit.level);
                 Destroy(unit.gameObject);
             }
             else throw new Exception("попытка слить юнитов разных уровней или разного типа");

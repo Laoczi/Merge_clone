@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public enum UnitType
+public enum SpeciesType
 {
     human,
     dino,
@@ -9,19 +9,19 @@ public enum UnitType
 public class UnitInCell : MonoBehaviour, IGrid
 {
     [SerializeField] int _mergeLevel;
-    [SerializeField] UnitType _speciesType;
-    [field: SerializeField] BotType team;
+    [SerializeField] SpeciesType _speciesType;
+    [field: SerializeField] TeamType team;
 
     public int level { get { return _mergeLevel; } }
-    public UnitType type { get { return _speciesType; } }
+    public SpeciesType type { get { return _speciesType; } }
     public int cellIndex { get; private set; }
     public Animator animator { get; private set; }
 
-    BotType IGrid.team => team;
+    TeamType IGrid.team => team;
 
     public void SetAnimatorByOwnLevel()
     {
-        if(_speciesType == UnitType.human) animator = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[level], transform).GetComponent<Animator>();
+        if(_speciesType == SpeciesType.human) animator = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[level], transform).GetComponent<Animator>();
         else animator = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[level], transform).GetComponent<Animator>();
 
         animator.transform.localPosition = Vector3.zero;
@@ -43,7 +43,7 @@ public class UnitInCell : MonoBehaviour, IGrid
         _mergeLevel++;
         Destroy(animator.gameObject);
 
-        if (_speciesType == UnitType.human)
+        if (_speciesType == SpeciesType.human)
         {
             if (_mergeLevel >= UnitsDataBase.singleton.humanUnitsSettings.Length)
             {

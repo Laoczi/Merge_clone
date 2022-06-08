@@ -37,9 +37,9 @@ public class GameUIHealthBar : MonoBehaviour
         _unitsHealthBar.fillAmount = 1;
         _enemysHealthBar.fillAmount = 1;
     }
-    void OnGetDamage(BotType team, float count, int level)
+    void OnGetDamage(TeamType team, float count, int level)
     {
-        if(team == BotType.Unit)
+        if(team == TeamType.Unit)
         {
             _unitsOverralHealth -= count;
 

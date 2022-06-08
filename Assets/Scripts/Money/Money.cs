@@ -39,9 +39,9 @@ public class Money : MonoBehaviour
         PlayerPrefs.SetInt("money", count);
         onChangeMoney?.Invoke();
     }
-    void AddMoneyFromHit(BotType team, float value, int level)
+    void AddMoneyFromHit(TeamType team, float value, int level)
     {
-        if (team == BotType.Unit) return;//если нанесли удар по нашим юнитам, то деньги не прибавляем
+        if (team == TeamType.Unit) return;//если нанесли удар по нашим юнитам, то деньги не прибавляем
         if (level == 0) return;
 
         Add((int)(_nLevelValues[level] * Mathf.Pow(2, level - 1)));

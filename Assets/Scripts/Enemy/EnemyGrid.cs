@@ -30,10 +30,10 @@ public class EnemyGrid : MonoBehaviour
             GridEnemySettings enemySettings = currentLevelSettings.enemys[i];
             EnemyInCell enemyObject;
 
-            if(enemySettings.type == UnitType.dino) enemyObject = Instantiate(_enemyDinoPrefab, _gridSpawnPoints[enemySettings.positionInGrid].transform.position, Quaternion.Euler(0,180,0));
+            if(enemySettings.type == SpeciesType.dino) enemyObject = Instantiate(_enemyDinoPrefab, _gridSpawnPoints[enemySettings.positionInGrid].transform.position, Quaternion.Euler(0,180,0));
             else enemyObject = Instantiate(_enemyHumanPrefab, _gridSpawnPoints[enemySettings.positionInGrid].transform.position, Quaternion.Euler(0, 180, 0));
 
-            enemyObject.Init(enemySettings.positionInGrid, BotType.Enemy, enemySettings.type, enemySettings.level);
+            enemyObject.Init(enemySettings.positionInGrid, TeamType.Enemy, enemySettings.type, enemySettings.level);
 
             _enemysOnScene.Add(enemyObject);
         }
@@ -54,7 +54,7 @@ public class EnemyGrid : MonoBehaviour
         float overallHealth = 0;
         for (int i = 0; i < _enemysOnScene.Count; i++)
         {
-            if (_enemysOnScene[i].type == UnitType.dino) overallHealth += UnitsDataBase.singleton.dinoUnitsSettings[_enemysOnScene[i].level].health;
+            if (_enemysOnScene[i].type == SpeciesType.dino) overallHealth += UnitsDataBase.singleton.dinoUnitsSettings[_enemysOnScene[i].level].health;
             else overallHealth += UnitsDataBase.singleton.humanUnitsSettings[_enemysOnScene[i].level].health;
         }
 

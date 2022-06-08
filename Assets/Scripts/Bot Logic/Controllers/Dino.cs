@@ -5,14 +5,14 @@ using UnityEngine;
 public class Dino : BotController
 {
     [SerializeField] Collider _collider;
-    public static event Action<BotType, float, int> onGetDamage;
+    public static event Action<TeamType, float, int> onGetDamage;
     public override event Action onDead;
 
     BotAttack _attackComponent;
     BotMovement _movementComponent;
     Animator _animator;
 
-    public override BotType team { get; protected set; }
+    public override TeamType team { get; protected set; }
     [field: SerializeField] public override float Health { get; protected set; }
     public override bool isDead { get; protected set; }
     int _level;

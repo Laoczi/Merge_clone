@@ -27,15 +27,13 @@ public class UnitGrid : MonoBehaviour
     private void Start()
     {
         //PlayerPrefs.DeleteKey("savedGrid");
-        Debug.Log(PlayerPrefs.GetString("savedGrid"));
+        //Debug.Log(PlayerPrefs.GetString("savedGrid"));
         SetSavedGridOnScene();
     }
     void SaveCurrentGrid()
     {
         GridData newData = new GridData();
         newData.units = new List<UnitInGrid>();
-
-        Debug.Log(_unitsOnScene.Count);
 
         for (int i = 0; i < _unitsOnScene.Count; i++)
         {
@@ -59,7 +57,7 @@ public class UnitGrid : MonoBehaviour
             UnitInCell unit;
             UnitInGrid gUnit = gridData.units[i];
 
-            if (gUnit.type == UnitType.human) unit = Instantiate(_humanUnitPrefab);
+            if (gUnit.type == SpeciesType.human) unit = Instantiate(_humanUnitPrefab);
             else unit = Instantiate(_dinoUnitPrefab);
 
             unit.SetLevel(gUnit.level);
@@ -116,7 +114,7 @@ public class UnitGrid : MonoBehaviour
 
         for (int i = 0; i < _unitsOnScene.Count; i++)
         {
-            if (_unitsOnScene[i].type == UnitType.dino) overallHealth += UnitsDataBase.singleton.dinoUnitsSettings[_unitsOnScene[i].level].health;
+            if (_unitsOnScene[i].type == SpeciesType.dino) overallHealth += UnitsDataBase.singleton.dinoUnitsSettings[_unitsOnScene[i].level].health;
             else overallHealth += UnitsDataBase.singleton.humanUnitsSettings[_unitsOnScene[i].level].health;
         }
 
@@ -146,7 +144,7 @@ public struct GridData
 [System.Serializable]
 public struct UnitInGrid
 {
-    public UnitInGrid(int cellIndex, int level, UnitType type)
+    public UnitInGrid(int cellIndex, int level, SpeciesType type)
     {
         this.cellIndex = cellIndex;
         this.level = level;
@@ -155,5 +153,5 @@ public struct UnitInGrid
 
     [SerializeField] public int cellIndex;
     [SerializeField] public int level;
-    [SerializeField] public UnitType type;
+    [SerializeField] public SpeciesType type;
 }

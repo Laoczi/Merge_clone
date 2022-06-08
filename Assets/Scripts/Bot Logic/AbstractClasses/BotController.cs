@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BotType
+public enum TeamType
 {
     Unit,
     Enemy,
@@ -14,7 +14,7 @@ public abstract class BotController : MonoBehaviour
     protected bool _isMove;
     protected bool _isAttack;
 
-    public abstract BotType team { get; protected set; }//нужно для поиска правильного типа противника
+    public abstract TeamType team { get; protected set; }//нужно для поиска правильного типа противника
     public abstract float Health { get; protected set; }
     public abstract bool isDead { get; protected set; }
 
@@ -41,7 +41,7 @@ public abstract class BotController : MonoBehaviour
 
         string targetString;
 
-        if (team == BotType.Unit) targetString = "Enemy";
+        if (team == TeamType.Unit) targetString = "Enemy";
         else targetString = "Unit";
 
         for (int i = 0; i < targetsAround.Length; i++)

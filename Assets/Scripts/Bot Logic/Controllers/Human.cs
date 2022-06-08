@@ -7,13 +7,13 @@ using UnityEngine;
 public class Human : BotController
 {
     [SerializeField] Collider _collider;
-    public static event Action<BotType, float, int> onGetDamage;//передаем нашу команду, сколько нанесли урона, и наш уровень
+    public static event Action<TeamType, float, int> onGetDamage;//передаем нашу команду, сколько нанесли урона, и наш уровень
     public override event Action onDead;
 
     BotAttack _attackComponent;
     Animator _animator;
 
-    public override BotType team { get; protected set; }
+    public override TeamType team { get; protected set; }
     [field: SerializeField] public override float Health { get; protected set; }
     public override bool isDead { get; protected set; }
     int _level;
