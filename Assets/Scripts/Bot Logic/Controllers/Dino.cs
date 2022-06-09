@@ -36,7 +36,6 @@ public class Dino : BotController
         _attackComponent.EndAttack();
         _movementComponent.EndMove();
         _animator.SetTrigger("Victory");
-        Debug.Log("dino end");
     }
     protected override void OnDie()
     {

@@ -34,7 +34,6 @@ public class Human : BotController
     {
         _attackComponent.EndAttack();
         _animator.SetTrigger("Victory");
-        Debug.Log("human end");
     }
     protected override void OnDie()
     {
