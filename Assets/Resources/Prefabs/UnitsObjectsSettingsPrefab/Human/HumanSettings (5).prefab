@@ -1371,7 +1371,7 @@ Animator:
   m_GameObject: {fileID: 4914726726287429532}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 98fada3cb78e21b4192e9857cec8f142, type: 2}
+  m_Controller: {fileID: 9100000, guid: e4585b3f718c1204a83fcf4fba72713b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1413,7 +1413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3316758785599984401}
   m_Layer: 0
-  m_Name: BlackHawkAdvanced
+  m_Name: WarlockAdvanced
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
