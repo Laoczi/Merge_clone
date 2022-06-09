@@ -108,6 +108,10 @@ public class UnitGrid : MonoBehaviour
             }
         }
     }
+    void OnMerge(UnitInCell unit)
+    {
+        _unitsOnScene.Remove(unit);
+    }
     public float GetOverrallUnitsHealth()
     {
         float overallHealth = 0;
@@ -129,6 +133,14 @@ public class UnitGrid : MonoBehaviour
         }
 
         _unitsOnScene.Clear();
+    }
+    private void OnEnable()
+    {
+        Cell.onDeleteUnitWhenMerge += OnMerge;
+    }
+    private void OnDisable()
+    {
+        Cell.onDeleteUnitWhenMerge -= OnMerge;
     }
     private void OnApplicationQuit()
     {

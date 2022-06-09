@@ -5,6 +5,7 @@ public class Cell : MonoBehaviour
 {
     //контроль перемещения и мерджа
     public static event Action<SpeciesType, int> onMerge;
+    public static event Action<UnitInCell> onDeleteUnitWhenMerge;
     public bool isAvailable { get; private set; }
     public UnitInCell unit { get; private set; }
     public int index { get; private set; }
@@ -132,6 +133,7 @@ public class Cell : MonoBehaviour
             {
                 this.unit.UpdateMergeLevel();
                 onMerge?.Invoke(this.unit.type, this.unit.level);
+                onDeleteUnitWhenMerge?.Invoke(unit);
                 Destroy(unit.gameObject);
             }
             else throw new Exception("попытка слить юнитов разных уровней или разного типа");
