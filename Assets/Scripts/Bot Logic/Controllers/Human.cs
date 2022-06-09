@@ -50,8 +50,9 @@ public class Human : BotController
 
         if (isDead) return;
 
+        float returnDamage = damageCount > Health ? Health : damageCount;
+        onGetDamage?.Invoke(team, returnDamage, _level);
         Health -= damageCount;
-        onGetDamage?.Invoke(team, damageCount, _level);
 
         if (Health <= 0)
         {

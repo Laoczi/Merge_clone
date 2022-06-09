@@ -117,7 +117,6 @@ public class UnitGrid : MonoBehaviour
             if (_unitsOnScene[i].type == SpeciesType.dino) overallHealth += UnitsDataBase.singleton.dinoUnitsSettings[_unitsOnScene[i].level].health;
             else overallHealth += UnitsDataBase.singleton.humanUnitsSettings[_unitsOnScene[i].level].health;
         }
-
         return overallHealth;
     }
     public void DeleteUnits()

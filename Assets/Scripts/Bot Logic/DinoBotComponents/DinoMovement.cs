@@ -59,15 +59,17 @@ public class DinoMovement : BotMovement
     {
         if (target == null)
         {
-            onLoseTarget?.Invoke();
+            _animator.SetBool("Run", false);
             moveProcess = null;
+            onLoseTarget?.Invoke();
             return false;
         }
 
         if (target.isDead)
         {
-            onLoseTarget?.Invoke();
+            _animator.SetBool("Run", false);
             moveProcess = null;
+            onLoseTarget?.Invoke();
             return false;
         }
 
