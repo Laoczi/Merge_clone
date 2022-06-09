@@ -662,7 +662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc80f3e38ce3ba740a1644247c1ee1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <team>k__BackingField: 0
   <health>k__BackingField: 0
   <damage>k__BackingField: 0
   <moveSpeed>k__BackingField: 1
@@ -671,7 +670,7 @@ MonoBehaviour:
   <attackRange>k__BackingField: 0
   <animator>k__BackingField: {fileID: 1298452367662006310}
   <arrow>k__BackingField: {fileID: 2036672006749742038, guid: 1d103374fe6e4d646b3231eda4510327, type: 3}
-  <magicSphere>k__BackingField: {fileID: 2036672006749742038, guid: 117ac44dc854bf840a56c0ebfbba9132, type: 3}
+  <magicSphere>k__BackingField: {fileID: 2036672006749742038, guid: 0643a929a4bd03344bbd8c842ab27557, type: 3}
   <isWizard>k__BackingField: 1
 --- !u!1 &2418488651729146207
 GameObject:
