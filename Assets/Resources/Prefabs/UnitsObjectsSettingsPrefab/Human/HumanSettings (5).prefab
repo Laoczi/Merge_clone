@@ -1393,7 +1393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc80f3e38ce3ba740a1644247c1ee1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <team>k__BackingField: 0
   <health>k__BackingField: 609
   <damage>k__BackingField: 304
   <moveSpeed>k__BackingField: 1
@@ -1414,7 +1413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3316758785599984401}
   m_Layer: 0
-  m_Name: Warrior
+  m_Name: BlackHawkAdvanced
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
