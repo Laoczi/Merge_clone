@@ -24,6 +24,7 @@ public class BuyNewUnits : MonoBehaviour
     float[] xPricesForLevel = new float[]
     {
         1,
+        1,
         1.8f,
         1.444f,
         1.333f,
@@ -41,6 +42,9 @@ public class BuyNewUnits : MonoBehaviour
 
         if (PlayerPrefs.HasKey("dinoNumberOfPurchased")) _currentNumberOfDinoPurchased = PlayerPrefs.GetInt("dinoNumberOfPurchased");
         else PlayerPrefs.SetInt("dinoNumberOfPurchased", 0);
+
+        _currentNumberOfHumanPurchased = 0;//----------------
+        _currentNumberOfDinoPurchased = 0;//----------------
     }
     private void Start()
     {
@@ -48,38 +52,31 @@ public class BuyNewUnits : MonoBehaviour
     }
     void SetNewPrices()
     {
-        if (GameManager.currentLevel > 0 && GameManager.currentLevel < 10)
+        float g = 1;
+        float xDino = 1;
+        float xHuman = 1;
+
+        if (GameManager.currentLevel > 2 && GameManager.currentLevel <= 5) g = 1;
+        else if (GameManager.currentLevel == 6) g = 5;
+        else if (GameManager.currentLevel >= 7 && GameManager.currentLevel <= 9) g = 3;
+        else if (GameManager.currentLevel > 9) g = 2.5f;
+
+        for (int i = 0; i < _currentNumberOfDinoPurchased; i++)
         {
-            float g = 0;
-            float xDino = 1;
-            float xHuman = 1;
-
-            if (GameManager.currentLevel > 0 && GameManager.currentLevel < 4) g = 1;
-            else if (GameManager.currentLevel == 5) g = 5;
-            else if (GameManager.currentLevel > 5 && GameManager.currentLevel < 8) g = 3;
-            else if (GameManager.currentLevel == 9) g = 2.5f;
-
-            for (int i = 0; i < _currentNumberOfDinoPurchased; i++)
-            {
-                if (i < xPricesForLevel.Length) xDino *= xPricesForLevel[i];
-                else xDino *= xPricesForLevel[xPricesForLevel.Length - 1];
-            }
-            for (int i = 0; i < _currentNumberOfHumanPurchased; i++)
-            {
-                if (i < xPricesForLevel.Length) xHuman *= xPricesForLevel[i];
-                else xHuman *= xPricesForLevel[xPricesForLevel.Length - 1];
-            }
-
-            _currentPriceForDino = 160 * g * xDino;
-            _currentPriceForHuman = 160 * g * xHuman;
-
-            if (_currentNumberOfHumanPurchased == 0) _currentPriceForHuman = 2;
-            if (_currentNumberOfDinoPurchased == 2) _currentPriceForDino = 2;
+            if (i < xPricesForLevel.Length) xDino *= xPricesForLevel[i];
+            else xDino *= xPricesForLevel[xPricesForLevel.Length - 1];
         }
-        else
+        for (int i = 0; i < _currentNumberOfHumanPurchased; i++)
         {
-            throw new System.Exception("cant set price, because level more than 9 or less than 0");
+            if (i < xPricesForLevel.Length) xHuman *= xPricesForLevel[i];
+            else xHuman *= xPricesForLevel[xPricesForLevel.Length - 1];
         }
+
+        _currentPriceForDino = 160 * g * xDino;
+        _currentPriceForHuman = 160 * g * xHuman;
+
+        if (_currentNumberOfHumanPurchased <= 1) _currentPriceForHuman = 2;
+        if (_currentNumberOfDinoPurchased <= 1) _currentPriceForDino = 2;
 
         int priceForDino = Convert.ToInt32(_currentPriceForDino);
         int priceForHuman = Convert.ToInt32(_currentPriceForHuman);

@@ -17,18 +17,19 @@ public class GameManager : MonoBehaviour
         _mainMenuPanel.SetActive(true);
         _fightMenuPanel.SetActive(false);
 
+        PlayerPrefs.DeleteKey("currentLevel");
+
 
         currentLevel = 0;
         if (PlayerPrefs.HasKey("currentLevel")) currentLevel = PlayerPrefs.GetInt("currentLevel");
         else PlayerPrefs.SetInt("currentLevel", 0);
 
-        currentLevel = 1;//------------------
+        //currentLevel = 0;//------------------
 
     }
     private void Start()
     {
-        if (currentLevel < EnemyGrid.singleton.levels.Length) EnemyGrid.singleton.Spawn(currentLevel);
-        else EnemyGrid.singleton.Spawn(EnemyGrid.singleton.levels.Length - 1);
+        EnemyGrid.singleton.Spawn(currentLevel);
     }
     public void StartFight()
     {
@@ -38,15 +39,15 @@ public class GameManager : MonoBehaviour
     }
     void OnWinFight()
     {
-        onEndFight?.Invoke();
         currentLevel++;
+        onEndFight?.Invoke();
         PlayerPrefs.SetInt("currentLevel", currentLevel);
         //вызываем окно победы, а при нажатии "новая игра" чистим поле и спавним заново
     }
     void OnLoseFight()
     {
-        onEndFight?.Invoke();
         currentLevel++;
+        onEndFight?.Invoke();
         PlayerPrefs.SetInt("currentLevel", currentLevel);
         //вызываем окно проигрыша, а при нажатии "новая игра" чистим поле и спавним заново
     }
