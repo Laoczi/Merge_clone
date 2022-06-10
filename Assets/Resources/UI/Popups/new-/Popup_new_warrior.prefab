@@ -1443,6 +1443,7 @@ GameObject:
   - component: {fileID: 8440255414228216171}
   - component: {fileID: 5696868254877555271}
   - component: {fileID: 7136863701567438338}
+  - component: {fileID: 6070978076970537090}
   m_Layer: 5
   m_Name: Popup_new_warrior
   m_TagString: Untagged
@@ -1534,6 +1535,45 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6070978076970537090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2742244133382708534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89769de1a84336f44b95ac3ef1dcf801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
+  _characterNames:
+  - {fileID: 8556678445884620250}
+  - {fileID: 2624855238916015368}
+  - {fileID: 5862280637830410230}
+  - {fileID: 793875594930593301}
+  - {fileID: 3308242738568319537}
+  - {fileID: 6117546907064203849}
+  - {fileID: 3077174095944108491}
+  - {fileID: 455141982425564843}
+  - {fileID: 1975967044184500721}
+  - {fileID: 1737474498109294706}
+  _characterLogos:
+  - {fileID: 3987302288814908322}
+  - {fileID: 2157690358734721466}
+  - {fileID: 2357743793811260972}
+  - {fileID: 4750384961964105470}
+  - {fileID: 140882402112092308}
+  - {fileID: 6480880233673474315}
+  - {fileID: 5796201708899479463}
+  - {fileID: 4318896728946528405}
+  - {fileID: 3734812400349354475}
+  - {fileID: 2659924899626845107}
+  _currentHealth: {fileID: 7749188880658796049}
+  _differentHealth: {fileID: 75057457355013046}
+  _currentAttack: {fileID: 2609910125026810730}
+  _differentAttack: {fileID: 7236698863073450375}
 --- !u!1 &3077174095944108491
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,7 +2622,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5476577713387141192}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6070978076970537090}
+        m_TargetAssemblyTypeName: PopupNewCharacter, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4740441572075060506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3723,7 +3775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3811288550520993840
 RectTransform:
   m_ObjectHideFlags: 0

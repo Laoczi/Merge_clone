@@ -46,9 +46,7 @@ public class GameManager : MonoBehaviour
     }
     void OnLoseFight()
     {
-        currentLevel++;
         onEndFight?.Invoke();
-        PlayerPrefs.SetInt("currentLevel", currentLevel);
         //вызываем окно проигрыша, а при нажатии "новая игра" чистим поле и спавним заново
     }
     public void ResetGameFiled()

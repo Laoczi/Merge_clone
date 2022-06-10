@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8550657641946478606
 RectTransform:
   m_ObjectHideFlags: 0
@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 1000608480577414997}
   - component: {fileID: 1000608480577414996}
   - component: {fileID: 1000608480577414999}
+  - component: {fileID: 1172990406424458900}
   m_Layer: 5
   m_Name: Popup_new_dino
   m_TagString: Untagged
@@ -473,7 +474,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1000608480577414996
 MonoBehaviour:
@@ -515,6 +516,45 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1172990406424458900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000608480577414998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89769de1a84336f44b95ac3ef1dcf801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _characterNames:
+  - {fileID: 258959123255139958}
+  - {fileID: 7927206217228305888}
+  - {fileID: 6843003291288335486}
+  - {fileID: 4361894627900473028}
+  - {fileID: 7478703120782541173}
+  - {fileID: 4657275931339722396}
+  - {fileID: 7789394093145758815}
+  - {fileID: 6784071289074981001}
+  - {fileID: 8636869704231165765}
+  - {fileID: 7661454896631456081}
+  _characterLogos:
+  - {fileID: 1000608481381699414}
+  - {fileID: 1000608481147656994}
+  - {fileID: 1000608481697816267}
+  - {fileID: 1000608480932550136}
+  - {fileID: 1000608482111962383}
+  - {fileID: 1000608481226436009}
+  - {fileID: 1000608481735163238}
+  - {fileID: 1000608481321238262}
+  - {fileID: 1000608480444203877}
+  - {fileID: 1000608482381424212}
+  _currentHealth: {fileID: 1000608481489490282}
+  _differentHealth: {fileID: 1000608481442595841}
+  _currentAttack: {fileID: 1000608481388584136}
+  _differentAttack: {fileID: 1000608481907564875}
 --- !u!1 &1000608480637908718
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,7 +2513,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1000608482141635472}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1172990406424458900}
+        m_TargetAssemblyTypeName: PopupNewCharacter, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1000608482146186101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,7 +2619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1000608482381424213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3509,7 +3561,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7789394093145758815

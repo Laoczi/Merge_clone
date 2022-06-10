@@ -7,7 +7,7 @@ public class Money : MonoBehaviour
     public static Money singleton;
 
     public static event Action onChangeMoney;
-    public float count { get; private set; }
+    [field: SerializeField] public float count { get; private set; }
 
     int[] _nLevelValues = new int[] { 2,2,16,12,36,144,31,80,74,144 };
 

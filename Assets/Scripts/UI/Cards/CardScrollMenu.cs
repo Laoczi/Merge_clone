@@ -20,8 +20,8 @@ public class CardScrollMenu : MonoBehaviour
 
     [SerializeField] RectTransform _lineLabel;
     [Header("card popup prefab")]
-    [SerializeField] GameObject _humanPopup;
-    [SerializeField] GameObject _dinoPopup;
+    [SerializeField] PopupNewCharacter _humanPopup;
+    [SerializeField] PopupNewCharacter _dinoPopup;
 
     public int _currentHumanOpenedMergeLevel;
     public int _currentDinoOpenedMergeLevel;
@@ -104,24 +104,26 @@ public class CardScrollMenu : MonoBehaviour
             _currentHumanOpenedMergeLevel = mergeLevel;
             PlayerPrefs.SetInt("openedHumanMergeLevel", _currentHumanOpenedMergeLevel);
 
-            //вызываем попап с лучником
+            PopupNewCharacter popup = Instantiate(_humanPopup);
+            popup.InitStats(mergeLevel);
         }
         if (type == SpeciesType.dino && mergeLevel > _currentDinoOpenedMergeLevel)
         {
             _currentDinoOpenedMergeLevel = mergeLevel;
             PlayerPrefs.SetInt("openedDinoMergeLevel", _currentDinoOpenedMergeLevel);
 
-            //вызываем попап с динозавром
+            PopupNewCharacter popup = Instantiate(_dinoPopup);
+            popup.InitStats(mergeLevel);
         }
 
         UpdateCardStates();
     }
     private void OnEnable()
     {
-        //Cell.onMerge += OnMerge;
+        Cell.onMerge += OnMerge;
     }
     private void OnDisable()
     {
-        //Cell.onMerge -= OnMerge;
+        Cell.onMerge -= OnMerge;
     }
 }

@@ -61,6 +61,7 @@ public class Human : BotController
 
         if (isDead) return;
 
+        //тут спавнить эффект, у динозавра тоже добавить
         float returnDamage = damageCount > health ? health : damageCount;
         onGetDamage?.Invoke(team, returnDamage, _level);
         health -= damageCount;

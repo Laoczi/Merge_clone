@@ -68,11 +68,7 @@ public class HumanAttack : BotAttack
         yield return new WaitForSeconds(0.38f); 
         SpawnBullet(target);
 
-        if (CheckTarget(target) == false)
-        {
-            //тут по идее нужно сказать пуле, чтобы она запросила новую цель
-            yield break;
-        }
+        if (CheckTarget(target) == false) yield break;
 
         yield return new WaitForSeconds(attackRate);
 
