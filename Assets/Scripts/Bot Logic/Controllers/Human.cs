@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Human : BotController
@@ -12,9 +13,11 @@ public class Human : BotController
 
     BotAttack _attackComponent;
     Animator _animator;
+    Image _healthBar;
 
     public override TeamType team { get; protected set; }
-    [field: SerializeField] public override float Health { get; protected set; }
+    [field: SerializeField] public override float health { get; protected set; }
+    float _baseHealth;
     public override bool isDead { get; protected set; }
     int _level;
 
@@ -25,7 +28,16 @@ public class Human : BotController
         _animator = settings.animator;
         team = GetComponent<IGrid>().team;
         _level = GetComponent<IGrid>().level;
-        Health = settings.health;
+        health = _baseHealth = settings.health;
+
+        if(team == TeamType.Unit)
+        {
+            _healthBar = settings.unitHealthBar;
+        }
+        else
+        {
+            _healthBar = settings.enemyHealthBar;
+        }
 
         _attackComponent.Init();
         MoveToNewTarget();
@@ -49,15 +61,18 @@ public class Human : BotController
 
         if (isDead) return;
 
-        float returnDamage = damageCount > Health ? Health : damageCount;
+        float returnDamage = damageCount > health ? health : damageCount;
         onGetDamage?.Invoke(team, returnDamage, _level);
-        Health -= damageCount;
+        health -= damageCount;
 
-        if (Health <= 0)
+        if (health <= 0)
         {
+            health = 0;
             OnDie();
             onDead?.Invoke();
         }
+
+        _healthBar.fillAmount = ((health * 100) / _baseHealth) / 100;
     }
 
     protected override void MoveToNewTarget()

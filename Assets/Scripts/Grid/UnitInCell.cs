@@ -21,8 +21,15 @@ public class UnitInCell : MonoBehaviour, IGrid
 
     public void SetAnimatorByOwnLevel()
     {
-        if(_speciesType == SpeciesType.human) animator = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[level], transform).GetComponent<Animator>();
-        else animator = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[level], transform).GetComponent<Animator>();
+        UnitSettings settings;
+
+        if(_speciesType == SpeciesType.human) settings = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[level], transform);
+        else settings = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[level], transform);
+
+        animator = settings.animator;
+
+        settings.enemyHealthBarCanvas.SetActive(false);
+        settings.unitHealthBar.fillAmount = 1;
 
         animator.transform.localPosition = Vector3.zero;
     }

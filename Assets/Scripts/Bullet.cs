@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    //эта хрень не обязательно будет пулей, это может быть стрела или огненный шар, но логика будет одна
     public Action<BotController, Bullet> onReachedTarget;
     public void MoveToTarget(BotController target, float bulletSpeed)
     {
@@ -15,6 +14,11 @@ public class Bullet : MonoBehaviour
         while (Vector3.Distance(transform.position, target.transform.position) > 0.3f)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, bulletSpeed * Time.deltaTime);
+            if (target != null)
+            {
+                Vector3 direction = target.transform.position - transform.position;
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), 3 * Time.deltaTime);
+            }
             yield return new WaitForEndOfFrame();
         }
 

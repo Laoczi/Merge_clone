@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UnitSettings : MonoBehaviour
 {
@@ -9,8 +10,23 @@ public class UnitSettings : MonoBehaviour
     [field: SerializeField] public float minDistanceToTarget { get; private set; }
     [field: SerializeField] public float attackRate { get; private set; }
     [field: SerializeField] public float attackRange { get; private set; }
-    [field: SerializeField] public Animator animator { get; private set; }
+    public Animator animator { get; private set; }
     [field: SerializeField] public Bullet arrow { get; private set; }
     [field: SerializeField] public Bullet magicSphere { get; private set; }
     [field: SerializeField] public bool isWizard { get; private set; }
+    public GameObject unitHealthBarCanvas { get; set; }
+    public GameObject enemyHealthBarCanvas { get; set; }
+    public Image unitHealthBar { get; set; }
+    public Image enemyHealthBar { get; set; }
+
+    private void OnEnable()
+    {
+        unitHealthBarCanvas = transform.GetChild(1).gameObject;
+        enemyHealthBarCanvas = transform.GetChild(2).gameObject;
+
+        unitHealthBar = unitHealthBarCanvas.transform.GetChild(1).GetComponent<Image>();
+        enemyHealthBar = enemyHealthBarCanvas.transform.GetChild(1).GetComponent<Image>();
+
+        animator = GetComponent<Animator>();
+    }
 }

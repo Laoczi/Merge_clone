@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
         if (PlayerPrefs.HasKey("currentLevel")) currentLevel = PlayerPrefs.GetInt("currentLevel");
         else PlayerPrefs.SetInt("currentLevel", 0);
 
+        currentLevel = 0;//----------------------------------потом убрать
+
         if(currentLevel < EnemyGrid.singleton.levels.Length) EnemyGrid.singleton.Spawn(currentLevel);
         else EnemyGrid.singleton.Spawn(EnemyGrid.singleton.levels.Length - 1);
     }
@@ -34,11 +36,15 @@ public class GameManager : MonoBehaviour
     {
         ClearGameField();
     }
-    void OnEndFight()
+    void OnWinFight()
     {
         onEndFight?.Invoke();
         currentLevel++;
         PlayerPrefs.SetInt("currentLevel", currentLevel);
+    }
+    void OnLoseFight()
+    {
+
     }
     void ClearGameField()
     {
@@ -47,12 +53,12 @@ public class GameManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        GameUIHealthBar.onEnemysHealthZeroOut += OnEndFight;
-        GameUIHealthBar.onUnitsHealthZeroOut += OnEndFight;
+        GameUIHealthBar.onEnemysHealthZeroOut += OnWinFight;
+        GameUIHealthBar.onUnitsHealthZeroOut += OnLoseFight;
     }
     private void OnDisable()
     {
-        GameUIHealthBar.onEnemysHealthZeroOut -= OnEndFight;
-        GameUIHealthBar.onUnitsHealthZeroOut -= OnEndFight;
+        GameUIHealthBar.onEnemysHealthZeroOut -= OnWinFight;
+        GameUIHealthBar.onUnitsHealthZeroOut -= OnLoseFight;
     }
 }

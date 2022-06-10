@@ -19,8 +19,15 @@ public class EnemyInCell : MonoBehaviour, IGrid
         this.type = type;
         this.level = level;
 
-        if (this.type == SpeciesType.human) animator = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[this.level], transform).GetComponent<Animator>();
-        else animator = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[this.level], transform).GetComponent<Animator>();
+        UnitSettings settings;
+
+        if (this.type == SpeciesType.human) settings = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[this.level], transform);
+        else settings = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[this.level], transform);
+
+        animator = settings.animator;
+
+        settings.unitHealthBarCanvas.SetActive(false);
+        settings.enemyHealthBar.fillAmount = 1;
 
         animator.transform.localPosition = Vector3.zero;
     }

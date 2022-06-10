@@ -15,7 +15,7 @@ public abstract class BotController : MonoBehaviour
     protected bool _isAttack;
 
     public abstract TeamType team { get; protected set; }//нужно для поиска правильного типа противника
-    public abstract float Health { get; protected set; }
+    public abstract float health { get; protected set; }
     public abstract bool isDead { get; protected set; }
 
     //методы для глобальных ивентов

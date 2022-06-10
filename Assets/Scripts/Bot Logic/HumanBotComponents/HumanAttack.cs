@@ -6,6 +6,8 @@ using UnityEngine;
 public class HumanAttack : BotAttack
 {
     Bullet _bulletPrefab;
+    List<Bullet> _myBullets = new List<Bullet>();
+
     [SerializeField] float _bulletSpeed;
     public override float attackRate { get; protected set; }
     public override float damage { get; protected set; }
@@ -17,6 +19,7 @@ public class HumanAttack : BotAttack
     Animator _animator;
     BotController target;
     bool _isWizard;
+    
     public override void Init()
     {
         UnitSettings settings = GetComponentInChildren<UnitSettings>();
@@ -49,11 +52,9 @@ public class HumanAttack : BotAttack
         StopAllCoroutines();
         attackProcess = null;
 
-        Bullet[] activeBullets = FindObjectsOfType<Bullet>();
-
-        for (int i = 0; i < activeBullets.Length; i++)
+        for (int i = 0; i < _myBullets.Count; i++)
         {
-            Destroy(activeBullets[i].gameObject);
+            if(_myBullets[i] != null) Destroy(_myBullets[i].gameObject);
         }
     }
 
@@ -80,8 +81,9 @@ public class HumanAttack : BotAttack
 
     private void SpawnBullet(BotController target)
     {
-        Bullet bullet = Instantiate(_bulletPrefab, transform.position + transform.forward * 0.05f + Vector3.up * 0.3f, Quaternion.identity);//потом нужно будет добавить спавн поинт
+        Bullet bullet = Instantiate(_bulletPrefab, transform.position + transform.forward * 0.05f + Vector3.up * 0.3f, Quaternion.LookRotation(target.transform.position - transform.position));//потом нужно будет добавить спавн поинт
         bullet.MoveToTarget(target, _bulletSpeed);
+        _myBullets.Add(bullet);
         bullet.onReachedTarget += OnBulletReachedTarget;
     }
 
