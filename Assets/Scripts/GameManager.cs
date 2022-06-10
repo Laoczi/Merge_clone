@@ -12,18 +12,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _fightMenuPanel;
     public static int currentLevel { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         _mainMenuPanel.SetActive(true);
         _fightMenuPanel.SetActive(false);
+
 
         currentLevel = 0;
         if (PlayerPrefs.HasKey("currentLevel")) currentLevel = PlayerPrefs.GetInt("currentLevel");
         else PlayerPrefs.SetInt("currentLevel", 0);
 
-        currentLevel = 0;//----------------------------------потом убрать
+        currentLevel = 1;//------------------
 
-        if(currentLevel < EnemyGrid.singleton.levels.Length) EnemyGrid.singleton.Spawn(currentLevel);
+    }
+    private void Start()
+    {
+        if (currentLevel < EnemyGrid.singleton.levels.Length) EnemyGrid.singleton.Spawn(currentLevel);
         else EnemyGrid.singleton.Spawn(EnemyGrid.singleton.levels.Length - 1);
     }
     public void StartFight()
@@ -32,24 +36,27 @@ public class GameManager : MonoBehaviour
         _mainMenuPanel.SetActive(false);
         _fightMenuPanel.SetActive(true);
     }
-    void ResetGame()
-    {
-        ClearGameField();
-    }
     void OnWinFight()
     {
         onEndFight?.Invoke();
         currentLevel++;
         PlayerPrefs.SetInt("currentLevel", currentLevel);
+        //вызываем окно победы, а при нажатии "новая игра" чистим поле и спавним заново
     }
     void OnLoseFight()
     {
-
+        onEndFight?.Invoke();
+        currentLevel++;
+        PlayerPrefs.SetInt("currentLevel", currentLevel);
+        //вызываем окно проигрыша, а при нажатии "новая игра" чистим поле и спавним заново
     }
-    void ClearGameField()
+    public void ResetGameFiled()
     {
         EnemyGrid.singleton.DeleteEnemys();
         UnitGrid.singleton.DeleteUnits();
+
+        EnemyGrid.singleton.Spawn(currentLevel);
+        UnitGrid.singleton.SetSavedGridOnScene();
     }
     private void OnEnable()
     {

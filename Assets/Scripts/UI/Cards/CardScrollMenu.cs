@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class CardScrollMenu : MonoBehaviour
 {
+    public static CardScrollMenu singleton;
+
     [Header("Card menu links")]
     [SerializeField] GameObject _menu;
     [SerializeField] GameObject _humanContent;
@@ -21,11 +23,14 @@ public class CardScrollMenu : MonoBehaviour
     [SerializeField] GameObject _humanPopup;
     [SerializeField] GameObject _dinoPopup;
 
-    int _currentHumanOpenedMergeLevel;
-    int _currentDinoOpenedMergeLevel;
+    public int _currentHumanOpenedMergeLevel;
+    public int _currentDinoOpenedMergeLevel;
 
     bool _isOpen;
-
+    private void Awake()
+    {
+        singleton = this;
+    }
     private void Start()
     {
         _currentHumanOpenedMergeLevel = 0;

@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -14,7 +14,8 @@ public class GameUIMoneyText : MonoBehaviour
     }
     void OnChangeMoney()
     {
-        int moneyCount = Money.singleton.count;
+        int moneyCount = Convert.ToInt32(Mathf.Round(Money.singleton.count));
+
         if (moneyCount < 1000)
         {
             _money.text = moneyCount.ToString();
@@ -22,8 +23,8 @@ public class GameUIMoneyText : MonoBehaviour
         }
         else
         {
-            _money.text = (moneyCount / 1000).ToString() + "K";
-            _moneyForFight.text = (moneyCount / 1000).ToString() + "K";
+            _money.text = MathF.Round((moneyCount / 1000),0).ToString() + "K";
+            _moneyForFight.text = MathF.Round((moneyCount / 1000), 0).ToString() + "K";
         }
     }
     private void OnEnable()

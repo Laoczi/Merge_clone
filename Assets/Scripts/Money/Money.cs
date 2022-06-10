@@ -7,7 +7,7 @@ public class Money : MonoBehaviour
     public static Money singleton;
 
     public static event Action onChangeMoney;
-    public int count { get; private set; }
+    public float count { get; private set; }
 
     int[] _nLevelValues = new int[] { 2,2,16,12,36,144,31,80,74,144 };
 
@@ -15,28 +15,27 @@ public class Money : MonoBehaviour
     {
         singleton = this;
 
-        count = 50;//потом поменять на 50
-        if (PlayerPrefs.HasKey("money")) count = PlayerPrefs.GetInt("money");
-        else PlayerPrefs.SetInt("money", 50);
+        count = 50;
+        if (PlayerPrefs.HasKey("money")) count = PlayerPrefs.GetFloat("money");
+        else PlayerPrefs.SetFloat("money", 50);
 
-        PlayerPrefs.SetInt("money", 50000);
-        count = 50000;
+        count = 5000;//----------------------------потом убрать
     }
-    public bool Get(int value)
+    public bool Get(float value)
     {
         if (value > count) return false;
 
         count -= value;
-        PlayerPrefs.SetInt("money", count);
+        PlayerPrefs.SetFloat("money", count);
         onChangeMoney?.Invoke();
         return true;
     }
-    public void Add(int value)
+    public void Add(float value)
     {
-        if (value < 0) throw new System.Exception("you cant add money less than zero");
+        if (value < 0) value = 0;
 
         count += value;
-        PlayerPrefs.SetInt("money", count);
+        PlayerPrefs.SetFloat("money", count);
         onChangeMoney?.Invoke();
     }
     void AddMoneyFromHit(TeamType team, float value, int level)

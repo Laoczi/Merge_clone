@@ -46,7 +46,7 @@ public class UnitGrid : MonoBehaviour
 
         PlayerPrefs.SetString("savedGrid", JsonUtility.ToJson(newData, false));
     }
-    void SetSavedGridOnScene()
+    public void SetSavedGridOnScene()
     {
         if (PlayerPrefs.HasKey("savedGrid") == false) return;
 

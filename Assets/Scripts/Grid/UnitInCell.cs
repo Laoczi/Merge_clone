@@ -50,22 +50,7 @@ public class UnitInCell : MonoBehaviour, IGrid
         _mergeLevel++;
         Destroy(animator.gameObject);
 
-        if (_speciesType == SpeciesType.human)
-        {
-            if (_mergeLevel >= UnitsDataBase.singleton.humanUnitsSettings.Length)
-            {
-                throw new Exception("impossible update unit level more than (" + UnitsDataBase.singleton.humanUnitsSettings.Length + ")");
-            }
-            animator = Instantiate(UnitsDataBase.singleton.humanUnitsSettings[level], transform).GetComponent<Animator>();
-        }
-        else
-        {
-            if (_mergeLevel >= UnitsDataBase.singleton.dinoUnitsSettings.Length)
-            {
-                throw new Exception("impossible update unit level more than (" + UnitsDataBase.singleton.dinoUnitsSettings.Length + ")");
-            }
-            animator = Instantiate(UnitsDataBase.singleton.dinoUnitsSettings[level], transform).GetComponent<Animator>();
-        }
+        SetAnimatorByOwnLevel();
 
         animator.transform.localPosition = Vector3.zero;
     }
