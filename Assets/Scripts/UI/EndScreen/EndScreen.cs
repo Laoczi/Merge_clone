@@ -58,12 +58,12 @@ public class EndScreen : MonoBehaviour
     }
     IEnumerator HideEndMenu()
     {
+        if(_loseMenu.activeSelf) _loseScreenCoinEffect.Emit(10);
+        if (_winMenu.activeSelf) _winScreenCoinEffect.Emit(10); 
+        
         yield return new WaitForSeconds(_closeMenuDealy);
 
         onCloseScreen?.Invoke();
-
-        //if(_loseMenu.activeSelf) _loseScreenCoinEffect.Emit(10);
-        _winScreenCoinEffect.Play();
         _winMenu.SetActive(false);
         _loseMenu.SetActive(false);
         StopAllCoroutines();

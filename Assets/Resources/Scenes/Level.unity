@@ -1313,7 +1313,7 @@ MonoBehaviour:
   _arrowSpeedRotate: 150
   _noThanksButtonDelay: 2
   _openMenuDelay: 2
-  _closeMenuDealy: 2
+  _closeMenuDealy: 1.25
 --- !u!4 &630533013
 Transform:
   m_ObjectHideFlags: 0
