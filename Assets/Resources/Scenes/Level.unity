@@ -1056,7 +1056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3aef21532c64344083e7df0e83c8879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanUnitToSpawn: {fileID: 1351872798224476412, guid: 0b74b7db78c6da84097aefe59bf89b8f, type: 3}
+  hitEffect: {fileID: 2035735560618255931, guid: eeb05cbc4b4b74a41bf817feb364976b, type: 3}
   <humanUnitsSettings>k__BackingField:
   - {fileID: 8245971227406283920, guid: 5fe4c08fd20834d46a02b3c4c390ae81, type: 3}
   - {fileID: 8293595518955810538, guid: 20bf5459cc64e7f43846e4681362e14e, type: 3}
@@ -1069,7 +1069,6 @@ MonoBehaviour:
   - {fileID: 1033426069301895009, guid: 1375b5f38aa635d4f82c8c23dc23daff, type: 3}
   - {fileID: 7839377430772161362, guid: a965842dacc31f74cb95dfccae000004, type: 3}
   - {fileID: 2350011337692767894, guid: da746c060197e444abc6131614ef28f4, type: 3}
-  dinoUnitToSpawn: {fileID: 6591685338319324705, guid: b8a8cd0afbb34344d975ec08f2cbae23, type: 3}
   <dinoUnitsSettings>k__BackingField:
   - {fileID: 893657112395685140, guid: a2627f8a38547ca41ab0e505eefbb02f, type: 3}
   - {fileID: 5758307941314323810, guid: aa0e2a23632165243b0e448374544cc4, type: 3}

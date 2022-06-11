@@ -93,7 +93,7 @@ public class EndScreen : MonoBehaviour
         if (Money.singleton.earndForLastFight > 1000) _loseScreenEarndMoneyForFight.text = Money.singleton.earndForLastFight.ToString() + "K";
         else _loseScreenEarndMoneyForFight.text = Money.singleton.earndForLastFight.ToString();
 
-        _totalEnemyDamageText.text = GameUIHealthBar.singleton.totalEnemyDamagePercent.ToString() + "%";
+        _totalEnemyDamageText.text = Mathf.Round(GameUIHealthBar.singleton.totalEnemyDamagePercent).ToString() + "%";
         _totalEnemyDamageBar.fillAmount = GameUIHealthBar.singleton.totalEnemyDamagePercent / 100;
     }
     IEnumerator RotateArrow(GameObject arrow)

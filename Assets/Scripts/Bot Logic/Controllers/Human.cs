@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class Human : BotController
@@ -61,7 +62,13 @@ public class Human : BotController
 
         if (isDead) return;
 
-        //тут спавнить эффект, у динозавра тоже добавить
+        if(team == TeamType.Enemy)
+        {
+            GameObject hitEffect = Instantiate(UnitsDataBase.singleton.hitEffect, transform.position, Quaternion.identity);
+            hitEffect.GetComponent<TextMeshPro>().text = damageCount.ToString() + "$";
+            Destroy(hitEffect, 1);
+        }
+
         float returnDamage = damageCount > health ? health : damageCount;
         onGetDamage?.Invoke(team, returnDamage, _level);
         health -= damageCount;

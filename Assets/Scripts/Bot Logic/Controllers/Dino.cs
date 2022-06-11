@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Dino : BotController
 {
@@ -64,6 +65,14 @@ public class Dino : BotController
 
         if (isDead) return;
 
+        if (team == TeamType.Enemy)
+        {
+            GameObject hitEffect = Instantiate(UnitsDataBase.singleton.hitEffect, transform.position, Quaternion.identity);
+            hitEffect.GetComponent<TextMeshPro>().text = damageCount.ToString() + "$";
+            Destroy(hitEffect, 1);
+        }
+
+
         float returnDamage = damageCount > health ? health : damageCount;
         onGetDamage?.Invoke(team, returnDamage, _level);
         health -= damageCount;
@@ -93,7 +102,6 @@ public class Dino : BotController
 
     protected override void OnReachedTarget(BotController target)
     {
-        //мы дошли до цели, движение закончилось само
         _attackComponent.Attack(target);
     }
 
