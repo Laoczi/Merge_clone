@@ -1342,6 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _winMenu: {fileID: 976487093}
+  _bonusText: {fileID: 830661148}
   _winScreenEarndMoneyForFight: {fileID: 1005830487}
   _rewardText: {fileID: 830661148}
   _winScreenArrow: {fileID: 1122561685}
@@ -2769,6 +2770,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 630533012}
+    - target: {fileID: 2598700648473832803, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3264334969761294405, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2860,6 +2865,14 @@ PrefabInstance:
     - target: {fileID: 3264334969761294409, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728424462336152405, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078569027352290316, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}

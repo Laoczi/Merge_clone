@@ -13,6 +13,7 @@ public class EndScreen : MonoBehaviour
 
     [Header("Win Screen")]
     [SerializeField] GameObject _winMenu;
+    [SerializeField] TextMeshProUGUI _bonusText;
     [SerializeField] TextMeshProUGUI _winScreenEarndMoneyForFight;
     [SerializeField] TextMeshProUGUI _rewardText;
     [SerializeField] GameObject _winScreenArrow;
@@ -34,6 +35,20 @@ public class EndScreen : MonoBehaviour
 
     GameObject _arrowSpin;
     Coroutine _rotateArrowCoroutine = null;
+
+    int[] _bonusRewards = new int[] 
+    {
+        40,
+        400,
+        640,
+        640,
+        6400,
+        3240,
+        32000,
+        10000,
+        10000,
+        102000,
+    };
 
     private void Awake()
     {
@@ -88,8 +103,14 @@ public class EndScreen : MonoBehaviour
 
         StartCoroutine(ShowNoThanks(_winNoThanks));
 
-        if (Money.singleton.earndForLastFight > 1000) _winScreenEarndMoneyForFight.text = Money.singleton.earndForLastFight.ToString() + "K";
-        else _winScreenEarndMoneyForFight.text = Money.singleton.earndForLastFight.ToString();
+        if (Money.singleton.earndForLastFight > 1000) _winScreenEarndMoneyForFight.text = "+" + Money.singleton.earndForLastFight.ToString() + "K";
+        else _winScreenEarndMoneyForFight.text = "+" + Money.singleton.earndForLastFight.ToString();
+
+        if(GameManager.currentLevel == 2 || GameManager.currentLevel == 5 || GameManager.currentLevel == 7 || GameManager.currentLevel >= 10 ) _bonusText.gameObject.SetActive(true);
+        else _bonusText.gameObject.SetActive(false);
+
+        if (GameManager.currentLevel < _bonusRewards.Length) Money.singleton.Add(_bonusRewards[GameManager.currentLevel]);
+        else Money.singleton.Add(_bonusRewards[_bonusRewards.Length - 1]);
     }
     IEnumerator ShowLoseMenu()
     {
@@ -102,8 +123,8 @@ public class EndScreen : MonoBehaviour
 
         StartCoroutine(ShowNoThanks(_loseNoThanks));
 
-        if (Money.singleton.earndForLastFight > 1000) _loseScreenEarndMoneyForFight.text = Money.singleton.earndForLastFight.ToString() + "K";
-        else _loseScreenEarndMoneyForFight.text = Money.singleton.earndForLastFight.ToString();
+        if (Money.singleton.earndForLastFight > 1000) _loseScreenEarndMoneyForFight.text = "+" + Money.singleton.earndForLastFight.ToString() + "K";
+        else _loseScreenEarndMoneyForFight.text = "+" + Money.singleton.earndForLastFight.ToString();
 
         _totalEnemyDamageText.text = Mathf.Round(GameUIHealthBar.singleton.totalEnemyDamagePercent).ToString() + "%";
         _totalEnemyDamageBar.fillAmount = GameUIHealthBar.singleton.totalEnemyDamagePercent / 100;
