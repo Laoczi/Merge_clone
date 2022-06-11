@@ -7,7 +7,8 @@ public class Money : MonoBehaviour
     public static Money singleton;
 
     public static event Action onChangeMoney;
-    [field: SerializeField] public float count { get; private set; }
+    public float count { get; private set; }
+    public float earndForLastFight { get; private set; }
 
     int[] _nLevelValues = new int[] { 2,2,16,12,36,144,31,80,74,144 };
 
@@ -43,16 +44,23 @@ public class Money : MonoBehaviour
         if (team == TeamType.Unit) return;//если нанесли удар по нашим юнитам, то деньги не прибавляем
         if (level == 0) return;
 
-        Add((int)(_nLevelValues[level] * Mathf.Pow(2, level - 1)));
+        earndForLastFight += (_nLevelValues[level] * Mathf.Pow(2, level - 1));
+        Add((_nLevelValues[level] * Mathf.Pow(2, level - 1)));
+    }
+    void ResetEarndMoney()
+    {
+        earndForLastFight = 0;
     }
     private void OnEnable()
     {
         Human.onGetDamage += AddMoneyFromHit;
         Dino.onGetDamage += AddMoneyFromHit;
+        EndScreen.onCloseScreen += ResetEarndMoney;
     }
     private void OnDisable()
     {
         Human.onGetDamage -= AddMoneyFromHit;
         Dino.onGetDamage -= AddMoneyFromHit;
+        EndScreen.onCloseScreen -= ResetEarndMoney;
     }
 }

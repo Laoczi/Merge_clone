@@ -23,9 +23,6 @@ public class GameManager : MonoBehaviour
         currentLevel = 0;
         if (PlayerPrefs.HasKey("currentLevel")) currentLevel = PlayerPrefs.GetInt("currentLevel");
         else PlayerPrefs.SetInt("currentLevel", 0);
-
-        //currentLevel = 0;//------------------
-
     }
     private void Start()
     {
@@ -42,12 +39,14 @@ public class GameManager : MonoBehaviour
         currentLevel++;
         onEndFight?.Invoke();
         PlayerPrefs.SetInt("currentLevel", currentLevel);
-        //вызываем окно победы, а при нажатии "новая игра" чистим поле и спавним заново
+
+        EndScreen.singleton.OpenWinMenu();
     }
     void OnLoseFight()
     {
         onEndFight?.Invoke();
-        //вызываем окно проигрыша, а при нажатии "новая игра" чистим поле и спавним заново
+
+        EndScreen.singleton.OpenLoseMenu();
     }
     public void ResetGameFiled()
     {
@@ -56,15 +55,22 @@ public class GameManager : MonoBehaviour
 
         EnemyGrid.singleton.Spawn(currentLevel);
         UnitGrid.singleton.SetSavedGridOnScene();
+
+        GameUIHealthBar.singleton.ResetHealthBar();
+
+        _mainMenuPanel.SetActive(true);
+        _fightMenuPanel.SetActive(false);
     }
     private void OnEnable()
     {
         GameUIHealthBar.onEnemysHealthZeroOut += OnWinFight;
         GameUIHealthBar.onUnitsHealthZeroOut += OnLoseFight;
+        EndScreen.onCloseScreen += ResetGameFiled;
     }
     private void OnDisable()
     {
         GameUIHealthBar.onEnemysHealthZeroOut -= OnWinFight;
         GameUIHealthBar.onUnitsHealthZeroOut -= OnLoseFight;
+        EndScreen.onCloseScreen -= ResetGameFiled;
     }
 }

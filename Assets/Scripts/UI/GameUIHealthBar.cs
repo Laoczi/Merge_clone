@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class GameUIHealthBar : MonoBehaviour
 {
+    public static GameUIHealthBar singleton;
+
     public static event Action onUnitsHealthZeroOut;
     public static event Action onEnemysHealthZeroOut;
 
@@ -17,6 +19,15 @@ public class GameUIHealthBar : MonoBehaviour
     float _baseUnitsHealth;
     float _baseEnemysHealth;
 
+    public float totalEnemyDamagePercent { get 
+        {
+            return ((_enemysOverralHealth * 100) / _baseEnemysHealth);
+        } }
+
+    private void Awake()
+    {
+        singleton = this;
+    }
     private void OnEnable()
     {
         GameManager.onStartFight += OnStartFight;
@@ -63,5 +74,10 @@ public class GameUIHealthBar : MonoBehaviour
 
             _enemysHealthBar.fillAmount = ((_enemysOverralHealth * 100) / _baseEnemysHealth) / 100;
         }
+    }
+    public void ResetHealthBar()
+    {
+        _unitsHealthBar.fillAmount = 1;
+        _enemysHealthBar.fillAmount = 1;
     }
 }
