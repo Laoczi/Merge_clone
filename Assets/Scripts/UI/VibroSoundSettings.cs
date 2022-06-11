@@ -49,11 +49,13 @@ public class VibroSoundSettings : MonoBehaviour
     {
         if (vibro)
         {
+            PlayerPrefs.SetInt("VibroSetting", 1);
             _offVibro.gameObject.SetActive(false);
             _onVibro.gameObject.SetActive(true);
         }
         else
         {
+            PlayerPrefs.SetInt("VibroSetting", 0);
             _offVibro.gameObject.SetActive(true);
             _onVibro.gameObject.SetActive(false);
         }
@@ -62,11 +64,13 @@ public class VibroSoundSettings : MonoBehaviour
     {
         if (sound)
         {
+            PlayerPrefs.SetInt("SoundSetting", 1);
             _offSound.gameObject.SetActive(false);
             _onSound.gameObject.SetActive(true);
         }
         else
         {
+            PlayerPrefs.SetInt("SoundSetting", 0);
             _offSound.gameObject.SetActive(true);
             _onSound.gameObject.SetActive(false);
         }
