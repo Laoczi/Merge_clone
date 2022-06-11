@@ -12,6 +12,7 @@ public class EnvironmentProgress : MonoBehaviour
     [SerializeField] Image[] _nextEnvironment;
     [SerializeField] Image[] _levelIndicators;
     [SerializeField] GameObject[] _environment;
+    [SerializeField] PopupNewEnvironment _popup;
     Color _completedLevel = new Color(0.1647059f, 0.7215686f, 0.04313726f, 1);
     Color _currentLevel = new Color(0.9882354f, 0.8039216f, 0.3176471f, 1);
     Color _nextLevel = new Color(0.6698113f,0.6698113f,0.6698113f,1);
@@ -63,14 +64,15 @@ public class EnvironmentProgress : MonoBehaviour
 
         if(currentOpenedEnvironmentId > _lastOpenedEnvironmentId)
         {
-            _lastOpenedEnvironmentId = currentOpenedEnvironmentId;
+            _lastOpenedEnvironmentId = currentOpenedEnvironmentId;//это id последнего открытого окружения
             PlayerPrefs.SetInt("lastOpenedEnvironment", _lastOpenedEnvironmentId);
 
             if(_lastOpenedEnvironmentId < _environment.Length)
             {
                 _environment[_lastOpenedEnvironmentId].SetActive(true);
             }
-            //вызываем popup с новым окружением
+            PopupNewEnvironment popup = Instantiate(_popup);
+            popup.InitStats(_lastOpenedEnvironmentId);
         }
     }
     private void OnEnable()

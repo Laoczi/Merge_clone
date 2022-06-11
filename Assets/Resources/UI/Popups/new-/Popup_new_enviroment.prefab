@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 5280467277976236344}
   - component: {fileID: 8316290239212945940}
   - component: {fileID: 6876162303049688657}
+  - component: {fileID: 1507350170630752035}
   m_Layer: 5
   m_Name: Popup_new_enviroment
   m_TagString: Untagged
@@ -457,6 +458,28 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1507350170630752035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902869889020314981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ef8ac8717463041babbeb180e73432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _logos:
+  - {fileID: 8941828178519398420}
+  - {fileID: 4883016780455357540}
+  - {fileID: 782383833767277329}
+  - {fileID: 1595200948143097748}
+  - {fileID: 8844425666041579101}
+  - {fileID: 6317041515362402969}
+  - {fileID: 7919409562365932787}
+  - {fileID: 7434045350394208118}
+  - {fileID: 2889241522076924056}
 --- !u!1 &2889241522076924056
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2728312595476630651
 RectTransform:
   m_ObjectHideFlags: 0

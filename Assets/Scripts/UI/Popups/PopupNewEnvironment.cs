@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PopupNewEnvironment : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject[] _logos;
 
-    // Update is called once per frame
-    void Update()
+    public void InitStats(int id)
     {
-        
+        _logos[id].SetActive(true);
+    }
+    public void Close()
+    {
+        Sound.singleton.PlayClick();
+        Destroy(this.gameObject);
     }
 }
