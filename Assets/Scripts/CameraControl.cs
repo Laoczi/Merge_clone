@@ -7,6 +7,7 @@ public class CameraControl : MonoBehaviour
 {
     [SerializeField] Vector3 _mainMenuPos;
     [SerializeField] Vector3 _fightPos;
+    [SerializeField] float _duration;
 
     private void Start()
     {
@@ -14,11 +15,11 @@ public class CameraControl : MonoBehaviour
     }
     void OnStartFight()
     {
-        transform.DOMove(_fightPos, 1);
+        transform.DOMove(_fightPos, _duration);
     }
     void OnEndFight()
     {
-        transform.DOMove(_mainMenuPos, 1);
+        transform.DOMove(_mainMenuPos, _duration);
     }
     private void OnEnable()
     {

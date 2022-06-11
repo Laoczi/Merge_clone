@@ -4363,6 +4363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuPos: {x: 0.01, y: 3.94, z: -4.64}
   _fightPos: {x: 0.01, y: 3.94, z: -3.98}
+  _duration: 1
 --- !u!1 &2125250008
 GameObject:
   m_ObjectHideFlags: 0
