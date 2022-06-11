@@ -924,6 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e01a5f4edb3ad641b21f7bccf700878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 1965334197}
 --- !u!1 &430846508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,7 +1356,7 @@ MonoBehaviour:
   _loseScreenCoinEffect: {fileID: 1918577835}
   _arrowSpeedRotate: 150
   _noThanksButtonDelay: 2
-  _openMenuDelay: 2
+  _openMenuDelay: 1
   _closeMenuDealy: 1.25
 --- !u!4 &630533013
 Transform:
@@ -3517,10 +3518,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4019,6 +4020,11 @@ PrefabInstance:
 --- !u!224 &1965334196 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8084973951687910429, guid: e4efd00d346039e4d9ebdbd8f48d22d5, type: 3}
+  m_PrefabInstance: {fileID: 1965334195}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1965334197 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8084973951687910428, guid: e4efd00d346039e4d9ebdbd8f48d22d5, type: 3}
   m_PrefabInstance: {fileID: 1965334195}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1966832930

@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class DinoFadeControl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Animator _animator;
+    void FadeIn()//hide
     {
-        
+        _animator.SetTrigger("FadeIn");
     }
-
-    // Update is called once per frame
-    void Update()
+    void FadeOut()//show
     {
-        
+        _animator.SetTrigger("FadeOut");
+    }
+    private void OnEnable()
+    {
+        EndScreen.onCloseScreen += FadeOut;
+        GameManager.onEndFight += FadeIn;
+    }
+    private void OnDisable()
+    {
+        EndScreen.onCloseScreen -= FadeOut;
+        GameManager.onEndFight -= FadeIn;
     }
 }
