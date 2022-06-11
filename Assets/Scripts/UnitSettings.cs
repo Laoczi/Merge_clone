@@ -18,6 +18,7 @@ public class UnitSettings : MonoBehaviour
     public GameObject enemyHealthBarCanvas { get; set; }
     public Image unitHealthBar { get; set; }
     public Image enemyHealthBar { get; set; }
+    [field: SerializeField] public GameObject body { get; set; }
 
     private void OnEnable()
     {

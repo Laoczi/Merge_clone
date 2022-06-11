@@ -1836,6 +1836,7 @@ MonoBehaviour:
   <arrow>k__BackingField: {fileID: 2036672006749742038, guid: 1d103374fe6e4d646b3231eda4510327, type: 3}
   <magicSphere>k__BackingField: {fileID: 2036672006749742038, guid: 840ac5e563e78f0458438e0bfe40bb25, type: 3}
   <isWizard>k__BackingField: 1
+  <body>k__BackingField: {fileID: 5089488350688010031}
 --- !u!1 &5089488350688010031
 GameObject:
   m_ObjectHideFlags: 0

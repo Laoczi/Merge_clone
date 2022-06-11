@@ -67,7 +67,8 @@ public class Dino : BotController
 
         if (team == TeamType.Enemy)
         {
-            GameObject hitEffect = Instantiate(UnitsDataBase.singleton.hitEffect, transform.position, Quaternion.identity);
+            GameObject hitEffect = Instantiate(UnitsDataBase.singleton.hitEffect);
+            hitEffect.transform.position = transform.position;
             hitEffect.GetComponent<TextMeshPro>().text = damageCount.ToString() + "$";
             Destroy(hitEffect, 1);
         }

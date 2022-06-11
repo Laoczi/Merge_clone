@@ -12,6 +12,7 @@ public class DinoMovement : BotMovement
 
     Coroutine moveProcess;
     Animator _animator;
+    GameObject body;
 
     public override void Init()
     {
@@ -20,6 +21,7 @@ public class DinoMovement : BotMovement
         speed = settings.moveSpeed;
         minDistance = settings.minDistanceToTarget;
         _animator = settings.animator;
+        body = settings.body;
     }
     public override void EndMove()
     {
@@ -42,7 +44,7 @@ public class DinoMovement : BotMovement
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
 
             Vector3 direction = target.transform.position - transform.position;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), 3 * Time.deltaTime);
+            body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.LookRotation(direction), 3 * Time.deltaTime);
 
             yield return new WaitForEndOfFrame();
         }

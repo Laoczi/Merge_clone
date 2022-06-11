@@ -19,16 +19,16 @@ public class CameraControl : MonoBehaviour
     }
     void OnEndFight()
     {
-        transform.DOMove(_mainMenuPos, _duration);
+        transform.position = _mainMenuPos;
     }
     private void OnEnable()
     {
         GameManager.onStartFight += OnStartFight;
-        GameManager.onEndFight += OnEndFight;
+        EndScreen.onCloseScreen += OnEndFight;
     }
     private void OnDisable()
     {
         GameManager.onStartFight -= OnStartFight;
-        GameManager.onEndFight -= OnEndFight;
+        EndScreen.onCloseScreen -= OnEndFight;
     }
 }

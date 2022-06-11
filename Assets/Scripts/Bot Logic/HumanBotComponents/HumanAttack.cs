@@ -19,6 +19,7 @@ public class HumanAttack : BotAttack
     Animator _animator;
     BotController target;
     bool _isWizard;
+    GameObject body;
     
     public override void Init()
     {
@@ -32,6 +33,8 @@ public class HumanAttack : BotAttack
 
         if(_isWizard) _bulletPrefab = settings.magicSphere;
         else _bulletPrefab = settings.arrow;
+
+        body = settings.body;
     }
     public override void Attack(BotController target)
     {
@@ -44,7 +47,7 @@ public class HumanAttack : BotAttack
         if (target != null)
         {
             Vector3 direction = target.transform.position - transform.position;
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), 3 * Time.deltaTime);
+            body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.LookRotation(direction), 3 * Time.deltaTime);
         }
     }
     public override void EndAttack()

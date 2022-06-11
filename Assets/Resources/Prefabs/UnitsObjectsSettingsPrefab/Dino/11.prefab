@@ -240,10 +240,10 @@ MonoBehaviour:
   <minDistanceToTarget>k__BackingField: 0.5
   <attackRate>k__BackingField: 1
   <attackRange>k__BackingField: 0.6
-  <animator>k__BackingField: {fileID: 3452191045165934845}
   <arrow>k__BackingField: {fileID: 0}
   <magicSphere>k__BackingField: {fileID: 0}
   <isWizard>k__BackingField: 0
+  <body>k__BackingField: {fileID: 7291584098499070945}
 --- !u!1 &275729944112562255
 GameObject:
   m_ObjectHideFlags: 0
