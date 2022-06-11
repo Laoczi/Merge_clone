@@ -42,9 +42,6 @@ public class BuyNewUnits : MonoBehaviour
 
         if (PlayerPrefs.HasKey("dinoNumberOfPurchased")) _currentNumberOfDinoPurchased = PlayerPrefs.GetInt("dinoNumberOfPurchased");
         else PlayerPrefs.SetInt("dinoNumberOfPurchased", 0);
-
-        _currentNumberOfHumanPurchased = 0;//----------------
-        _currentNumberOfDinoPurchased = 0;//----------------
     }
     private void Start()
     {
@@ -118,7 +115,7 @@ public class BuyNewUnits : MonoBehaviour
             {
                 _currentNumberOfDinoPurchased++;
                 PlayerPrefs.SetInt("dinoNumberOfPurchased", _currentNumberOfDinoPurchased);
-
+                Sound.singleton.PlayBuyNewUnit();
                 SetNewPrices();
             }
         }
@@ -131,7 +128,7 @@ public class BuyNewUnits : MonoBehaviour
             {
                 _currentNumberOfHumanPurchased++;
                 PlayerPrefs.SetInt("humanNumberOfPurchased", _currentNumberOfHumanPurchased);
-
+                Sound.singleton.PlayBuyNewUnit();
                 SetNewPrices();
             }
         }

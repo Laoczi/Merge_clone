@@ -14,7 +14,7 @@ public class VibroSoundSettings : MonoBehaviour
     [SerializeField] Button _offSound;
     [SerializeField] Button _onSound;
 
-    private void Awake()
+    private void Awake() 
     {
         if (PlayerPrefs.HasKey("VibroSetting"))
         {
@@ -42,33 +42,33 @@ public class VibroSoundSettings : MonoBehaviour
     public void SwitchSoundSetting()
     {
         sound = !sound;
-
+        Sound.singleton.PlayClick();
         CheckSoundState();
     }
     void CheckVibroState()
     {
         if (vibro)
         {
-            _offVibro.gameObject.SetActive(true);
-            _onVibro.gameObject.SetActive(false);
+            _offVibro.gameObject.SetActive(false);
+            _onVibro.gameObject.SetActive(true);
         }
         else
         {
-            _offVibro.gameObject.SetActive(false);
-            _onVibro.gameObject.SetActive(true);
+            _offVibro.gameObject.SetActive(true);
+            _onVibro.gameObject.SetActive(false);
         }
     }
     void CheckSoundState()
     {
         if (sound)
         {
-            _offSound.gameObject.SetActive(true);
-            _onSound.gameObject.SetActive(false);
+            _offSound.gameObject.SetActive(false);
+            _onSound.gameObject.SetActive(true);
         }
         else
         {
-            _offSound.gameObject.SetActive(false);
-            _onSound.gameObject.SetActive(true);
+            _offSound.gameObject.SetActive(true);
+            _onSound.gameObject.SetActive(false);
         }
     }
 }

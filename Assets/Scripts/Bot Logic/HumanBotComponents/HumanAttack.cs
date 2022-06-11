@@ -65,7 +65,8 @@ public class HumanAttack : BotAttack
         if(_isWizard) _animator.SetTrigger("WizardAttack");
         else _animator.SetTrigger("Attack");
 
-        yield return new WaitForSeconds(0.38f); 
+        yield return new WaitForSeconds(0.38f);
+        Sound.singleton.PlayArrow();
         SpawnBullet(target);
 
         if (CheckTarget(target) == false) yield break;
@@ -86,6 +87,7 @@ public class HumanAttack : BotAttack
     private void OnBulletReachedTarget(BotController target, Bullet bullet)
     {
         bullet.onReachedTarget -= OnBulletReachedTarget;
+        Sound.singleton.PlayArrowReachedTarget();
         target.DealDamage(damage);
     }
 

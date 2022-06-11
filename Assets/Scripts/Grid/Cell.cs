@@ -132,6 +132,7 @@ public class Cell : MonoBehaviour
             if (this.unit.level == unit.level && this.unit.type == unit.type)
             {
                 this.unit.UpdateMergeLevel();
+                Sound.singleton.PlayMerge();
                 onMerge?.Invoke(this.unit.type, this.unit.level);
                 onDeleteUnitWhenMerge?.Invoke(unit);
                 Destroy(unit.gameObject);

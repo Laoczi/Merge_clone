@@ -40,6 +40,7 @@ public class PopupNewCharacter : MonoBehaviour
     }
     public void Close()
     {
+        Sound.singleton.PlayClick();
         Destroy(this.gameObject);
     }
 }

@@ -52,6 +52,7 @@ public class CardScrollMenu : MonoBehaviour
     public void OpenHumanScroll()
     {
         if (_isOpen == false) return;
+        Sound.singleton.PlayClick();
         _humanContent.SetActive(true);
         _dinoContent.SetActive(false);
         _lineLabel.DOAnchorPos(new Vector2(50, -35), 0.25f);
@@ -59,12 +60,14 @@ public class CardScrollMenu : MonoBehaviour
     public void OpenDinoScroll()
     {
         if (_isOpen == false) return;
+        Sound.singleton.PlayClick();
         _humanContent.SetActive(false);
         _dinoContent.SetActive(true);
         _lineLabel.DOAnchorPos(new Vector2(-200, -35), 0.25f);
     }
     public void CloseMenu()
     {
+        Sound.singleton.PlayClick();
         _menu.SetActive(false);
     }
     void UpdateCardStates()
@@ -106,6 +109,8 @@ public class CardScrollMenu : MonoBehaviour
 
             PopupNewCharacter popup = Instantiate(_humanPopup);
             popup.InitStats(mergeLevel);
+
+            Sound.singleton.PlayNewUnit();
         }
         if (type == SpeciesType.dino && mergeLevel > _currentDinoOpenedMergeLevel)
         {
@@ -114,6 +119,8 @@ public class CardScrollMenu : MonoBehaviour
 
             PopupNewCharacter popup = Instantiate(_dinoPopup);
             popup.InitStats(mergeLevel);
+
+            Sound.singleton.PlayNewUnit();
         }
 
         UpdateCardStates();

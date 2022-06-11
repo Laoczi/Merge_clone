@@ -39,13 +39,13 @@ public class GameManager : MonoBehaviour
         currentLevel++;
         onEndFight?.Invoke();
         PlayerPrefs.SetInt("currentLevel", currentLevel);
-
+        Sound.singleton.PlayWin();
         EndScreen.singleton.OpenWinMenu();
     }
     void OnLoseFight()
     {
         onEndFight?.Invoke();
-
+        Sound.singleton.PlayLose();
         EndScreen.singleton.OpenLoseMenu();
     }
     public void ResetGameFiled()

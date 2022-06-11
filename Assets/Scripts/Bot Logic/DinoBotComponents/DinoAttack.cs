@@ -48,6 +48,7 @@ public class DinoAttack : BotAttack
         {
             _animator.SetTrigger("Attack");
             yield return new WaitForSeconds(0.45f);
+            Sound.singleton.PlayDinoAttack();
             OnHit();
         }
         else

@@ -32,6 +32,8 @@ public class EndScreen : MonoBehaviour
     [SerializeField] float _openMenuDelay;
     [SerializeField] float _closeMenuDealy;
 
+    GameObject _arrowSpin;
+
     private void Awake()
     {
         singleton = this;
@@ -58,7 +60,9 @@ public class EndScreen : MonoBehaviour
     }
     IEnumerator HideEndMenu()
     {
-        if(_loseMenu.activeSelf) _loseScreenCoinEffect.Emit(10);
+        if (_arrowSpin != null) Destroy(_arrowSpin);
+        Sound.singleton.PlayClick();
+        if (_loseMenu.activeSelf) _loseScreenCoinEffect.Emit(10);
         if (_winMenu.activeSelf) _winScreenCoinEffect.Emit(10); 
         
         yield return new WaitForSeconds(_closeMenuDealy);
@@ -72,6 +76,7 @@ public class EndScreen : MonoBehaviour
     {
         yield return new WaitForSeconds(_openMenuDelay);
 
+        Sound.singleton.PlayCollectCoin();
         _winMenu.SetActive(true);
         StartCoroutine(RotateArrow(_winScreenArrow));
 
@@ -84,6 +89,7 @@ public class EndScreen : MonoBehaviour
     {
         yield return new WaitForSeconds(_openMenuDelay);
 
+        Sound.singleton.PlayCollectCoin();
         _loseMenu.SetActive(true);
 
         StartCoroutine(RotateArrow(_loseScreenArrow));
@@ -98,6 +104,7 @@ public class EndScreen : MonoBehaviour
     }
     IEnumerator RotateArrow(GameObject arrow)
     {
+        _arrowSpin = Sound.singleton.PlayArrowSpin();
         while (true)
         {
             arrow.transform.Rotate(Vector3.forward * Time.deltaTime * _arrowSpeedRotate);
