@@ -166,6 +166,9 @@ public class EndScreen : MonoBehaviour
         {
             _currentBonus = _bonusRewards[_bonusRewards.Length - 1] * ((100 - GameUIHealthBar.singleton.totalEnemyDamagePercent) / 100);
         }
+
+
+        if (GameManager.currentLevel == 0) _loseScreenEarndMoneyForFight.text = "+ 14";
     }
     IEnumerator RotateArrow(GameObject arrow, TextMeshProUGUI adText)
     {
