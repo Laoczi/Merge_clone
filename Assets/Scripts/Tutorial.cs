@@ -47,10 +47,10 @@ public class Tutorial : MonoBehaviour
     }
     void AddFirstFarrior()
     {
+        _tutorWarrior.onClick.RemoveAllListeners();
         if (UnitGrid.singleton.CheckCell(11)) UnitGrid.singleton.AddUnitInCell(SpeciesType.human, 11);
         else UnitGrid.singleton.AddHumanUnit();
 
-        BuyNewUnits.singleton.AddHumanNumberPurchased();
         _tutorOneMain.SetActive(true);
         _tutorOne.SetActive(false);
         _tutorTwo.SetActive(true);
@@ -60,6 +60,7 @@ public class Tutorial : MonoBehaviour
     }
     void AfterFirstMerge()
     {
+        Cell.onMoveUnit -= AfterFirstMerge;
         _startFightButton.SetActive(true);
         _tutorOneMain.SetActive(false);
         EndScreen.onCloseScreen += AfterSecondFight;
@@ -74,6 +75,7 @@ public class Tutorial : MonoBehaviour
     }
     void AfterSecondDino()
     {
+        _tutorDino.onClick.RemoveAllListeners();
         Debug.Log("добавляем нового дино");
         //как будем спавнить стрелку, сначала спавним второго дино сбоку от первого
         _tutorThree.SetActive(false);
@@ -96,7 +98,6 @@ public class Tutorial : MonoBehaviour
         else if (UnitGrid.singleton.CheckCell(_firstDino.cellIndex - 5)) UnitGrid.singleton.AddUnitInCell(SpeciesType.dino, _firstDino.cellIndex - 5);
         else if (UnitGrid.singleton.CheckCell(_firstDino.cellIndex + 5)) UnitGrid.singleton.AddUnitInCell(SpeciesType.dino, _firstDino.cellIndex + 5);
 
-        BuyNewUnits.singleton.AddHumanNumberPurchased();
         //пока не буду спавнить правильно, потом буду подгонять
         Cell.onMerge += OnFirstMerge;
     }
@@ -107,6 +108,13 @@ public class Tutorial : MonoBehaviour
         _startFightButton.SetActive(true);
         _tutorOneMain.SetActive(false);
         _tutorTwoMain.SetActive(false);
+        _dinoButton.SetActive(false);
+        _warriorButton.SetActive(false);
+        EndScreen.onCloseScreen += End;
+    }
+    void End()
+    {
+        EndScreen.onCloseScreen -= End;
         _dinoButton.SetActive(true);
         _warriorButton.SetActive(true);
         PlayerPrefs.SetInt("isEndTutor", 1);

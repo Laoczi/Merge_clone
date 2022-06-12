@@ -692,26 +692,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutor_2
       objectReference: {fileID: 0}
-    - target: {fileID: 9189349067447555383, guid: 82bcdd0c0d7841740b4a41046eb51388, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189349068129600777, guid: 82bcdd0c0d7841740b4a41046eb51388, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189349068746531605, guid: 82bcdd0c0d7841740b4a41046eb51388, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189349068746531605, guid: 82bcdd0c0d7841740b4a41046eb51388, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9189349068746531606, guid: 82bcdd0c0d7841740b4a41046eb51388, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82bcdd0c0d7841740b4a41046eb51388, type: 3}
 --- !u!1 &205541178 stripped
@@ -1601,7 +1581,6 @@ MonoBehaviour:
   _winMenu: {fileID: 976487093}
   _bonusText: {fileID: 830661148}
   _winScreenEarndMoneyForFight: {fileID: 1005830487}
-  _rewardText: {fileID: 830661148}
   _winScreenArrow: {fileID: 1122561685}
   _winNoThanks: {fileID: 1207119081}
   _winScreenCoinEffect: {fileID: 285454273}

@@ -15,7 +15,6 @@ public class EndScreen : MonoBehaviour
     [SerializeField] GameObject _winMenu;
     [SerializeField] TextMeshProUGUI _bonusText;
     [SerializeField] TextMeshProUGUI _winScreenEarndMoneyForFight;
-    [SerializeField] TextMeshProUGUI _rewardText;
     [SerializeField] GameObject _winScreenArrow;
     [SerializeField] GameObject _winNoThanks;
     [SerializeField] ParticleSystem _winScreenCoinEffect;
@@ -103,14 +102,29 @@ public class EndScreen : MonoBehaviour
 
         StartCoroutine(ShowNoThanks(_winNoThanks));
 
-        if (Money.singleton.earndForLastFight > 1000) _winScreenEarndMoneyForFight.text = "+" + Money.singleton.earndForLastFight.ToString() + "K";
-        else _winScreenEarndMoneyForFight.text = "+" + Money.singleton.earndForLastFight.ToString();
-
         if(GameManager.currentLevel == 2 || GameManager.currentLevel == 5 || GameManager.currentLevel == 7 || GameManager.currentLevel >= 10 ) _bonusText.gameObject.SetActive(true);
         else _bonusText.gameObject.SetActive(false);
 
-        if (GameManager.currentLevel < _bonusRewards.Length) Money.singleton.Add(_bonusRewards[GameManager.currentLevel]);
-        else Money.singleton.Add(_bonusRewards[_bonusRewards.Length - 1]);
+        float currentBonus;
+
+        if (GameManager.currentLevel < _bonusRewards.Length)
+        {
+            currentBonus = _bonusRewards[GameManager.currentLevel];
+            Money.singleton.Add(_bonusRewards[GameManager.currentLevel]);
+        }
+        else
+        {
+            currentBonus = _bonusRewards[_bonusRewards.Length - 1];
+            Money.singleton.Add(_bonusRewards[_bonusRewards.Length - 1]);
+        }
+
+        
+
+        if ((Money.singleton.earndForLastFight + currentBonus) > 1000)
+        {
+            _winScreenEarndMoneyForFight.text = "+" + (Money.singleton.earndForLastFight + currentBonus).ToString() + "K";
+        }
+        else _winScreenEarndMoneyForFight.text = "+" + (Money.singleton.earndForLastFight + currentBonus).ToString();
     }
     IEnumerator ShowLoseMenu()
     {

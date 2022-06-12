@@ -64,6 +64,7 @@ public class Human : BotController
 
         if(team == TeamType.Enemy)
         {
+            Debug.Log("deal damage");
             GameObject hitEffect = Instantiate(UnitsDataBase.singleton.hitEffect);
             hitEffect.transform.position = transform.position;
             hitEffect.GetComponent<TextMeshPro>().text = damageCount.ToString() + "$";

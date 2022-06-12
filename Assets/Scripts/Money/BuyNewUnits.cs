@@ -88,8 +88,8 @@ public class BuyNewUnits : MonoBehaviour
         _currentPriceForDino = 160 * g * xDino;
         _currentPriceForHuman = 160 * g * xHuman;
 
-        if (_currentNumberOfHumanPurchased <= 1) _currentPriceForHuman = 2;
-        if (_currentNumberOfDinoPurchased <= 1) _currentPriceForDino = 2;
+        //if (_currentNumberOfHumanPurchased <= 1) _currentPriceForHuman = 2;
+        //if (_currentNumberOfDinoPurchased <= 1) _currentPriceForDino = 2;
 
         int priceForDino = Convert.ToInt32(_currentPriceForDino);
         int priceForHuman = Convert.ToInt32(_currentPriceForHuman);

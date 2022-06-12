@@ -42,9 +42,9 @@ public class Money : MonoBehaviour
     void AddMoneyFromHit(TeamType team, float value, int level)
     {
         if (team == TeamType.Unit) return;//если нанесли удар по нашим юнитам, то деньги не прибавляем
-        if (level == 0) return;
 
         earndForLastFight += (_nLevelValues[level] * Mathf.Pow(2, level - 1));
+        Debug.Log("current earnd money " + earndForLastFight);
         Add((_nLevelValues[level] * Mathf.Pow(2, level - 1)));
     }
     void ResetEarndMoney()
