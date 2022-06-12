@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3202799952150612500}
   - component: {fileID: 7347272776494559912}
   - component: {fileID: 2277776825467761657}
+  - component: {fileID: 8345265764076556038}
   m_Layer: 0
   m_Name: Damage_text
   m_TagString: Untagged
@@ -135,6 +136,26 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!95 &8345265764076556038
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7263024399662670254}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e505ac4431b850c4c85e297a66209697, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7471025325769947104
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2855200000715010173}
+  - component: {fileID: 3495226956293239477}
   m_Layer: 0
   m_Name: Damage
   m_TagString: Untagged
@@ -167,6 +189,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3495226956293239477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471025325769947104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7a9623d4524dc4cbe17d7aa95ce511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 2277776825467761657}
 --- !u!1 &8765480235127872758
 GameObject:
   m_ObjectHideFlags: 0

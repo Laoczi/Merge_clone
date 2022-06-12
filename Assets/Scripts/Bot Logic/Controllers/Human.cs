@@ -21,6 +21,7 @@ public class Human : BotController
     float _baseHealth;
     public override bool isDead { get; protected set; }
     int _level;
+    int[] _nLevelValues = new int[] { 2, 2, 16, 12, 36, 144, 31, 80, 74, 144 };
 
     protected override void OnStartFight()
     {
@@ -71,8 +72,8 @@ public class Human : BotController
         {
             Debug.Log("deal damage");
             GameObject hitEffect = Instantiate(UnitsDataBase.singleton.hitEffect);
-            hitEffect.transform.position = transform.position;
-            hitEffect.GetComponent<TextMeshPro>().text = damageCount.ToString() + "$";
+            hitEffect.transform.position = transform.position + Vector3.up * 0.5f;
+            hitEffect.GetComponent<DamagePopup>().text.text = (Mathf.RoundToInt(_nLevelValues[_level] * Mathf.Pow(2, _level - 1))).ToString() + "$";
             Destroy(hitEffect, 1);
         }
 
