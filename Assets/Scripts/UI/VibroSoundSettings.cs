@@ -18,15 +18,15 @@ public class VibroSoundSettings : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("VibroSetting"))
         {
+            vibro = PlayerPrefs.GetInt("VibroSetting") == 1;
+            sound = PlayerPrefs.GetInt("SoundSetting") == 1;
+        }
+        else
+        {
             PlayerPrefs.SetInt("VibroSetting", 1);
             PlayerPrefs.SetInt("SoundSetting", 1);
             vibro = true;
             sound = true;
-        }
-        else
-        {
-            vibro = PlayerPrefs.GetInt("VibroSetting") == 1;
-            sound = PlayerPrefs.GetInt("SoundSetting") == 1;
         }
 
         CheckVibroState();
