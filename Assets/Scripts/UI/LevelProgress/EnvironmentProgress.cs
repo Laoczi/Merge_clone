@@ -44,7 +44,7 @@ public class EnvironmentProgress : MonoBehaviour
             {
                 currentLevel -= 9;
                 currentOpenedEnvironmentId = i;
-                _environment[i].SetActive(true);
+                _environment[i].SetActive(true);//тут возможно ошибка, если выйдем за пределы массива
             }
         }
         for (int i = 0; i < _nextEnvironment.Length; i++)
@@ -52,7 +52,7 @@ public class EnvironmentProgress : MonoBehaviour
             _nextEnvironment[i].gameObject.SetActive(false);
         }
 
-        _openedEnvironment[currentOpenedEnvironmentId].gameObject.SetActive(true);
+        _openedEnvironment[currentOpenedEnvironmentId].gameObject.SetActive(true);//лишь бы блять и тут не выйти за пределы массива
         _nextEnvironment[currentOpenedEnvironmentId].gameObject.SetActive(true);
 
         for (int i = 0; i < _levelIndicators.Length; i++)
@@ -64,7 +64,7 @@ public class EnvironmentProgress : MonoBehaviour
 
         if(currentOpenedEnvironmentId > _lastOpenedEnvironmentId)
         {
-            _lastOpenedEnvironmentId = currentOpenedEnvironmentId;//это id последнего открытого окружения
+            _lastOpenedEnvironmentId = currentOpenedEnvironmentId;
             PlayerPrefs.SetInt("lastOpenedEnvironment", _lastOpenedEnvironmentId);
 
             if(_lastOpenedEnvironmentId < _environment.Length)

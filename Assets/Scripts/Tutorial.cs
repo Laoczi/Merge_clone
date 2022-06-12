@@ -20,7 +20,6 @@ public class Tutorial : MonoBehaviour
     UnitInCell _firstDino;
     private void Start()
     {
-        PlayerPrefs.DeleteKey("isEndTutor");
         if (PlayerPrefs.HasKey("isEndTutor") == false)
         {
             _dinoButton.SetActive(false);

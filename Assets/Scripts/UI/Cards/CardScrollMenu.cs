@@ -36,9 +36,6 @@ public class CardScrollMenu : MonoBehaviour
         _currentHumanOpenedMergeLevel = 0;
         _currentDinoOpenedMergeLevel = 0;
 
-        PlayerPrefs.DeleteKey("openedHumanMergeLevel");
-        PlayerPrefs.DeleteKey("openedDinoMergeLevel");//--------------------
-
         if (PlayerPrefs.HasKey("openedHumanMergeLevel")) _currentHumanOpenedMergeLevel = PlayerPrefs.GetInt("openedHumanMergeLevel");
         else PlayerPrefs.SetInt("openedHumanMergeLevel", 0);
 

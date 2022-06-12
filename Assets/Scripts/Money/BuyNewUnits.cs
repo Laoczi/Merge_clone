@@ -20,8 +20,8 @@ public class BuyNewUnits : MonoBehaviour
     float _currentPriceForHuman = 2;
     float _currentPriceForDino = 2;
 
-    int _currentNumberOfHumanPurchased = 0;
-    int _currentNumberOfDinoPurchased = 0;
+    int _currentNumberOfHumanPurchased;
+    int _currentNumberOfDinoPurchased;
 
     float[] xPricesForLevel = new float[]
     {
@@ -53,14 +53,15 @@ public class BuyNewUnits : MonoBehaviour
     {
         singleton = this;
 
+        _currentNumberOfHumanPurchased = 0;
+        _currentNumberOfDinoPurchased = 0;
+
         if (PlayerPrefs.HasKey("humanNumberOfPurchased")) _currentNumberOfHumanPurchased = PlayerPrefs.GetInt("humanNumberOfPurchased");
         else PlayerPrefs.SetInt("humanNumberOfPurchased", 0);
 
         if (PlayerPrefs.HasKey("dinoNumberOfPurchased")) _currentNumberOfDinoPurchased = PlayerPrefs.GetInt("dinoNumberOfPurchased");
         else PlayerPrefs.SetInt("dinoNumberOfPurchased", 0);
 
-        _currentNumberOfHumanPurchased = 0;
-        _currentNumberOfDinoPurchased = 0;
     }
     private void Start()
     {

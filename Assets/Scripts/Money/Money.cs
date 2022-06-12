@@ -16,11 +16,9 @@ public class Money : MonoBehaviour
     {
         singleton = this;
 
-        count = 50;
+        count = 0;
         if (PlayerPrefs.HasKey("money")) count = PlayerPrefs.GetFloat("money");
-        else PlayerPrefs.SetFloat("money", 50);
-
-        count = 5000;//----------------------------потом убрать
+        else PlayerPrefs.SetFloat("money", 0);
     }
     public bool Get(float value)
     {

@@ -26,8 +26,6 @@ public class UnitGrid : MonoBehaviour
     }
     private void Start()
     {
-        PlayerPrefs.DeleteKey("savedGrid");//-------------------------
-        //Debug.Log(PlayerPrefs.GetString("savedGrid"));
         SetSavedGridOnScene();
     }
     void SaveCurrentGrid()

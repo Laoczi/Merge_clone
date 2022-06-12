@@ -17,9 +17,6 @@ public class GameManager : MonoBehaviour
         _mainMenuPanel.SetActive(true);
         _fightMenuPanel.SetActive(false);
 
-        PlayerPrefs.DeleteKey("currentLevel");//----------------
-
-
         currentLevel = 0;
         if (PlayerPrefs.HasKey("currentLevel")) currentLevel = PlayerPrefs.GetInt("currentLevel");
         else PlayerPrefs.SetInt("currentLevel", 0);
