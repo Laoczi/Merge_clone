@@ -23,19 +23,19 @@ public class PopupNewCharacter : MonoBehaviour
         {
             float currentHealth = UnitsDataBase.singleton.humanUnitsSettings[id].health;
             _currentHealth.text = currentHealth.ToString();
-            _differentHealth.text = (currentHealth - UnitsDataBase.singleton.humanUnitsSettings[id - 1].health).ToString();
+            _differentHealth.text = "+" + (currentHealth - UnitsDataBase.singleton.humanUnitsSettings[id - 1].health).ToString();
             float currentDamage = UnitsDataBase.singleton.humanUnitsSettings[id].damage;
             _currentAttack.text = currentDamage.ToString();
-            _differentAttack.text = (currentDamage - UnitsDataBase.singleton.humanUnitsSettings[id - 1].damage).ToString();
+            _differentAttack.text = "+" + (currentDamage - UnitsDataBase.singleton.humanUnitsSettings[id - 1].damage).ToString();
         }
         else
         {
             float currentHealth = UnitsDataBase.singleton.dinoUnitsSettings[id].health;
             _currentHealth.text = currentHealth.ToString();
-            _differentHealth.text = (currentHealth - UnitsDataBase.singleton.dinoUnitsSettings[id - 1].health).ToString();
+            _differentHealth.text = "+" + (currentHealth - UnitsDataBase.singleton.dinoUnitsSettings[id - 1].health).ToString();
             float currentDamage = UnitsDataBase.singleton.dinoUnitsSettings[id].damage;
             _currentAttack.text = currentDamage.ToString();
-            _differentAttack.text = (currentDamage - UnitsDataBase.singleton.dinoUnitsSettings[id - 1].damage).ToString();
+            _differentAttack.text = "+" + (currentDamage - UnitsDataBase.singleton.dinoUnitsSettings[id - 1].damage).ToString();
         }
     }
     public void Close()

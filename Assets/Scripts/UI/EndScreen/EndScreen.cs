@@ -35,8 +35,9 @@ public class EndScreen : MonoBehaviour
     GameObject _arrowSpin;
     Coroutine _rotateArrowCoroutine = null;
 
-    int[] _bonusRewards = new int[] 
+    int[] _bonusRewards = new int[]
     {
+        0,
         40,
         400,
         640,
@@ -107,6 +108,7 @@ public class EndScreen : MonoBehaviour
 
         float currentBonus;
 
+
         if (GameManager.currentLevel < _bonusRewards.Length)
         {
             currentBonus = _bonusRewards[GameManager.currentLevel];
@@ -114,11 +116,12 @@ public class EndScreen : MonoBehaviour
         }
         else
         {
-            currentBonus = _bonusRewards[_bonusRewards.Length - 1];
-            Money.singleton.Add(_bonusRewards[_bonusRewards.Length - 1]);
+            currentBonus = _bonusRewards[_bonusRewards.Length];
+            Money.singleton.Add(_bonusRewards[_bonusRewards.Length]);
         }
 
-        
+
+        Debug.Log("current bonus" + currentBonus);
 
         if ((Money.singleton.earndForLastFight + currentBonus) > 1000)
         {
