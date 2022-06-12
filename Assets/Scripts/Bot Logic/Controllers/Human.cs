@@ -54,6 +54,11 @@ public class Human : BotController
         _collider.enabled = false;
         _attackComponent.EndAttack();
         _animator.SetTrigger("Die");
+
+        UnitSettings settings = GetComponentInChildren<UnitSettings>();
+
+        if (team == TeamType.Unit) settings.unitHealthBarCanvas.gameObject.SetActive(false);
+        else settings.enemyHealthBarCanvas.gameObject.SetActive(false);
     }
 
     public override void DealDamage(float damageCount)
