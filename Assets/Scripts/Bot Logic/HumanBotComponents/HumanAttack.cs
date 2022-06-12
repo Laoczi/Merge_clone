@@ -40,6 +40,8 @@ public class HumanAttack : BotAttack
     {
         if (attackRate <= 0 || damage <= 0) throw new Exception("темп атаки или урон не могут быть меньше или равны нулю");
 
+        this.target = target;
+
         if (attackProcess == null) attackProcess = StartCoroutine(AttackProcess(target));
     }
     private void Update()
@@ -98,6 +100,7 @@ public class HumanAttack : BotAttack
     {
         if (target == null)
         {
+            this.target = null;
             attackProcess = null;
             onEndWithTarget?.Invoke();
             return false;
@@ -105,6 +108,7 @@ public class HumanAttack : BotAttack
 
         if (target.isDead)
         {
+            this.target = null;
             attackProcess = null;
             onEndWithTarget?.Invoke();
             return false;
