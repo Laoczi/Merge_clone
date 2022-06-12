@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 1810402831}
+  <health>k__BackingField: 0
 --- !u!114 &1810402832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d738be6e1f662e47937038e29b5de16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletSpeed: 1
+  _bulletSpeed: 2
 --- !u!65 &1810402831
 BoxCollider:
   m_ObjectHideFlags: 0

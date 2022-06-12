@@ -1591,8 +1591,8 @@ MonoBehaviour:
   _loseScreenArrow: {fileID: 1134362393}
   _loseNoThanks: {fileID: 1918577834}
   _loseScreenCoinEffect: {fileID: 1918577835}
-  _arrowSpeedRotate: 150
-  _noThanksButtonDelay: 2
+  _arrowSpeedRotate: -200
+  _noThanksButtonDelay: 1.5
   _openMenuDelay: 1
   _closeMenuDealy: 1.25
 --- !u!4 &630533013
