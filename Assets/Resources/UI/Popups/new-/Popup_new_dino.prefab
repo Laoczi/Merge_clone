@@ -4083,7 +4083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4649033299083110657, guid: 0e9aa44dc4bae3b4ea54092474e2bc00, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4649033299083110659, guid: 0e9aa44dc4bae3b4ea54092474e2bc00, type: 3}
       propertyPath: SizeModule.curve.scalar

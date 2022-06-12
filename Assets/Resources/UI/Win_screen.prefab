@@ -3679,7 +3679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4649033299083110657, guid: fc7c8752a549f194eacebe26ceb2935a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4649033299083110657, guid: fc7c8752a549f194eacebe26ceb2935a, type: 3}
       propertyPath: m_Maskable
@@ -3737,7 +3737,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6899881108678994122, guid: 17af9415c855a36419781e2d3d39e16c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6899881108678994122, guid: 17af9415c855a36419781e2d3d39e16c, type: 3}
       propertyPath: m_Maskable
