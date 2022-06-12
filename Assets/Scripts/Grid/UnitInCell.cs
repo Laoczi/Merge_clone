@@ -37,6 +37,7 @@ public class UnitInCell : MonoBehaviour, IGrid
     {
         if (value < 0) throw new Exception("cell index cant be less than zero");
 
+        Debug.Log("check" + value);
         cellIndex = value;
     }
     public void SetLevel(int value)

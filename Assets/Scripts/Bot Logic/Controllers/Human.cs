@@ -82,6 +82,10 @@ public class Human : BotController
         }
 
         _healthBar.fillAmount = ((health * 100) / _baseHealth) / 100;
+
+
+        //_attackComponent.EndAttack();
+        //MoveToNewTarget();
     }
 
     protected override void MoveToNewTarget()

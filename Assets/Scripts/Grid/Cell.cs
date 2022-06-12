@@ -5,6 +5,7 @@ public class Cell : MonoBehaviour
 {
     //контроль перемещени€ и мерджа
     public static event Action<SpeciesType, int> onMerge;
+    public static event Action onMoveUnit;
     public static event Action<UnitInCell> onDeleteUnitWhenMerge;
     public bool isAvailable { get; private set; }
     public UnitInCell unit { get; private set; }
@@ -22,10 +23,12 @@ public class Cell : MonoBehaviour
     private void OnEnable()
     {
         GameManager.onStartFight += OnStartFight;
+        EndScreen.onCloseScreen += OnResetGame;
     }
     private void OnDisable()
     {
         GameManager.onStartFight -= OnStartFight;
+        EndScreen.onCloseScreen -= OnResetGame;
     }
     void OnStartFight()
     {
@@ -95,12 +98,14 @@ public class Cell : MonoBehaviour
                             {
                                 cell.SetUnit(unit);
                                 NullUnitLink();
+                                onMoveUnit?.Invoke();
                                 return;
                             }
                             if (cell.unit.type == SpeciesType.dino && cell.unit.level <= 10)
                             {
                                 cell.SetUnit(unit);
                                 NullUnitLink();
+                                onMoveUnit?.Invoke();
                                 return;
                             }
                         }
@@ -108,6 +113,7 @@ public class Cell : MonoBehaviour
                         {
                             cell.SetUnit(unit);
                             NullUnitLink();
+                            onMoveUnit?.Invoke();
                             return;
                         }
                     }
@@ -141,9 +147,9 @@ public class Cell : MonoBehaviour
         }
         isAvailable = false;
     }
-    void NullUnitLink()//убирает обьект из €чейки
+    public void NullUnitLink()//убирает обьект из €чейки
     {
-        if (unit == null) throw new Exception("¬ €чейке нет юнита чтобы убрать его");
+        if (unit == null) return;
 
         unit = null;
         isAvailable = true;

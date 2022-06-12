@@ -26,7 +26,7 @@ public class UnitGrid : MonoBehaviour
     }
     private void Start()
     {
-        PlayerPrefs.DeleteKey("savedGrid");
+        PlayerPrefs.DeleteKey("savedGrid");//-------------------------
         //Debug.Log(PlayerPrefs.GetString("savedGrid"));
         SetSavedGridOnScene();
     }
@@ -51,6 +51,7 @@ public class UnitGrid : MonoBehaviour
         if (PlayerPrefs.HasKey("savedGrid") == false) return;
 
         GridData gridData = JsonUtility.FromJson<GridData>(PlayerPrefs.GetString("savedGrid"));
+        Debug.Log(_unitsOnScene.Count + "2");
 
         for (int i = 0; i < gridData.units.Count; i++)
         {
@@ -108,6 +109,26 @@ public class UnitGrid : MonoBehaviour
             }
         }
     }
+    public UnitInCell AddUnitInCell(SpeciesType type, int cellId)
+    {
+        UnitInCell unit;
+
+        if(type == SpeciesType.human) unit = Instantiate(_humanUnitPrefab);
+        else unit = Instantiate(_dinoUnitPrefab);
+
+        unit.SetAnimatorByOwnLevel();
+
+        _grid[cellId].SetUnit(unit);
+        _unitsOnScene.Add(unit);
+
+        return unit;
+    }
+    public bool CheckCell(int id)
+    {
+        if (id >= _grid.Length) return false;
+        if (id < 0) return false;
+        return _grid[id].isAvailable;
+    }
     void OnMerge(UnitInCell unit)
     {
         _unitsOnScene.Remove(unit);
@@ -130,9 +151,16 @@ public class UnitGrid : MonoBehaviour
         for (int i = 0; i < _unitsOnScene.Count; i++)
         {
             Destroy(_unitsOnScene[i].gameObject);
+            _unitsOnScene[i] = null;
+        }
+
+        for (int i = 0; i < _grid.Length; i++)
+        {
+            _grid[i].NullUnitLink();
         }
 
         _unitsOnScene.Clear();
+        Debug.Log(_unitsOnScene.Count + "1");
     }
     private void OnEnable()
     {

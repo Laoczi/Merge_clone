@@ -7,6 +7,8 @@ using TMPro;
 
 public class BuyNewUnits : MonoBehaviour
 {
+    public static BuyNewUnits singleton;
+
     [SerializeField] TextMeshProUGUI _dinoPrice;
     [SerializeField] TextMeshProUGUI _humanPrice;
     [SerializeField] Button _dinoButton;
@@ -35,8 +37,22 @@ public class BuyNewUnits : MonoBehaviour
         1.11f,
     };
 
+    public void AddDinoNumberPurchased()
+    {
+        _currentNumberOfDinoPurchased++;
+        PlayerPrefs.SetInt("dinoNumberOfPurchased", _currentNumberOfDinoPurchased);
+        SetNewPrices();
+    }
+    public void AddHumanNumberPurchased()
+    {
+        _currentNumberOfHumanPurchased++;
+        PlayerPrefs.SetInt("humanNumberOfPurchased", _currentNumberOfHumanPurchased);
+        SetNewPrices();
+    }
     private void Awake()
     {
+        singleton = this;
+
         if (PlayerPrefs.HasKey("humanNumberOfPurchased")) _currentNumberOfHumanPurchased = PlayerPrefs.GetInt("humanNumberOfPurchased");
         else PlayerPrefs.SetInt("humanNumberOfPurchased", 0);
 
@@ -85,7 +101,9 @@ public class BuyNewUnits : MonoBehaviour
         if (priceForHuman < 1000) _humanPrice.text = priceForHuman.ToString();
         else _humanPrice.text = MathF.Round((priceForHuman / 1000), 0).ToString() +"K";
 
-        if(_currentPriceForDino > Money.singleton.count)
+        if (PlayerPrefs.HasKey("isEndTutor") == false) return;
+
+            if (_currentPriceForDino > Money.singleton.count)
         {
             _dinoButton.gameObject.SetActive(false);
             _dinoAdButton.gameObject.SetActive(true);

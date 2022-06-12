@@ -20,12 +20,7 @@ public class EnemyGrid : MonoBehaviour
     {
         if (level > levels.Length) level = levels.Length - 1;
 
-        EnemyLevelSettings currentLevelSettings = null;
-
-        for (int i = 0; i < levels.Length; i++)
-        {
-            if (levels[i].levelID == level) currentLevelSettings = levels[i];
-        }
+        EnemyLevelSettings currentLevelSettings = levels[level];
 
         for (int i = 0; i < currentLevelSettings.enemys.Length; i++)
         {

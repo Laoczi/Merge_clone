@@ -73,6 +73,7 @@ public class Dino : BotController
             Destroy(hitEffect, 1);
         }
 
+        Vibration.Vibrate(Convert.ToInt64(500));
 
         float returnDamage = damageCount > health ? health : damageCount;
         onGetDamage?.Invoke(team, returnDamage, _level);
@@ -86,6 +87,11 @@ public class Dino : BotController
         }
 
         _healthBar.fillAmount = ((health * 100) / _baseHealth) / 100;
+
+
+        //_attackComponent.EndAttack();
+        //_movementComponent.EndMove();
+        //MoveToNewTarget();
     }
     
     protected override void MoveToNewTarget()
