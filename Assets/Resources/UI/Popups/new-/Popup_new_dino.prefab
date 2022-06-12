@@ -2245,6 +2245,7 @@ GameObject:
   - component: {fileID: 1000608482071695284}
   - component: {fileID: 1000608482071695290}
   - component: {fileID: 1000608482071695285}
+  - component: {fileID: 80077933057717476}
   m_Layer: 5
   m_Name: Popup
   m_TagString: Untagged
@@ -2317,6 +2318,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &80077933057717476
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000608482071695287}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ab6ce18fe93ed448b504ffee8441246, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1000608482111962383
 GameObject:
   m_ObjectHideFlags: 0
