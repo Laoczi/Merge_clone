@@ -177,7 +177,6 @@ public class EndScreen : MonoBehaviour
             int id = (Mathf.RoundToInt(Mathf.Abs(arrowRect.eulerAngles.z) / 45));
             if (id >= _wheelValues.Length) id = _wheelValues.Length - 1;
             if (id < 0) id = 0;
-            Debug.Log(id);
             adText.text = Mathf.RoundToInt(_currentBonus * _wheelValues[id]).ToString();
             yield return new WaitForEndOfFrame();
         }
