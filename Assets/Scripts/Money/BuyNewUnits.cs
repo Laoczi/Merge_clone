@@ -105,9 +105,13 @@ public class BuyNewUnits : MonoBehaviour
         if (priceForHuman < 1000) _humanPrice.text = priceForHuman.ToString();
         else _humanPrice.text = MathF.Round((priceForHuman / 1000), 0).ToString() +"K";
 
+        CheckButtonsState();
+    }
+    void CheckButtonsState()
+    {
         if (PlayerPrefs.HasKey("isEndTutor") == false) return;
 
-            if (_currentPriceForDino > Money.singleton.count)
+        if (_currentPriceForDino > Money.singleton.count)
         {
             _dinoButton.gameObject.SetActive(false);
             _dinoAdButton.gameObject.SetActive(true);
@@ -154,5 +158,13 @@ public class BuyNewUnits : MonoBehaviour
                 SetNewPrices();
             }
         }
+    }
+    private void OnEnable()
+    {
+        Money.onChangeMoney += CheckButtonsState;
+    }
+    private void OnDisable()
+    {
+        Money.onChangeMoney -= CheckButtonsState;
     }
 }

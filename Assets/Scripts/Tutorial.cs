@@ -18,6 +18,10 @@ public class Tutorial : MonoBehaviour
     [SerializeField] GameObject _startFightButton;
 
     UnitInCell _firstDino;
+    private void Awake()
+    {
+        PlayerPrefs.DeleteAll();
+    }
     private void Start()
     {
         if (PlayerPrefs.HasKey("isEndTutor") == false)
@@ -43,6 +47,7 @@ public class Tutorial : MonoBehaviour
         _tutorTwo.SetActive(false);
         _tutorTwoMain.SetActive(false);
         _tutorWarrior.onClick.AddListener(AddFirstFarrior);
+        _startFightButton.SetActive(false);
     }
     void AddFirstFarrior()
     {
@@ -55,7 +60,6 @@ public class Tutorial : MonoBehaviour
         _tutorTwo.SetActive(true);
         _tutorTwoMain.SetActive(false);
         Cell.onMoveUnit += AfterFirstMerge;
-        _startFightButton.SetActive(false);
     }
     void AfterFirstMerge()
     {
@@ -66,6 +70,7 @@ public class Tutorial : MonoBehaviour
     }
     void AfterSecondFight()
     {
+        _startFightButton.SetActive(false);
         EndScreen.onCloseScreen -= AfterSecondFight;
         _tutorTwoMain.SetActive(true);
         _tutorThree.SetActive(true);
