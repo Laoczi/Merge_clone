@@ -1664,7 +1664,7 @@ Transform:
   m_GameObject: {fileID: 5240481202984899128}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 80, y: 80, z: 80}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1026043356811758405}
@@ -1709,7 +1709,7 @@ MonoBehaviour:
   <damage>k__BackingField: 54
   <moveSpeed>k__BackingField: 1
   <minDistanceToTarget>k__BackingField: 1
-  <attackRate>k__BackingField: 1
+  <attackRate>k__BackingField: 1.5
   <attackRange>k__BackingField: 0
   <arrow>k__BackingField: {fileID: 2036672006749742038, guid: 7e9beb4900e883042abc8c5ee7b39664, type: 3}
   <magicSphere>k__BackingField: {fileID: 2036672006749742038, guid: 117ac44dc854bf840a56c0ebfbba9132, type: 3}
