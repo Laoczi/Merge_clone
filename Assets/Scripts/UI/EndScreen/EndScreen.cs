@@ -137,9 +137,9 @@ public class EndScreen : MonoBehaviour
 
         if (_currentBonus > 1000)
         {
-            _winScreenEarndMoneyForFight.text = "+" + _currentBonus.ToString() + "K";
+            _winScreenEarndMoneyForFight.text = "+ " + _currentBonus.ToString() + "K";
         }
-        else _winScreenEarndMoneyForFight.text = "+" + _currentBonus.ToString();
+        else _winScreenEarndMoneyForFight.text = "+ " + _currentBonus.ToString();
     }
     IEnumerator ShowLoseMenu()
     {
@@ -152,8 +152,8 @@ public class EndScreen : MonoBehaviour
 
         StartCoroutine(ShowNoThanks(_loseNoThanks));
 
-        if (Money.singleton.earndForLastFight > 1000) _loseScreenEarndMoneyForFight.text = "+" + Money.singleton.earndForLastFight.ToString() + "K";
-        else _loseScreenEarndMoneyForFight.text = "+" + Money.singleton.earndForLastFight.ToString();
+        if (Money.singleton.earndForLastFight > 1000) _loseScreenEarndMoneyForFight.text = "+ " + Money.singleton.earndForLastFight.ToString() + "K";
+        else _loseScreenEarndMoneyForFight.text = "+ " + Money.singleton.earndForLastFight.ToString();
 
         _totalEnemyDamageText.text = Mathf.Round(100 - GameUIHealthBar.singleton.totalEnemyDamagePercent).ToString() + "%";
         _totalEnemyDamageBar.fillAmount = (100 - GameUIHealthBar.singleton.totalEnemyDamagePercent) / 100;

@@ -118,6 +118,10 @@ public class Tutorial : MonoBehaviour
         _dinoButton.SetActive(true);
         _warriorButton.SetActive(true);
         PlayerPrefs.SetInt("isEndTutor", 1);
+        BuyNewUnits.singleton.AddDinoNumberPurchased();
+        BuyNewUnits.singleton.AddDinoNumberPurchased();
+        BuyNewUnits.singleton.AddHumanNumberPurchased();
+        BuyNewUnits.singleton.AddHumanNumberPurchased();
     }
 
     private void OnApplicationQuit()
