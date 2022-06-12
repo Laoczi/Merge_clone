@@ -80,7 +80,7 @@ public class Dino : BotController
             Destroy(hitEffect, 1);
         }
 
-        Vibration.Vibrate(Convert.ToInt64(500));
+        //Vibration.Vibrate(Convert.ToInt64(500));
 
         float returnDamage = damageCount > health ? health : damageCount;
         onGetDamage?.Invoke(team, returnDamage, _level);

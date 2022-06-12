@@ -70,7 +70,6 @@ public class Human : BotController
 
         if(team == TeamType.Enemy)
         {
-            Debug.Log("deal damage");
             GameObject hitEffect = Instantiate(UnitsDataBase.singleton.hitEffect);
             hitEffect.transform.position = transform.position + Vector3.up * 0.5f;
             hitEffect.GetComponent<DamagePopup>().text.text = (Mathf.RoundToInt(_nLevelValues[_level] * Mathf.Pow(2, _level - 1))).ToString() + "$";

@@ -4081,6 +4081,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4649033299083110657, guid: 0e9aa44dc4bae3b4ea54092474e2bc00, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4649033299083110659, guid: 0e9aa44dc4bae3b4ea54092474e2bc00, type: 3}
       propertyPath: SizeModule.curve.scalar
       value: 5
@@ -4180,6 +4184,10 @@ PrefabInstance:
     - target: {fileID: 4649033299083110663, guid: 0e9aa44dc4bae3b4ea54092474e2bc00, type: 3}
       propertyPath: m_Name
       value: Stars_effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649033299083110685, guid: 0e9aa44dc4bae3b4ea54092474e2bc00, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e9aa44dc4bae3b4ea54092474e2bc00, type: 3}

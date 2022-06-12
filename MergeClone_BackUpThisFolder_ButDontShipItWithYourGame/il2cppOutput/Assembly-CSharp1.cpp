@@ -815,6 +815,7 @@ IL2CPP_EXTERN_C RuntimeClass* Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_i
 IL2CPP_EXTERN_C RuntimeClass* Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* SharedVariable_t1895A81DF6281D6E97F4C785676EC17A2F5CF689_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* SharedVector2Int_tE8A542C52D88EED9636AB94D115845AF38B2A349_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* SharedVector2_t049DC5E4D27B7915125174547E7253C4C2983A4A_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* SharedVector3Int_t50F9702E3AC18C766982BBE35DF6E80A9DD16418_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* SharedVector3_t24D906F7945D794B8B43433FC8CB5F4D7369BBF5_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* SharedVector4_tD64E30297886D4C89527A26374369C53E6BA7D5C_il2cpp_TypeInfo_var;
@@ -906,6 +907,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* List_1_get_Item_mE8DBE527F24D9CFED839C34216
 IL2CPP_EXTERN_C const RuntimeMethod* List_1_set_Item_m95629806F31CF369D937590912E0B6A53FF7C587_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SharedVariable_1__ctor_m3055176063ACAB9D457D78AF3EF9A9BE0D651CC5_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SharedVariable_1__ctor_m35EE38FA3543AD27284B7B31B293496874BDF13E_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* SharedVariable_1__ctor_m64FF48D23AA9654FE50FCDD58EE936D0E8423513_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SharedVariable_1__ctor_mB1C74ABCB2B6DA435F3C5C693D76EA59BA787956_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SharedVariable_1__ctor_mF4CB1EB5C55A37AAE0665B4F42265ED8E5B98AAE_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* SharedVariable_1_get_Value_m23940274DE9F1424FCD26409EDC956BAFAF6ACB2_RuntimeMethod_var;
@@ -5034,6 +5036,8 @@ struct Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C  : public RuntimeAr
 };
 
 
+// System.Void BehaviorDesigner.Runtime.SharedVariable`1<UnityEngine.Vector2>::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SharedVariable_1__ctor_m64FF48D23AA9654FE50FCDD58EE936D0E8423513_gshared (SharedVariable_1_t739FA9A5EC70F589B1F41200C1CB2AC4D98F4B09* __this, const RuntimeMethod* method) ;
 // System.Void BehaviorDesigner.Runtime.SharedVariable`1<UnityEngine.Vector2Int>::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SharedVariable_1__ctor_m35EE38FA3543AD27284B7B31B293496874BDF13E_gshared (SharedVariable_1_t8D481F4EE5810E23E6B3DDBE2278EB81C890208C* __this, const RuntimeMethod* method) ;
 // System.Void BehaviorDesigner.Runtime.SharedVariable`1<UnityEngine.Vector3>::.ctor()
@@ -5151,6 +5155,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SharedVariable_1_set_Value_m8E8F7FAFD8A0
 // System.Void System.Collections.Generic.List`1<System.Object>::Clear()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Clear_m16C1F2C61FED5955F10EB36BC1CB2DF34B128994_gshared_inline (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* __this, const RuntimeMethod* method) ;
 
+// System.Void BehaviorDesigner.Runtime.SharedVector2::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SharedVector2__ctor_m4879C861B3635203407048BEDE0F808D5F01C110 (SharedVector2_t049DC5E4D27B7915125174547E7253C4C2983A4A* __this, const RuntimeMethod* method) ;
+// System.Void BehaviorDesigner.Runtime.SharedVariable`1<UnityEngine.Vector2>::.ctor()
+inline void SharedVariable_1__ctor_m64FF48D23AA9654FE50FCDD58EE936D0E8423513 (SharedVariable_1_t739FA9A5EC70F589B1F41200C1CB2AC4D98F4B09* __this, const RuntimeMethod* method)
+{
+	((  void (*) (SharedVariable_1_t739FA9A5EC70F589B1F41200C1CB2AC4D98F4B09*, const RuntimeMethod*))SharedVariable_1__ctor_m64FF48D23AA9654FE50FCDD58EE936D0E8423513_gshared)(__this, method);
+}
 // System.Void BehaviorDesigner.Runtime.SharedVector2Int::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SharedVector2Int__ctor_m012304FD04BDEBA9DBCBFD059539FECC4B27B19C (SharedVector2Int_tE8A542C52D88EED9636AB94D115845AF38B2A349* __this, const RuntimeMethod* method) ;
 // System.Void BehaviorDesigner.Runtime.SharedVariable`1<UnityEngine.Vector2Int>::.ctor()
@@ -6002,6 +6013,49 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Color__ctor_m3786F0D6E510D9C
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Array_Clear_m48B57EC27CADC3463CA98A33373D557DA587FF1B (RuntimeArray* ___array0, int32_t ___index1, int32_t ___length2, const RuntimeMethod* method) ;
 // UnityEngine.Vector2 UnityEngine.Vector2::op_Division(UnityEngine.Vector2,System.Single)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 Vector2_op_Division_m69F64D545E3C023BE9927397572349A569141EBA_inline (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___a0, float ___d1, const RuntimeMethod* method) ;
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// BehaviorDesigner.Runtime.SharedVector2 BehaviorDesigner.Runtime.SharedVector2::op_Implicit(UnityEngine.Vector2)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR SharedVector2_t049DC5E4D27B7915125174547E7253C4C2983A4A* SharedVector2_op_Implicit_mA09A53F29031B02947E7F49180385C768A064BD2 (Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___value0, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SharedVector2_t049DC5E4D27B7915125174547E7253C4C2983A4A_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// public static implicit operator SharedVector2(Vector2 value) { return new SharedVector2 { mValue = value }; }
+		SharedVector2_t049DC5E4D27B7915125174547E7253C4C2983A4A* L_0 = (SharedVector2_t049DC5E4D27B7915125174547E7253C4C2983A4A*)il2cpp_codegen_object_new(SharedVector2_t049DC5E4D27B7915125174547E7253C4C2983A4A_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		SharedVector2__ctor_m4879C861B3635203407048BEDE0F808D5F01C110(L_0, NULL);
+		SharedVector2_t049DC5E4D27B7915125174547E7253C4C2983A4A* L_1 = L_0;
+		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_2 = ___value0;
+		NullCheck(L_1);
+		((SharedVariable_1_t739FA9A5EC70F589B1F41200C1CB2AC4D98F4B09*)L_1)->___mValue_9 = L_2;
+		return L_1;
+	}
+}
+// System.Void BehaviorDesigner.Runtime.SharedVector2::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SharedVector2__ctor_m4879C861B3635203407048BEDE0F808D5F01C110 (SharedVector2_t049DC5E4D27B7915125174547E7253C4C2983A4A* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SharedVariable_1__ctor_m64FF48D23AA9654FE50FCDD58EE936D0E8423513_RuntimeMethod_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		SharedVariable_1__ctor_m64FF48D23AA9654FE50FCDD58EE936D0E8423513(__this, SharedVariable_1__ctor_m64FF48D23AA9654FE50FCDD58EE936D0E8423513_RuntimeMethod_var);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"

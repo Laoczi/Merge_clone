@@ -692,6 +692,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutor_2
       objectReference: {fileID: 0}
+    - target: {fileID: 9189349067447555383, guid: 82bcdd0c0d7841740b4a41046eb51388, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9189349068746531606, guid: 82bcdd0c0d7841740b4a41046eb51388, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82bcdd0c0d7841740b4a41046eb51388, type: 3}
 --- !u!1 &205541178 stripped
@@ -2504,6 +2512,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutor_1
       objectReference: {fileID: 0}
+    - target: {fileID: 8088850477565173149, guid: f2c347fb501dbe44f8b09a4180dca028, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088850478453369788, guid: f2c347fb501dbe44f8b09a4180dca028, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088850478633947263, guid: f2c347fb501dbe44f8b09a4180dca028, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 43.27295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c347fb501dbe44f8b09a4180dca028, type: 3}
 --- !u!1001 &974922966
@@ -3246,10 +3266,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 630533012}
-    - target: {fileID: 2598700648473832803, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3264334969761294405, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3337,22 +3353,6 @@ PrefabInstance:
     - target: {fileID: 3264334969761294409, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
       propertyPath: m_Name
       value: Win_screen
-      objectReference: {fileID: 0}
-    - target: {fileID: 3264334969761294409, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3728424462336152405, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8078569027352290316, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9098634770469361179, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5afeb01ee6b48cf4da572d21948ea057, type: 3}
@@ -4700,10 +4700,6 @@ PrefabInstance:
     - target: {fileID: 873922199121105718, guid: beb1f4b53790cf149af265818fbb9174, type: 3}
       propertyPath: m_Name
       value: Lose_screen
-      objectReference: {fileID: 0}
-    - target: {fileID: 873922199121105718, guid: beb1f4b53790cf149af265818fbb9174, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 873922199121105722, guid: beb1f4b53790cf149af265818fbb9174, type: 3}
       propertyPath: m_Pivot.x
