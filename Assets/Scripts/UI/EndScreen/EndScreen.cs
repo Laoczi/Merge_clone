@@ -137,7 +137,7 @@ public class EndScreen : MonoBehaviour
 
         if (_currentBonus > 1000)
         {
-            _winScreenEarndMoneyForFight.text = "+ " + _currentBonus.ToString() + "K";
+            _winScreenEarndMoneyForFight.text = "+ " + (_currentBonus / 1000).ToString() + "K";
         }
         else _winScreenEarndMoneyForFight.text = "+ " + _currentBonus.ToString();
     }
@@ -168,7 +168,10 @@ public class EndScreen : MonoBehaviour
         }
 
 
-        if (GameManager.currentLevel == 0) _loseScreenEarndMoneyForFight.text = "+ 14";
+        if (GameManager.currentLevel == 0)
+        {
+            _loseScreenEarndMoneyForFight.text = "+ 14";
+        }
     }
     IEnumerator RotateArrow(GameObject arrow, TextMeshProUGUI adText)
     {
@@ -180,7 +183,14 @@ public class EndScreen : MonoBehaviour
             int id = (Mathf.RoundToInt(Mathf.Abs(arrowRect.eulerAngles.z) / 45));
             if (id >= _wheelValues.Length) id = _wheelValues.Length - 1;
             if (id < 0) id = 0;
-            adText.text = Mathf.RoundToInt(_currentBonus * _wheelValues[id]).ToString();
+            if (Mathf.RoundToInt(_currentBonus * _wheelValues[id]) > 1000)
+            {
+                adText.text = (Mathf.RoundToInt(_currentBonus * _wheelValues[id]) / 1000).ToString() + "K";
+            }
+            else
+            {
+                adText.text = Mathf.RoundToInt(_currentBonus * _wheelValues[id]).ToString();
+            }
             yield return new WaitForEndOfFrame();
         }
     }

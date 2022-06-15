@@ -18,9 +18,15 @@ public class EnemyGrid : MonoBehaviour
     }
     public void Spawn(int level)
     {
-        if (level > levels.Length) level = levels.Length - 1;
+        int currentLevel;
 
-        EnemyLevelSettings currentLevelSettings = levels[level];
+        if (level >= levels.Length) currentLevel = levels.Length - 1;
+        else if (level < 0) currentLevel = 0;
+        else currentLevel = level;
+
+        
+
+        EnemyLevelSettings currentLevelSettings = levels[currentLevel];
 
         for (int i = 0; i < currentLevelSettings.enemys.Length; i++)
         {
