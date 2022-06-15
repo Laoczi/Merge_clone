@@ -12,6 +12,7 @@ public class UnitGrid : MonoBehaviour
     [SerializeField] UnitInCell _dinoUnitPrefab;
     List<UnitInCell> _unitsOnScene = new List<UnitInCell>();
     GridData data = new GridData();
+    [SerializeField] GameObject _gridObject;
 
     private void Awake()
     {
@@ -23,6 +24,8 @@ public class UnitGrid : MonoBehaviour
         {
             _grid[i].SetIndex(i);
         }
+
+        _gridObject.SetActive(true);
     }
     private void Start()
     {
@@ -160,12 +163,24 @@ public class UnitGrid : MonoBehaviour
         _unitsOnScene.Clear();
         Debug.Log(_unitsOnScene.Count + "1");
     }
+    void ShowGrid()
+    {
+        _gridObject.SetActive(true);
+    }
+    void HideGrid()
+    {
+        _gridObject.SetActive(false);
+    }
     private void OnEnable()
     {
+        GameManager.onStartFight += HideGrid;
+        EndScreen.onCloseScreen += ShowGrid;
         Cell.onDeleteUnitWhenMerge += OnMerge;
     }
     private void OnDisable()
     {
+        GameManager.onStartFight -= HideGrid;
+        EndScreen.onCloseScreen -= ShowGrid;
         Cell.onDeleteUnitWhenMerge -= OnMerge;
     }
     private void OnApplicationQuit()

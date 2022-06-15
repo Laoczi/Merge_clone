@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using DG.Tweening;
 
 public class CardScrollMenu : MonoBehaviour
@@ -19,6 +20,9 @@ public class CardScrollMenu : MonoBehaviour
     [SerializeField] GameObject[] _dinoCardClosed;
 
     [SerializeField] RectTransform _lineLabel;
+
+    [SerializeField] TextMeshProUGUI _dinoTitle;
+    [SerializeField] TextMeshProUGUI _humanTitle;
     [Header("card popup prefab")]
     [SerializeField] PopupNewCharacter _humanPopup;
     [SerializeField] PopupNewCharacter _dinoPopup;
@@ -56,6 +60,11 @@ public class CardScrollMenu : MonoBehaviour
         _humanContent.SetActive(true);
         _dinoContent.SetActive(false);
         _lineLabel.DOAnchorPos(new Vector2(50, -35), 0.25f);
+
+        _dinoTitle.transform.DOScale(1f, 0.5f);
+        _humanTitle.transform.DOScale(1.1f, 0.5f);
+        _dinoTitle.color = new Color(0.3137255f, 0.627451f, 0.9137256f, 1);
+        _humanTitle.color = Color.white;
     }
     public void OpenDinoScroll()
     {
@@ -64,6 +73,11 @@ public class CardScrollMenu : MonoBehaviour
         _humanContent.SetActive(false);
         _dinoContent.SetActive(true);
         _lineLabel.DOAnchorPos(new Vector2(-200, -35), 0.25f);
+
+        _dinoTitle.transform.DOScale(1.1f, 0.5f);
+        _humanTitle.transform.DOScale(1f, 0.5f);
+        _dinoTitle.color = Color.white;
+        _humanTitle.color = new Color(0.3137255f, 0.627451f, 0.9137256f, 1);
     }
     public void CloseMenu()
     {
