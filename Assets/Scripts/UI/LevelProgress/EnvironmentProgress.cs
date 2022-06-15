@@ -44,7 +44,8 @@ public class EnvironmentProgress : MonoBehaviour
             {
                 currentLevel -= 9;
                 currentOpenedEnvironmentId = i;
-                _environment[i].SetActive(true);//тут возможно ошибка, если выйдем за пределы массива
+                if (i < _environment.Length) _environment[i].SetActive(true);
+                else _environment[_environment.Length - 1].SetActive(true);
             }
         }
         for (int i = 0; i < _nextEnvironment.Length; i++)

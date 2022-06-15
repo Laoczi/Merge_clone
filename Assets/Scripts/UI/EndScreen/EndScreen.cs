@@ -130,8 +130,8 @@ public class EndScreen : MonoBehaviour
         }
         else
         {
-            _currentBonus = _bonusRewards[_bonusRewards.Length];
-            Money.singleton.Add(_bonusRewards[_bonusRewards.Length]);
+            _currentBonus = _bonusRewards[_bonusRewards.Length - 1];
+            Money.singleton.Add(_bonusRewards[_bonusRewards.Length - 1]);
         }
 
 
