@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("currentLevel", currentLevel);
         Sound.singleton.PlayWin();
         EndScreen.singleton.OpenWinMenu();
+        _fightMenuPanel.SetActive(false);
     }
     void OnLoseFight()
     {
