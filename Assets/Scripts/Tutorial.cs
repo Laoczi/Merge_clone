@@ -20,7 +20,7 @@ public class Tutorial : MonoBehaviour
     UnitInCell _firstDino;
     private void Awake()
     {
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
     }
     private void Start()
     {

@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         onEndFight?.Invoke();
         Sound.singleton.PlayLose();
         EndScreen.singleton.OpenLoseMenu();
+        _fightMenuPanel.SetActive(false);
     }
     public void ResetGameFiled()
     {
@@ -56,7 +57,6 @@ public class GameManager : MonoBehaviour
         GameUIHealthBar.singleton.ResetHealthBar();
 
         _mainMenuPanel.SetActive(true);
-        _fightMenuPanel.SetActive(false);
     }
     private void OnEnable()
     {
