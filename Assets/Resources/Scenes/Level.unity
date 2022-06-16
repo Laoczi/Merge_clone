@@ -3827,7 +3827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440727317}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.83, y: -0.994, z: -2.3775883}
+  m_LocalPosition: {x: -0.723, y: -0.994, z: -2.3775883}
   m_LocalScale: {x: 0.5, y: 1.08955, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4649,7 +4649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832336686}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.78, y: -0.9066999, z: -2.3775883}
+  m_LocalPosition: {x: 0.674, y: -0.9066999, z: -2.3775883}
   m_LocalScale: {x: 0.5, y: 1.00635, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5551,7 +5551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainMenuPos: {x: 0.01, y: 3.94, z: -4.64}
-  _fightPos: {x: 0.01, y: 3.94, z: -3.98}
+  _fightPos: {x: 0.01, y: 3.94, z: -3.7}
   _duration: 1
 --- !u!1 &2125250008
 GameObject:
