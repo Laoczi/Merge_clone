@@ -34,36 +34,35 @@ public class EnvironmentProgress : MonoBehaviour
 
         _currentLevelText.text = "LEVEL " + (currentLevel + 1).ToString();
 
-        int currentOpenedEnvironmentId = 0;
-
-        for (int i = 0; i < _openedEnvironment.Length; i++)
+        for (int i = 0; i < _openedEnvironment.Length; i++)//hide all environments UI
         {
             _openedEnvironment[i].gameObject.SetActive(false);
-
-            if (currentLevel > 9)
-            {
-                currentLevel -= 9;
-                currentOpenedEnvironmentId = i;
-                if (i < _environment.Length) _environment[i].SetActive(true);
-                else _environment[_environment.Length - 1].SetActive(true);
-            }
         }
         for (int i = 0; i < _nextEnvironment.Length; i++)
         {
             _nextEnvironment[i].gameObject.SetActive(false);
         }
 
+        int currentOpenedEnvironmentId = 0;
+        while (currentLevel > 9)//show opened environments
+        {
+            currentLevel -= 10;
+            currentOpenedEnvironmentId++;
+            if (currentOpenedEnvironmentId < _environment.Length) _environment[currentOpenedEnvironmentId].SetActive(true);
+            else _environment[_environment.Length - 1].SetActive(true);
+        }
+
+        for (int i = 0; i < _levelIndicators.Length; i++)//set indicators
+        {
+            if (i < currentLevel) _levelIndicators[i].color = _completedLevel;
+            else if (i == currentLevel) _levelIndicators[i].color = _currentLevel;
+            else if (i > currentLevel) _levelIndicators[i].color = _nextLevel;
+        }
+
         _openedEnvironment[currentOpenedEnvironmentId].gameObject.SetActive(true);//лишь бы блять и тут не выйти за пределы массива
         _nextEnvironment[currentOpenedEnvironmentId].gameObject.SetActive(true);
 
-        for (int i = 0; i < _levelIndicators.Length; i++)
-        {
-            if (i < currentLevel) _levelIndicators[i].color = _completedLevel;
-            if (i == currentLevel) _levelIndicators[i].color = _currentLevel;
-            if (i > currentLevel) _levelIndicators[i].color = _nextLevel;
-        }
-
-        if(currentOpenedEnvironmentId > _lastOpenedEnvironmentId)
+        if (currentOpenedEnvironmentId > _lastOpenedEnvironmentId)
         {
             _lastOpenedEnvironmentId = currentOpenedEnvironmentId;
             PlayerPrefs.SetInt("lastOpenedEnvironment", _lastOpenedEnvironmentId);
@@ -78,10 +77,10 @@ public class EnvironmentProgress : MonoBehaviour
     }
     private void OnEnable()
     {
-        GameManager.onEndFight += SetStats;
+        EndScreen.onCloseScreen += SetStats;
     }
     private void OnDisable()
     {
-        GameManager.onEndFight -= SetStats;
+        EndScreen.onCloseScreen -= SetStats;
     }
 }

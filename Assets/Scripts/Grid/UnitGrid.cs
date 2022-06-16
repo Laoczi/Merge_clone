@@ -52,7 +52,6 @@ public class UnitGrid : MonoBehaviour
         if (PlayerPrefs.HasKey("savedGrid") == false) return;
 
         GridData gridData = JsonUtility.FromJson<GridData>(PlayerPrefs.GetString("savedGrid"));
-        Debug.Log(_unitsOnScene.Count + "2");
 
         for (int i = 0; i < gridData.units.Count; i++)
         {
@@ -161,7 +160,6 @@ public class UnitGrid : MonoBehaviour
         }
 
         _unitsOnScene.Clear();
-        Debug.Log(_unitsOnScene.Count + "1");
     }
     void ShowGrid()
     {

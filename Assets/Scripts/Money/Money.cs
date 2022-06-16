@@ -19,8 +19,6 @@ public class Money : MonoBehaviour
         count = 0;
         if (PlayerPrefs.HasKey("money")) count = PlayerPrefs.GetFloat("money");
         else PlayerPrefs.SetFloat("money", 0);
-
-        count = 9999999;
     }
     public bool Get(float value)
     {
@@ -44,7 +42,6 @@ public class Money : MonoBehaviour
         if (team == TeamType.Unit) return;//если нанесли удар по нашим юнитам, то деньги не прибавляем
 
         earndForLastFight += (_nLevelValues[level] * Mathf.Pow(2, level - 1));
-        Debug.Log("current earnd money " + earndForLastFight);
         Add((_nLevelValues[level] * Mathf.Pow(2, level - 1)));
     }
     void ResetEarndMoney()

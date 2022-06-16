@@ -20,7 +20,7 @@ public class Tutorial : MonoBehaviour
     UnitInCell _firstDino;
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();//---------------------------
     }
     private void Start()
     {
@@ -132,6 +132,7 @@ public class Tutorial : MonoBehaviour
     {
         if(PlayerPrefs.HasKey("isEndTutor") == false)
         {
+            Debug.Log("not ok");
             PlayerPrefs.DeleteAll();
         }
     }
