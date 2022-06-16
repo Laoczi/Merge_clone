@@ -1709,7 +1709,7 @@ MonoBehaviour:
   <damage>k__BackingField: 54
   <moveSpeed>k__BackingField: 1
   <minDistanceToTarget>k__BackingField: 1
-  <attackRate>k__BackingField: 2
+  <attackRate>k__BackingField: 0.7
   <attackRange>k__BackingField: 0
   <arrow>k__BackingField: {fileID: 2036672006749742038, guid: 7e9beb4900e883042abc8c5ee7b39664, type: 3}
   <magicSphere>k__BackingField: {fileID: 2036672006749742038, guid: 117ac44dc854bf840a56c0ebfbba9132, type: 3}
