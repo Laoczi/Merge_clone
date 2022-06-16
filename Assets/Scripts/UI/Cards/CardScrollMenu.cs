@@ -37,6 +37,15 @@ public class CardScrollMenu : MonoBehaviour
     }
     private void Start()
     {
+
+        _humanContent.SetActive(false);
+        _dinoContent.SetActive(true);
+        _lineLabel.DOAnchorPos(new Vector2(-200, -35), 0.25f);
+        _dinoTitle.transform.DOScale(1.1f, 0.5f);
+        _humanTitle.transform.DOScale(1f, 0.5f);
+        _dinoTitle.color = Color.white;
+        _humanTitle.color = new Color(0.3137255f, 0.627451f, 0.9137256f, 1);
+
         _currentHumanOpenedMergeLevel = 0;
         _currentDinoOpenedMergeLevel = 0;
 
