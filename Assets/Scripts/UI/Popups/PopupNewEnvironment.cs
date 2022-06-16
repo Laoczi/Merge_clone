@@ -8,7 +8,8 @@ public class PopupNewEnvironment : MonoBehaviour
 
     public void InitStats(int id)
     {
-        _logos[id].SetActive(true);
+        if(id < _logos.Length) _logos[id].SetActive(true);
+        else _logos[_logos.Length - 1].SetActive(true);
     }
     public void Close()
     {

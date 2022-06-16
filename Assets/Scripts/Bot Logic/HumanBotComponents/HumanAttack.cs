@@ -74,8 +74,6 @@ public class HumanAttack : BotAttack
         Sound.singleton.PlayArrow();
         SpawnBullet(target);
 
-        if (CheckTarget(target) == false) yield break;
-
         yield return new WaitForSeconds(attackRate);
 
         StartCoroutine(AttackProcess(target));

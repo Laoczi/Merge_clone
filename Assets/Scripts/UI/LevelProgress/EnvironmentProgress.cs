@@ -46,10 +46,10 @@ public class EnvironmentProgress : MonoBehaviour
         int currentOpenedEnvironmentId = 0;
         while (currentLevel > 9)//show opened environments
         {
-            currentLevel -= 10;
-            currentOpenedEnvironmentId++;
             if (currentOpenedEnvironmentId < _environment.Length) _environment[currentOpenedEnvironmentId].SetActive(true);
             else _environment[_environment.Length - 1].SetActive(true);
+            currentLevel -= 10;
+            currentOpenedEnvironmentId++;
         }
 
         for (int i = 0; i < _levelIndicators.Length; i++)//set indicators
@@ -67,12 +67,8 @@ public class EnvironmentProgress : MonoBehaviour
             _lastOpenedEnvironmentId = currentOpenedEnvironmentId;
             PlayerPrefs.SetInt("lastOpenedEnvironment", _lastOpenedEnvironmentId);
 
-            if(_lastOpenedEnvironmentId < _environment.Length)
-            {
-                _environment[_lastOpenedEnvironmentId].SetActive(true);
-            }
             PopupNewEnvironment popup = Instantiate(_popup);
-            popup.InitStats(_lastOpenedEnvironmentId);
+            popup.InitStats(_lastOpenedEnvironmentId - 1);
         }
     }
     private void OnEnable()
