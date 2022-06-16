@@ -13,9 +13,13 @@ public class PopupNewCharacter : MonoBehaviour
     [SerializeField] TextMeshProUGUI _currentAttack;
     [SerializeField] TextMeshProUGUI _differentAttack;
 
-
     public void InitStats(int id)
     {
+        for (int i = 0; i < _characterNames.Length; i++)
+        {
+            _characterNames[i].SetActive(false);
+            _characterLogos[i].SetActive(false);
+        }
         _characterNames[id - 1].SetActive(true);
         _characterLogos[id - 1].SetActive(true);
 
