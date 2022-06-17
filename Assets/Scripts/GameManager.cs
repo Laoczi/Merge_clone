@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _fightMenuPanel;
     public static int currentLevel { get; private set; }
 
+    bool _gameIsAlreadyEnd = false;
+
     private void Awake()
     {
         _mainMenuPanel.SetActive(true);
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
     }
     void OnWinFight()
     {
+        if (_gameIsAlreadyEnd) return;
+        _gameIsAlreadyEnd = true;
         currentLevel++;
         onEndFight?.Invoke();
         PlayerPrefs.SetInt("currentLevel", currentLevel);
@@ -42,6 +46,8 @@ public class GameManager : MonoBehaviour
     }
     void OnLoseFight()
     {
+        if (_gameIsAlreadyEnd) return;
+        _gameIsAlreadyEnd = true;
         onEndFight?.Invoke();
         Sound.singleton.PlayLose();
         EndScreen.singleton.OpenLoseMenu();
@@ -49,6 +55,7 @@ public class GameManager : MonoBehaviour
     }
     public void ResetGameFiled()
     {
+        _gameIsAlreadyEnd = false;
         EnemyGrid.singleton.DeleteEnemys();
         UnitGrid.singleton.DeleteUnits();
 
