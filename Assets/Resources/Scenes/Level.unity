@@ -305,6 +305,7 @@ MonoBehaviour:
   - {fileID: 2234591517121720853}
   - {fileID: 2234591517121720852}
   _environment:
+  - {fileID: 391272679}
   - {fileID: 205541178}
   - {fileID: 7397917650390617235}
   _popup: {fileID: 1507350170630752035, guid: c5c142bf477423741bfa9f0f0df2e6d5, type: 3}
@@ -1030,6 +1031,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &391272679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1476437961686852371, guid: 4d4b2d57988dfe04cb777f8d3afdbf91, type: 3}
+  m_PrefabInstance: {fileID: 7397917650390617234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &393594210 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8088850479035747747, guid: f2c347fb501dbe44f8b09a4180dca028, type: 3}

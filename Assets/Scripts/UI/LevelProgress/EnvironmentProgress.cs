@@ -9,8 +9,8 @@ public class EnvironmentProgress : MonoBehaviour
     
     [SerializeField] TextMeshProUGUI _currentLevelText;
     [SerializeField] Image[] _openedEnvironment;
-    [SerializeField] Image[] _nextEnvironment;
-    [SerializeField] Image[] _levelIndicators;
+    [SerializeField] Image[] _nextEnvironment;//start from second env so we need to open current without +1
+    [SerializeField] Image[] _levelIndicators;//from 0 to 9
     [SerializeField] GameObject[] _environment;
     [SerializeField] PopupNewEnvironment _popup;
     Color _completedLevel = new Color(0.1647059f, 0.7215686f, 0.04313726f, 1);
@@ -42,15 +42,21 @@ public class EnvironmentProgress : MonoBehaviour
         {
             _nextEnvironment[i].gameObject.SetActive(false);
         }
+        for (int i = 0; i < _environment.Length; i++)//hide all environments objects
+        {
+            _environment[i].gameObject.SetActive(false);
+        }
 
         int currentOpenedEnvironmentId = 0;
         while (currentLevel > 9)//show opened environments
         {
-            if (currentOpenedEnvironmentId < _environment.Length) _environment[currentOpenedEnvironmentId].SetActive(true);
-            else _environment[_environment.Length - 1].SetActive(true);
             currentLevel -= 10;
             currentOpenedEnvironmentId++;
         }
+
+        //open current environment
+        if (currentOpenedEnvironmentId >= _environment.Length) _environment[_environment.Length - 1].SetActive(true);
+        else _environment[currentOpenedEnvironmentId].SetActive(true);
 
         for (int i = 0; i < _levelIndicators.Length; i++)//set indicators
         {

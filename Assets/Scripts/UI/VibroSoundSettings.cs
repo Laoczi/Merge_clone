@@ -31,8 +31,6 @@ public class VibroSoundSettings : MonoBehaviour
 
         CheckVibroState();
         CheckSoundState();
-
-        Debug.Log("check");
     }
 
     public void SwitchVibroSetting()
