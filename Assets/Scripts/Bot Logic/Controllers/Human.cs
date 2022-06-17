@@ -27,9 +27,9 @@ public class Human : BotController
     {
         UnitSettings settings = GetComponentInChildren<UnitSettings>();
 
+        _level = GetComponent<IGrid>().level;
         _animator = settings.animator;
         team = GetComponent<IGrid>().team;
-        _level = GetComponent<IGrid>().level;
         health = _baseHealth = settings.health;
 
         if(team == TeamType.Unit)

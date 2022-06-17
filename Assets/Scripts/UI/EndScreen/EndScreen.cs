@@ -99,6 +99,7 @@ public class EndScreen : MonoBehaviour
         }
         if (_arrowSpin != null) Destroy(_arrowSpin);
         Sound.singleton.PlayClick();
+        Sound.singleton.PlayCollectCoin();
         if (_loseMenu.activeSelf) _loseScreenCoinEffect.Emit(10);
         if (_winMenu.activeSelf) _winScreenCoinEffect.Emit(10); 
         
@@ -113,7 +114,6 @@ public class EndScreen : MonoBehaviour
     {
         yield return new WaitForSeconds(_openMenuDelay);
 
-        Sound.singleton.PlayCollectCoin();
         _winMenu.SetActive(true);
         _rotateArrowCoroutine = StartCoroutine(RotateArrow(_winScreenArrow, _winAdButtonText));
 
@@ -147,7 +147,6 @@ public class EndScreen : MonoBehaviour
     {
         yield return new WaitForSeconds(_openMenuDelay);
 
-        Sound.singleton.PlayCollectCoin();
         _loseMenu.SetActive(true);
 
         _rotateArrowCoroutine = StartCoroutine(RotateArrow(_loseScreenArrow, _loseAdButtonText));

@@ -790,8 +790,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1422993862}
-        m_TargetAssemblyTypeName: SettingsUI, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: VibroSoundSettings, Assembly-CSharp
         m_MethodName: SwitchVibroSetting
         m_Mode: 1
         m_Arguments:
@@ -1191,8 +1191,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1422993862}
-        m_TargetAssemblyTypeName: SettingsUI, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: VibroSoundSettings, Assembly-CSharp
         m_MethodName: SwitchVibroSetting
         m_Mode: 1
         m_Arguments:
@@ -1215,7 +1215,6 @@ GameObject:
   - component: {fileID: 3328067704755475768}
   - component: {fileID: 3328067704755475769}
   - component: {fileID: 3328067704755475770}
-  - component: {fileID: 1422993862}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -1263,7 +1262,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3328067704755475769
 MonoBehaviour:
@@ -1305,22 +1304,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1422993862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3328067704755475771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c80bd6299aa1774b8fd9d77675a77f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _offVibro: {fileID: 309821025}
-  _onVibro: {fileID: 3222333633581586405}
-  _offSound: {fileID: 1288074077}
-  _onSound: {fileID: 205571568788569969}
 --- !u!1 &3597603500999118587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,8 +1425,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1422993862}
-        m_TargetAssemblyTypeName: SettingsUI, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: VibroSoundSettings, Assembly-CSharp
         m_MethodName: SwitchSoundSetting
         m_Mode: 1
         m_Arguments:
@@ -2422,8 +2405,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1422993862}
-        m_TargetAssemblyTypeName: SettingsUI, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: VibroSoundSettings, Assembly-CSharp
         m_MethodName: SwitchSoundSetting
         m_Mode: 1
         m_Arguments:
