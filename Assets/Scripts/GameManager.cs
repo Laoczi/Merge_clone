@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public void StartFight()
     {
         onStartFight?.Invoke();
+        Sound.singleton.PlayClick();
         _mainMenuPanel.SetActive(false);
         _fightMenuPanel.SetActive(true);
     }

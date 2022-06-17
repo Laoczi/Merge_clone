@@ -140,6 +140,8 @@ public class EndScreen : MonoBehaviour
             _winScreenEarndMoneyForFight.text = "+ " + (_currentBonus / 1000).ToString() + "K";
         }
         else _winScreenEarndMoneyForFight.text = "+ " + _currentBonus.ToString();
+
+
     }
     IEnumerator ShowLoseMenu()
     {
@@ -171,6 +173,7 @@ public class EndScreen : MonoBehaviour
         if (GameManager.currentLevel == 0)
         {
             _loseScreenEarndMoneyForFight.text = "+ 14";
+            Money.singleton.Add(13);
         }
     }
     IEnumerator RotateArrow(GameObject arrow, TextMeshProUGUI adText)

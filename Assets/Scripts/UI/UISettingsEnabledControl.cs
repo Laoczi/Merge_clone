@@ -7,6 +7,11 @@ public class UISettingsEnabledControl : MonoBehaviour
     [SerializeField] GameObject _settings;
 
     bool _isSettingsOpen = false;
+
+    private void Start()
+    {
+        CloseSettings();
+    }
     public void OpenSettings()
     {
         if (_isSettingsOpen == true) return;

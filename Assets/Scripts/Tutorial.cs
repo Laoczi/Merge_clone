@@ -20,7 +20,7 @@ public class Tutorial : MonoBehaviour
     UnitInCell _firstDino;
     private void Awake()
     {
-        //PlayerPrefs.DeleteAll();//---------------------------
+        PlayerPrefs.DeleteAll();//---------------------------
     }
     private void Start()
     {
@@ -52,6 +52,8 @@ public class Tutorial : MonoBehaviour
     void AddFirstFarrior()
     {
         _tutorWarrior.onClick.RemoveAllListeners();
+        Money.singleton.Get(2);
+        Sound.singleton.PlayClick();
         if (UnitGrid.singleton.CheckCell(11)) UnitGrid.singleton.AddUnitInCell(SpeciesType.human, 11);
         else UnitGrid.singleton.AddHumanUnit();
 
@@ -80,6 +82,8 @@ public class Tutorial : MonoBehaviour
     void AfterSecondDino()
     {
         _tutorDino.onClick.RemoveAllListeners();
+        Money.singleton.Get(2);
+        Sound.singleton.PlayClick();
         Debug.Log("добавляем нового дино");
         //как будем спавнить стрелку, сначала спавним второго дино сбоку от первого
         _tutorThree.SetActive(false);
