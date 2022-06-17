@@ -42045,6 +42045,8 @@ struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6  : public MonoBehav
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ____mainMenuPanel_6;
 	// UnityEngine.GameObject GameManager::_fightMenuPanel
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ____fightMenuPanel_7;
+	// System.Boolean GameManager::_gameIsAlreadyEnd
+	bool ____gameIsAlreadyEnd_9;
 };
 
 struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields
@@ -51436,9 +51438,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2410[2] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2411[4] = 
 {
 	static_cast<int32_t>(offsetof(GridEnemySettings_tE15B03BD892C532E51D7494D75D94847E54DBBC4, ___U3CpositionInGridU3Ek__BackingField_0)),static_cast<int32_t>(offsetof(GridEnemySettings_tE15B03BD892C532E51D7494D75D94847E54DBBC4, ___U3CtypeU3Ek__BackingField_1)),static_cast<int32_t>(offsetof(GridEnemySettings_tE15B03BD892C532E51D7494D75D94847E54DBBC4, ___U3ClevelU3Ek__BackingField_2)),static_cast<int32_t>(offsetof(GridEnemySettings_tE15B03BD892C532E51D7494D75D94847E54DBBC4, ___U3CanimatorU3Ek__BackingField_3)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2412[5] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2412[6] = 
 {
-	static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___onStartFight_4)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___onEndFight_5)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ____mainMenuPanel_6)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ____fightMenuPanel_7)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___U3CcurrentLevelU3Ek__BackingField_8)),};
+	static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___onStartFight_4)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___onEndFight_5)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ____mainMenuPanel_6)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ____fightMenuPanel_7)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___U3CcurrentLevelU3Ek__BackingField_8)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ____gameIsAlreadyEnd_9)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2413[9] = 
 {
 	static_cast<int32_t>(offsetof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A_StaticFields, ___onMerge_4)),static_cast<int32_t>(offsetof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A_StaticFields, ___onMoveUnit_5)),static_cast<int32_t>(offsetof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A_StaticFields, ___onDeleteUnitWhenMerge_6)),static_cast<int32_t>(offsetof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A, ___U3CisAvailableU3Ek__BackingField_7)),static_cast<int32_t>(offsetof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A, ___U3CunitU3Ek__BackingField_8)),static_cast<int32_t>(offsetof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A, ___U3CindexU3Ek__BackingField_9)),static_cast<int32_t>(offsetof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A, ____isDrag_10)),static_cast<int32_t>(offsetof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A, ____yOffset_11)),static_cast<int32_t>(offsetof(Cell_t88832599049D1ADACE41CE1CF9C147304CF76D5A, ____isStartGame_12)),};

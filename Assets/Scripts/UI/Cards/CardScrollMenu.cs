@@ -40,7 +40,7 @@ public class CardScrollMenu : MonoBehaviour
 
         _humanContent.SetActive(false);
         _dinoContent.SetActive(true);
-        _lineLabel.DOAnchorPos(new Vector2(-200, -35), 0.25f);
+        _lineLabel.DOAnchorPos(new Vector2(-250, -35), 0.25f);
         _dinoTitle.transform.DOScale(1.1f, 0.5f);
         _humanTitle.transform.DOScale(1f, 0.5f);
         _dinoTitle.color = Color.white;
@@ -68,7 +68,7 @@ public class CardScrollMenu : MonoBehaviour
         Sound.singleton.PlayClick();
         _humanContent.SetActive(true);
         _dinoContent.SetActive(false);
-        _lineLabel.DOAnchorPos(new Vector2(50, -35), 0.25f);
+        _lineLabel.DOAnchorPos(new Vector2(0, -35), 0.25f);
 
         _dinoTitle.transform.DOScale(1f, 0.5f);
         _humanTitle.transform.DOScale(1.1f, 0.5f);
@@ -81,7 +81,7 @@ public class CardScrollMenu : MonoBehaviour
         Sound.singleton.PlayClick();
         _humanContent.SetActive(false);
         _dinoContent.SetActive(true);
-        _lineLabel.DOAnchorPos(new Vector2(-200, -35), 0.25f);
+        _lineLabel.DOAnchorPos(new Vector2(-250, -35), 0.25f);
 
         _dinoTitle.transform.DOScale(1.1f, 0.5f);
         _humanTitle.transform.DOScale(1f, 0.5f);
