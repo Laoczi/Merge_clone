@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
         currentLevel = 0;
         if (PlayerPrefs.HasKey("currentLevel")) currentLevel = PlayerPrefs.GetInt("currentLevel");
         else PlayerPrefs.SetInt("currentLevel", 0);
+
+        currentLevel = 9;
     }
     private void Start()
     {

@@ -19,11 +19,14 @@ public class UnitSettings : MonoBehaviour
     public Image unitHealthBar { get; set; }
     public Image enemyHealthBar { get; set; }
     [field: SerializeField] public GameObject body { get; set; }
+    public SkinnedMeshRenderer meshRenderer { get; private set; }
 
     private void OnEnable()
     {
         unitHealthBarCanvas = transform.GetChild(1).gameObject;
         enemyHealthBarCanvas = transform.GetChild(2).gameObject;
+
+        meshRenderer = transform.GetChild(0).transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
 
         unitHealthBar = unitHealthBarCanvas.transform.GetChild(1).GetComponent<Image>();
         enemyHealthBar = enemyHealthBarCanvas.transform.GetChild(1).GetComponent<Image>();

@@ -1113,12 +1113,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3281298035945575534}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3316758785599984401}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &3482688944750939324
 SkinnedMeshRenderer:
@@ -1301,7 +1301,7 @@ Transform:
   m_Children:
   - {fileID: 2909645246478997444}
   m_Father: {fileID: 3316758785599984401}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3505748670938147510
 GameObject:
@@ -1837,6 +1837,7 @@ MonoBehaviour:
   <magicSphere>k__BackingField: {fileID: 2036672006749742038, guid: 840ac5e563e78f0458438e0bfe40bb25, type: 3}
   <isWizard>k__BackingField: 1
   <body>k__BackingField: {fileID: 5089488350688010031}
+  meshRenderer: {fileID: 0}
 --- !u!1 &5089488350688010031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,9 +1866,9 @@ Transform:
   m_LocalScale: {x: 0.4, y: 0.5, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7435558653410356581}
   - {fileID: 4433272242642690231}
   - {fileID: 3498990632091846639}
-  - {fileID: 7435558653410356581}
   m_Father: {fileID: 5728382220705158438}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2457,7 +2458,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3316758785599984401}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7875350844580922259
 GameObject:

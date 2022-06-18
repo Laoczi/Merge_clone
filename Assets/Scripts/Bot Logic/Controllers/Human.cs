@@ -15,6 +15,7 @@ public class Human : BotController
     BotAttack _attackComponent;
     Animator _animator;
     Image _healthBar;
+    SkinnedMeshRenderer mesh;
 
     public override TeamType team { get; protected set; }
     [field: SerializeField] public override float health { get; protected set; }
@@ -41,6 +42,7 @@ public class Human : BotController
             _healthBar = settings.enemyHealthBar;
         }
 
+        mesh = settings.meshRenderer;
         _attackComponent.Init();
         MoveToNewTarget();
     }
@@ -87,11 +89,20 @@ public class Human : BotController
             onDead?.Invoke();
         }
 
+        StartCoroutine(OnDealDamage());
+
         _healthBar.fillAmount = ((health * 100) / _baseHealth) / 100;
 
 
         //_attackComponent.EndAttack();
         //MoveToNewTarget();
+    }
+
+    IEnumerator OnDealDamage()
+    {
+        mesh.material.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        mesh.material.color = Color.white;
     }
 
     protected override void MoveToNewTarget()
