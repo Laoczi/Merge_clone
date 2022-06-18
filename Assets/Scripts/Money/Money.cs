@@ -20,7 +20,6 @@ public class Money : MonoBehaviour
         if (PlayerPrefs.HasKey("money")) count = PlayerPrefs.GetFloat("money");
         else PlayerPrefs.SetFloat("money", 0);
 
-        count = 999999;
     }
     public bool Get(float value)
     {
