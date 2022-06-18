@@ -106,12 +106,15 @@ public class EndScreen : MonoBehaviour
         yield return new WaitForSeconds(_closeMenuDealy);
 
         onCloseScreen?.Invoke();
+        DinoFadeControl.singleton.FadeOut();
         _winMenu.SetActive(false);
         _loseMenu.SetActive(false);
         StopAllCoroutines();
     }
     IEnumerator ShowWinMenu()
     {
+        yield return new WaitForSeconds(2);
+        DinoFadeControl.singleton.FadeIn();
         yield return new WaitForSeconds(_openMenuDelay);
 
         _winMenu.SetActive(true);
@@ -145,6 +148,8 @@ public class EndScreen : MonoBehaviour
     }
     IEnumerator ShowLoseMenu()
     {
+        yield return new WaitForSeconds(2);
+        DinoFadeControl.singleton.FadeIn();
         yield return new WaitForSeconds(_openMenuDelay);
 
         _loseMenu.SetActive(true);

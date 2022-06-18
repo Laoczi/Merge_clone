@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class DinoFadeControl : MonoBehaviour
 {
+    public static DinoFadeControl singleton;
     [SerializeField] Animator _animator;
-    void FadeIn()//hide
+    private void Awake()
+    {
+        singleton = this;
+    }
+    public void FadeIn()//hide
     {
         _animator.SetTrigger("FadeIn");
     }
-    void FadeOut()//show
+    public void FadeOut()//show
     {
         _animator.SetTrigger("FadeOut");
-    }
-    private void OnEnable()
-    {
-        EndScreen.onCloseScreen += FadeOut;
-        GameManager.onEndFight += FadeIn;
-    }
-    private void OnDisable()
-    {
-        EndScreen.onCloseScreen -= FadeOut;
-        GameManager.onEndFight -= FadeIn;
     }
 }
